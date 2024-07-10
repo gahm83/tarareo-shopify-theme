@@ -1,0 +1,81 @@
+<section class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-aspect-[1.8/1]">  
+  <div class="swiper swiperProyectos">
+    <div class="swiper-wrapper">
+      <div
+        class="swiper-slide twcss-duration-150 twcss-transition-opacity twcss-opacity-35 twcss-text-center twcss-text-6xl twcss-font-bebasneue"
+        data-image="Aguascalientes">
+        Aguascalientes
+      </div>
+      <div
+        class="swiper-slide twcss-duration-150 twcss-transition-opacity twcss-opacity-35 twcss-text-center twcss-text-6xl twcss-font-bebasneue"
+        data-image="San Luis Potosí">
+        San Luis Potosí
+      </div>
+      <div
+        class="swiper-slide twcss-duration-150 twcss-transition-opacity twcss-opacity-35 twcss-text-center twcss-text-6xl twcss-font-bebasneue"
+        data-image="Morelos">
+        Morelos
+      </div>
+      <div
+        class="swiper-slide twcss-duration-150 twcss-transition-opacity twcss-opacity-35 twcss-text-center twcss-text-6xl twcss-font-bebasneue"
+        data-image="Quinata Roo">
+        Quinata Roo
+      </div>
+      <div
+        class="swiper-slide twcss-duration-150 twcss-transition-opacity twcss-opacity-35 twcss-text-center twcss-text-6xl twcss-font-bebasneue"
+        data-image="Monterrey">
+        Monterrey
+      </div>
+      <div
+        class="swiper-slide twcss-duration-150 twcss-transition-opacity twcss-opacity-35 twcss-text-center twcss-text-6xl twcss-font-bebasneue"
+        data-image="Guadalajara">
+        Guadalajara
+      </div>
+      <div
+        class="swiper-slide twcss-duration-150 twcss-transition-opacity twcss-opacity-35 twcss-text-center twcss-text-6xl twcss-font-bebasneue"
+        data-image="Sinaloa">
+        Sinaloa
+      </div>
+      <div
+        class="swiper-slide twcss-duration-150 twcss-transition-opacity twcss-opacity-35 twcss-text-center twcss-text-6xl twcss-font-bebasneue"
+        data-image="Querérato">
+        Querérato
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "slider-proyectos",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [],
+    "presets": [
+      {
+        "name": "slider-proyectos"
+      }
+    ]
+  }
+{% endschema %}
+{% style %}
+  .swiper-slide.swiper-slide-active {
+    opacity: 100;
+  }
+{% endstyle %}
+{% javascript %}
+document.addEventListener('DOMContentLoaded', function() {
+  const swiperProyectos = new Swiper(".swiperProyectos", {
+    slidesPerView: 5,
+    centeredSlides: true,
+    loop: true,
+    on: {
+      realIndexChange: function () {
+        let index = this.realIndex + 1; /* slide 1 => slides[1] */
+        let current_data = this.slides[index].dataset.image;
+        console.log(current_data);
+      },
+    }
+  });
+});
+{% endjavascript %}

@@ -35,6 +35,13 @@
     <script src='{{ 'constants.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'pubsub.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'global.js' | asset_url }}' defer='defer'></script>
+
+    {% if template contains 'index' %}
+    <script src='{{ 'swiper-bundle.min.js' | asset_url }}' defer='defer'></script>
+    <script src='{{ 'marquee.js' | asset_url }}' defer='defer'></script>
+    <script src='{{ 'home-slider.js' | asset_url }}' defer='defer'></script>
+    {% endif %}
+    
     {%- if settings.animations_reveal_on_scroll -%}
       <script src='{{ 'animations.js' | asset_url }}' defer='defer'></script>
     {%- endif -%}
@@ -228,10 +235,30 @@
         box-sizing: inherit;
       }
 
+      @font-face {
+        font-family: "NovecentoWide Bold";
+        src: url("{{ 'NovecentoSansWide-Bold.woff' | asset_url }}") format("woff"),
+            url("{{ 'NovecentoSansWide-Bold.woff2' | asset_url }}") format("woff2");
+      }
+
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("{{ 'BebasNeue-Regular.woff' | asset_url }}") format("woff"),
+            url("{{ 'BebasNeue-Regular.woff2' | asset_url }}") format("woff2");
+      }
+
+      @font-face {
+        font-family: "Minion Pro";
+        src: url("{{ 'MinionPro-Regular.woff' | asset_url }}") format("woff"),
+            url("{{ 'MinionPro-Regular.woff2' | asset_url }}") format("woff2");
+      }
+
       html {
         box-sizing: border-box;
         font-size: calc(var(--font-body-scale) * 62.5%);
         height: 100%;
+        /* scroll-snap-type: y mandatory;
+        overflow: scroll; */
       }
 
       body {
@@ -248,6 +275,10 @@
         font-weight: var(--font-body-weight);
       }
 
+      /* section {
+        scroll-snap-align: start;
+      } */
+
       @media screen and (min-width: 750px) {
         body {
           font-size: 1.6rem;
@@ -255,8 +286,14 @@
       }
     {% endstyle %}
 
+    
+
     {{ 'app.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    {% if template contains 'index' %}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {% endif %}
 
     {%- unless settings.type_body_font.system? -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}

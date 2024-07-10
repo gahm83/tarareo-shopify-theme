@@ -19,6 +19,18 @@ module.exports = {
     extend: {
       fontFamily: {
         heading: 'var(--font-heading-family)',
+        novecento: 'NovecentoWide Bold',
+        bebasneue: 'Bebas Neue',
+        minionpro: 'Minion Pro',
+      },
+      animation: {
+        marquee: 'marquee 20s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100vw)' },
+        },
       },
     },
   },
