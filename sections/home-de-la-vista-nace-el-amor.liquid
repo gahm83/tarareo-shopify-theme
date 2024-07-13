@@ -1,8 +1,8 @@
-<section>
+<section class="twcss-overflow-hidden">
   <div class="twcss-overflow-hidden">
     <div class="twcss-flex twcss-w-full twcss-animate-marquee twcss-py-12">
-      <span class="twcss-flex twcss-justify-around twcss-flex-nowrap twcss-w-screen twcss-shrink-0">
-        <span class="twcss-text-black twcss-text-5xl twcss-uppercase twcss-text-nowrap twcss-space-x-3">
+      <span class="wcss-flex twcss-justify-around twcss-flex-nowrap twcss-w-screen twcss-shrink-0">
+        <span class="de-la-vista-nace-el-amor twcss-text-black twcss-text-5xl twcss-uppercase twcss-text-nowrap twcss-space-x-3">
           <span class="twcss-font-minionpro">De la vista</span>
           <span class="twcss-font-novecento">nace el amor</span>
         </span>
@@ -12,26 +12,43 @@
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     <div class="twcss-py-16 twcss-space-y-16">
       <div class="twcss-grid twcss-grid-cols-3">
-        <div>
-          <h2 class="twcss-font-bebasneue twcss-uppercase">
-            Entendemos tu necesidad
-          </h2>
-          <p>Incrementa venta y posiciona tu marca.</p>
+        <div class="twcss-text-center">
+          <figure class="twcss-relative twcss-w-10/12 twcss-aspect-[0.8/1] twcss-mx-auto">
+            <img src="{{ 'cash.png' | file_url }}" width="850" height="853" class="twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0 twcss-object-contain twcss-object-center"/>
+          </figure>
+          <div class="twcss-mt-6 twcss-space-y-4 twcss-text-black">
+            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black">
+              Entendemos tu necesidad
+            </h2>
+            <p>Incrementa venta y posiciona tu marca.</p>
+          </div>
         </div>
-        <div>
-          <h2 class="twcss-font-bebasneue twcss-uppercase">
-            Diseñamos un elemento ancla
-          </h2>
-          <p>Diseñamos un producto estético y práctico.</p>
+        <div class="twcss-text-center">
+          <figure class="twcss-relative twcss-w-10/12 twcss-aspect-[0.8/1] twcss-mx-auto">
+            <img src="{{ 'moet.png' | file_url }}" width="187" height="670" class="twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0 twcss-object-contain twcss-object-center"/>
+          </figure>
+          <div class="twcss-mt-6 twcss-space-y-4 twcss-text-black">
+            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black">
+              Diseñamos un elemento ancla
+            </h2>
+            <p>Diseñamos un producto estético y práctico.</p>
+          </div>
         </div>
-        <div>
-          <h2 class="twcss-font-bebasneue twcss-uppercase">
-            Optimizamos la experiencia
-          </h2>
-          <p>Incrementa venta y posiciona tu marca.</p>
+        <div class="twcss-text-center">
+          <figure class="twcss-relative twcss-w-10/12 twcss-aspect-[0.8/1] twcss-mx-auto">
+            <img src="{{ '1720820834648.gif' | file_url }}" width="356" height="442" class="twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0  twcss-object-contain twcss-object-center"/>
+          </figure>
+          <div class="twcss-mt-6 twcss-space-y-4 twcss-text-black">
+            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black">
+              Optimizamos la experiencia
+            </h2>
+            <p>Incrementa venta y posiciona tu marca.</p>
+          </div>
         </div>
       </div>
-      <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] twcss-leading-none">Transformamos algo sencillo en un recuerdo que permanece durante más tiempo en la mente del consumidor.</h2>
+      <div class="twcss-w-9/12 twcss-mx-auto">
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] twcss-leading-none twcss-text-black twcss-text-center">Transformamos algo sencillo en un recuerdo que permanece durante más tiempo en la mente del consumidor.</h2>
+      </div>
     </div>
   </div>
 </section>
@@ -53,7 +70,7 @@
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
     const marqueeString = document.querySelector(
-      '.twcss-text-black.twcss-text-5xl.twcss-uppercase.twcss-text-nowrap.twcss-space-x-3',
+      '.de-la-vista-nace-el-amor',
     );
     const marqueeContainer = marqueeString.parentNode;
     const clientWidth = window.outerWidth;

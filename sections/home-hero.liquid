@@ -1,12 +1,19 @@
-<section class="twcss-bg-black twcss-flex twcss-items-center twcss-justify-center twcss-aspect-video">
-  <div>
+<section id="hero-video" class="twcss-bg-black twcss-flex twcss-items-center twcss-justify-center twcss-h-screen twcss-overflow-hidden">
+  <video id="video-background" autoplay loop  muted class="twcss-absolute twcss-w-auto twcss-min-w-full twcss-min-h-full twcss-max-w-none">
+    <source src="{{ 'intro.mp4' | file_url }}" type="video/mp4">
+  </video>
+  <div class="twcss-relative">
     <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] twcss-w-9/12 twcss-mx-auto twcss-leading-[0.7]">
-      <span class="twcss-font-minionpro">Keep</span>
+      <span class="twcss-font-minionpro twcss-italic">Keep</span>
       <span class="twcss-font-novecento">the</span>
-      <span class="twcss-font-novecento">party</span>
-      <span class="twcss-font-minionpro">going</span>
+      <span class="twcss-relative twcss-font-novecento">
+        <span class="twcss-blur-[0.25vw]">party</span>
+        <span class="twcss-absolute twcss-left-0">&nbsp;.</span>
+      </span>
+      <span class="twcss-font-minionpro twcss-italic">going</span>
     </h2>
   </div>
+  
 </section>
 {% schema %}
   {
@@ -22,3 +29,22 @@
     ]
   }
 {% endschema %}
+{% javascript %}
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    gsap.registerPlugin(ScrollTrigger);
+    let tl = gsap.timeline({
+      // yes, we can add it to an entire timeline!
+      scrollTrigger: {
+        trigger: '#hero-video',
+        pin: true,
+        start: 'top',
+        end: 'bottom',
+        scrub: 3,
+      }
+    });
+
+    tl.from('#video-background', { y: "100vh", });
+  });
+})();
+{% endjavascript %}
