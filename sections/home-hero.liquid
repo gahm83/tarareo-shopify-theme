@@ -1,15 +1,12 @@
 <section id="hero-video" class="twcss-bg-black twcss-flex twcss-items-center twcss-justify-center twcss-h-screen twcss-overflow-hidden">
-  <video id="video-background" autoplay loop  muted class="twcss-absolute twcss-w-auto twcss-min-w-full twcss-min-h-full twcss-max-w-none">
+  <video id="video-background" autoplay loop  muted class="twcss-absolute twcss-w-auto twcss-min-w-full twcss-min-h-full twcss-max-w-none twcss-pointer-events-none">
     <source src="{{ 'intro.mp4' | file_url }}" type="video/mp4">
   </video>
   <div class="twcss-relative">
-    <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] twcss-w-9/12 twcss-mx-auto twcss-leading-[0.7]">
+    <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] twcss-w-9/12 twcss-mx-auto twcss-leading-[0.7] twcss-pointer-events-none">
       <span class="twcss-font-minionpro twcss-italic">Keep</span>
       <span class="twcss-font-novecento">the</span>
-      <span class="twcss-relative twcss-font-novecento">
-        <span class="twcss-blur-[0.25vw]">party</span>
-        <span class="twcss-absolute twcss-left-0">&nbsp;.</span>
-      </span>
+      <span class="twcss-relative twcss-font-novecento twcss-blur-[0.25vw]">party</span>
       <span class="twcss-font-minionpro twcss-italic">going</span>
     </h2>
   </div>
@@ -29,6 +26,11 @@
     ]
   }
 {% endschema %}
+{% style %}
+#hero-video {
+  cursor: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%20fill%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E') 16 16, auto;
+}
+{% endstyle %}
 {% javascript %}
 (function () {
   document.addEventListener('DOMContentLoaded', function() {

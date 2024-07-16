@@ -1,0 +1,47 @@
+<section id="hero-video" class="twcss-absolute twcss-bg-black twcss-flex twcss-items-center twcss-justify-center twcss-h-screen twcss-overflow-hidden">
+  <video id="video-background" autoplay loop  muted class="twcss-absolute twcss-w-auto twcss-min-w-full twcss-min-h-full twcss-max-w-none">
+    <source src="{{ 'intro.mp4' | file_url }}" type="video/mp4">
+  </video>
+  <div class="twcss-relative">
+    <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] twcss-w-9/12 twcss-mx-auto twcss-leading-[0.7]">
+      <span class="twcss-font-minionpro twcss-italic">Pasión</span>
+      <span class="twcss-font-novecento">por la belleza</span>
+      <span class="twcss-relative twcss-font-novecento">y dedicación</span>
+      <span class="twcss-font-minionpro twcss-italic">pura</span>
+    </h2>
+  </div>
+  
+</section>
+{% schema %}
+  {
+    "name": "t:sections.home-hero.name",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [],
+    "presets": [
+      {
+        "name": "t:sections.home-hero.presets.name"
+      }
+    ]
+  }
+{% endschema %}
+{% javascript %}
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    gsap.registerPlugin(ScrollTrigger);
+    let tl = gsap.timeline({
+      // yes, we can add it to an entire timeline!
+      scrollTrigger: {
+        trigger: '#hero-video',
+        pin: true,
+        start: 'top',
+        end: 'bottom',
+        scrub: 3,
+      }
+    });
+
+    tl.from('#video-background', { y: "100vh", });
+  });
+})();
+{% endjavascript %}

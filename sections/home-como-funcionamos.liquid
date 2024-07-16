@@ -13,10 +13,10 @@
           </p>
         </div>
         <div class="twcss-flex twcss-items-center twcss-justify-start twcss-space-x-4">
-          <a class="twcss-flex twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-z-10">
+          <a href="#diseno-de-linea" class="scroll-to twcss-flex twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-z-10">
             <span>Diseño de línea</span>
           </a>
-          <a class="twcss-flex twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-z-10">
+          <a href="#diseno-personalizado" class="scroll-to twcss-flex twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-z-10">
             <span>Diseño personalizado</span>
           </a>
         </div>
@@ -40,3 +40,27 @@
     ]
   }
 {% endschema %}
+{% javascript %} 
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    const links = document.querySelectorAll('a[href^="#"]');
+    for (const link of links) {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      }
+    });
+  
+})();
+
+
+ {% endjavascript %}

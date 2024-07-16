@@ -1,17 +1,21 @@
 <section id="stacked-at-scroll" class="twcss-relative twcss-bg-black twcss-w-screen twcss-h-screen">
-  <div class="stacked-1 twcss-absolute twcss-w-full twcss-top-0 twcss-bg-black twcss-py-16">
-    <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
+  <div class="stacked-1 twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-pt-28">
+    <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 twcss-bg-black">
       <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">IMPULSAMOS TU MARCA,</h2>
     </div>
   </div>
-  <div class="stacked-2 twcss-absolute twcss-w-full twcss-top-0 twcss-bg-black twcss-py-16">
-    <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
+  <div class="stacked-2 twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-pt-28">
+    <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 twcss-bg-black">
       <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">PROPONEMOS SOLUCIONES,</h2>
     </div>
   </div>
-  <div class="stacked-3 twcss-absolute twcss-w-full twcss-top-0 twcss-bg-black twcss-py-16">
-    <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
-      <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">GENERAMOS EMOCIONES.</h2>
+  <div class="stacked-3 twcss-absolute twcss-flex twcss-justify-center twcss-w-full twcss-h-full twcss-top-0 twcss-pt-28">
+    <div class="twcss-relative twcss-w-10/12 twcss-max-w-[1120px]">
+      <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none twcss-bg-black twcss-py-16">GENERAMOS EMOCIONES.</h2>
+      <div class="twcss-absolute twcss-w-[98px] twcss-top-48 twcss-bottom-24 twcss-left-0">
+        <div class="twcss-absolute twcss-bg-white twcss-w-[8px] twcss-h-[calc(100%-4px)] twcss-left-1/2 -twcss-translate-x-1/2 twcss-rounded-t-lg">&nbsp;</div>
+        <img src="{{ 'arrow-down-xl.png' | asset_url }}" alt="" class="twcss-absolute twcss-bottom-0 twcss-left-0 twcss-w-full twcss-h-[53px]">
+      </div>
     </div>
   </div>
   <div class="twcss-absolute twcss-flex twcss-justify-end twcss-w-10/12 twcss-max-w-[1120px] twcss-bottom-0 twcss-left-1/2 -twcss-translate-x-1/2 twcss-pb-24">
@@ -47,9 +51,8 @@
       }
     });
 
-    tl.from('.stacked-1', { y: "100vh", delay: 0.5, duration: 9 })
-      .from('.stacked-2', { y: "100vh", delay: 0.5, duration: 9 })
-      .from('.stacked-3', { y: "100vh", delay: 0.5, duration: 9 })
+    tl.from('.stacked-2', { y: "100vh", delay: 1, duration: 3 })
+      .from('.stacked-3', { y: "100vh", delay: 1, duration: 3 })
   });
 })();
 {% endjavascript %}
