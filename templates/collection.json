@@ -1,7 +1,7 @@
 {
   "sections": {
-    "banner": {
-      "type": "shop-hero",
+    "hero": {
+      "type": "tienda-hero",
     },
     "product-grid": {
       "type": "tienda-grid",
@@ -21,7 +21,7 @@
     }
   },
   "order": [
-    "banner",
+    "hero",
     "product-grid"
   ]
 }
