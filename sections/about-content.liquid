@@ -1,0 +1,64 @@
+<section id="tooltip-section" class="twcss-relative">
+  <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
+    <div class="twcss-py-16">
+      <h2 class="twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[32px] twcss-leading-none">Tenemos 4 años de experiencia trabajando con los mejores centros de consumo del país. Trabajamos de la mano de un gran equipo de artistas, artesanos y un sin fin de herramientas, nos dedicamos a crear objetos que generan experiencias y amor a tu marca mientras cumplen con su función de la manera más estética.</h2>
+    </div>
+  </div>
+</section>
+<section class="twcss-overflow-hidden twcss-w-screen">
+  <div class=" twcss-flex twcss-flex-nowrap twcss-animate-marquee">
+    <span class="twcss-flex twcss-justify-around twcss-basis-screen twcss-shrink-0">
+      <span class="marquee-item twcss-text-black twcss-text-7xl twcss-uppercase twcss-text-nowrap twcss-space-x-3 twcss-px-2 twcss-py-12">
+        <span class="twcss-font-novecento">El arte de</span>
+        <span class="twcss-font-minionpro">diseñar</span>
+        <span class="twcss-font-novecento">y fabricar piezas</span>
+        <span class="twcss-font-minionpro">exclusivas</span>
+      </span>
+    </span>
+  </div>
+</section>
+<section class="twcss-relative twcss-flex twcss-flex-col twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen lg:twcss-aspect-[1.8/1]">
+  <img src="{{ 'bg-equipo.jpg' | asset_url }}" width="1280" height="1280" class="twcss-relative lg:twcss-absolute lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-inset-y-0 lg:twcss-right-0 twcss-object-cover twcss-object-center"/>
+  <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 lg:twcss-py-0">
+    <div class="lg:twcss-grid lg:twcss-grid-cols-12">
+      <div class="twcss-text-black lg:twcss-col-span-5 twcss-space-y-8">
+        <h2 class="twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[32px] twcss-leading-none">Conformado por un equipo de diseñadores industriales, Tarareo Estudio se enfoca en materializar todo aquello que pueda ser imaginado para crear productos utilitarios que impulsen tu marca, creen experiencias y propongan soluciones.</h2>
+        <p>Nos especializamos en diseñar y desarrollar productos personalizados para centros de consumo (Antros, Bares y Restaurantes)​​ Glorificadores, Portashots & Cajas de Luz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% javascript %} 
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    for (const link of links) {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      }
+    });
+})();
+{% endjavascript %}
+{% schema %}
+  {
+    "name": "about-content",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [],
+    "presets": [
+      {
+        "name": "about-content"
+      }
+    ]
+  }
+{% endschema %}

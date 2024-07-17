@@ -36,11 +36,11 @@
     <script src='{{ 'pubsub.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'global.js' | asset_url }}' defer='defer'></script>
 
-    {% if template contains 'index' %}
+    {% comment %} {% if template contains 'index' %} {% endcomment %}
       <script src='{{ 'gsap.min.js' | asset_url }}' defer='defer'></script>
       <script src='{{ 'ScrollTrigger.min.js' | asset_url }}' defer='defer'></script>
       <script src='{{ 'swiper-bundle.min.js' | asset_url }}' defer='defer'></script>
-    {% endif %}
+    {% comment %} {% endif %} {% endcomment %}
     
     {%- if settings.animations_reveal_on_scroll -%}
       <script src='{{ 'animations.js' | asset_url }}' defer='defer'></script>

@@ -1,7 +1,20 @@
-<section class="newsletter-form twcss-relative twcss-bg-black twcss-overflow-hidden">
+{% if page.id == 100754653380 %}
+<section class="twcss-overflow-hidden twcss-w-screen">
+  <div class="twcss-flex twcss-flex-nowrap twcss-animate-marquee">
+    <span class="twcss-flex twcss-justify-around twcss-basis-screen twcss-shrink-0">
+      <span class="marquee-item twcss-text-black twcss-text-7xl twcss-uppercase twcss-text-nowrap twcss-space-x-3 twcss-px-2 twcss-py-12">
+        <span class="twcss-font-minionpro">De la vista</span>
+        <span class="twcss-font-novecento">nace el amor</span>
+      </span>
+    </span>
+  </div>
+</section>
+{% endif %}
+<section class="contact-form twcss-relative twcss-bg-black twcss-overflow-hidden">
+  {% if template contains 'index' or page.id == 100754653380 %}
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-12">
-    <div class="twcss-grid twcss-grid-cols-2 twcss-items-center">
-      <div>
+    <div class="twcss-grid twcss-grid-cols-2 twcss-items-stretch">
+      <div class="twcss-flex twcss-flex-col twcss-justify-between">
         <div class="twcss-space-y-5 twcss-text-white">
           <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12">!Generamos amor<br/> a tu marca!</h2>
           <p>Envíanos un mensaje para empezar a <i>crear magia</i>.</p>
@@ -17,18 +30,20 @@
           </div>
           <div class="twcss-col-span-2">
             <textarea class="twcss-block twcss-appearance-none twcss-bg-transparent twcss-border twcss-border-white twcss-text-white twcss-rounded-t-md twcss-h-44 twcss-w-full twcss-px-5 twcss-py-4 placeholder:twcss-text-white/70" placeholder="Mensaje"></textarea>
-            <button class=" twcss-bg-white twcss-text-black twcss-flex twcss-items-center twcss-justify-center twcss-h-14 twcss-rounded-b-md twcss-rounded-t-none twcss-w-full" type="submit">Enviar</button>
+            <button class="twcss-bg-white twcss-text-black twcss-flex twcss-items-center twcss-justify-center twcss-h-14 twcss-rounded-b-md twcss-rounded-t-none twcss-w-full" type="submit">Enviar</button>
           </div>
         </form>
       </div>
     </div>
   </div>
+  {% endif %}
 </section>
-<footer class=" twcss-text-black">
-  <div class="twcss-overflow-hidden">
-    <div class="twcss-flex twcss-w-full twcss-animate-marquee twcss-py-12">
-      <span class="twcss-flex twcss-justify-around twcss-flex-nowrap twcss-w-screen twcss-shrink-0">
-        <span class="el-arte-de-disenar twcss-text-black twcss-text-5xl twcss-uppercase twcss-text-nowrap twcss-space-x-3">
+<footer class="twcss-text-black">
+  {% if template contains 'index' %}
+  <div class="twcss-overflow-hidden twcss-w-screen">
+    <div class=" twcss-flex twcss-flex-nowrap twcss-animate-marquee">
+      <span class="twcss-flex twcss-justify-around twcss-basis-screen twcss-shrink-0">
+        <span class="marquee-item twcss-text-black twcss-text-7xl twcss-uppercase twcss-text-nowrap twcss-space-x-3 twcss-px-2 twcss-py-12">
           <span class="twcss-font-novecento">El arte de</span>
           <span class="twcss-font-minionpro">diseñar</span>
           <span class="twcss-font-novecento">y fabricar piezas</span>
@@ -37,6 +52,7 @@
       </span>
     </div>
   </div>
+  {% endif %}
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-pt-20">
     <div class="twcss-grid twcss-grid-cols-2">
       <div>
@@ -73,34 +89,40 @@
     &copy; {{ 'now' | date: '%Y' }}, {{ 'Tarareo' | link_to: routes.root_url -}}
   </div>
 </footer>
-
+{% style %}
+  .contact-form {
+    background-attachment: fixed;
+    background-image: url({{ 'bg-newsletter.png' | asset_url }});
+    background-size: cover;
+    background-position: center;
+  }
+{% endstyle %}
+{% javascript %}
+  (function () {
+    document.addEventListener('DOMContentLoaded', function() {
+      const marquees = document.querySelectorAll('.marquee-item');
+      marquees.forEach(marqueeString => {
+        const marqueeContainer = marqueeString.parentNode;
+        const viewportWidth = window.innerWidth;
+        const stringWidth = marqueeString.offsetWidth;
+        let repeatCount = Math.floor(viewportWidth / stringWidth);
+        if (repeatCount <= 1) {
+          repeatCount = Math.floor((viewportWidth * 2) / stringWidth);
+          marqueeContainer.classList.remove('twcss-basis-screen');
+          marqueeContainer.classList.add('twcss-basis-screen2x');
+        }
+        for (let i = 1; i < repeatCount; i++) {
+          const clone = marqueeString.cloneNode(true);
+          marqueeContainer.appendChild(clone);
+        }
+        const marqueeContainerClone = marqueeContainer.cloneNode(true);
+        marqueeContainer.parentNode.appendChild(marqueeContainerClone);
+      });
+    });
+  })();
+{% endjavascript %}
 {% schema %}
 {
   "name": "footer"
 }
 {% endschema %}
-{% style %}
-  .newsletter-form {
-    background-attachment: fixed;
-    background-image: url({{ 'bg-newsletter.png' | asset_url }});
-    background-size: cover;
-    background-position: fixed;
-  }
-{% endstyle %}
-{% javascript %}
-(function () {
-  document.addEventListener('DOMContentLoaded', function() {
-    const marqueeString = document.querySelector('.el-arte-de-disenar');
-    const marqueeContainer = marqueeString.parentNode;
-    const clientWidth = window.outerWidth;
-    const stringWidth = marqueeString.offsetWidth;
-    const number = Math.floor(clientWidth / stringWidth);
-    for (let i = 1; i < number; i++) {
-      const clone = marqueeString.cloneNode(true);
-      marqueeContainer.appendChild(clone);
-    }
-    const marqueeContainerClone = marqueeContainer.cloneNode(true);
-    marqueeContainer.parentNode.appendChild(marqueeContainerClone);
-  });
-})();
-{% endjavascript %}

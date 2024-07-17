@@ -13,7 +13,7 @@
     <div class="twcss-relative twcss-w-10/12 twcss-max-w-[1120px]">
       <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none twcss-bg-black twcss-py-16">GENERAMOS EMOCIONES.</h2>
       <div class="twcss-absolute twcss-w-[98px] twcss-top-48 twcss-bottom-24 twcss-left-0">
-        <div class="twcss-absolute twcss-bg-white twcss-w-[8px] twcss-h-[calc(100%-4px)] twcss-left-1/2 -twcss-translate-x-1/2 twcss-rounded-t-lg">&nbsp;</div>
+        <div class="twcss-absolute twcss-bg-white twcss-w-[8px] twcss-h-[calc(100%-4px)] twcss-left-1/2 -twcss-translate-x-1/2">&nbsp;</div>
         <img src="{{ 'arrow-down-xl.png' | asset_url }}" alt="" class="twcss-absolute twcss-bottom-0 twcss-left-0 twcss-w-full twcss-h-[53px]">
       </div>
     </div>
@@ -22,6 +22,32 @@
     <img src="{{ 'tarareo-spinner.png' | asset_url }}" width="180" height="180" class="twcss-block  twcss-animate-spin-slow"/>
   </div>
 </section>
+{% javascript %}
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.stacked-2', {
+      scrollTrigger: {
+        trigger: '#tooltip-section',
+        start: 'bottom bottom',
+        scrub: 2
+      },
+      y: '100vh'
+    });
+
+    gsap.from('.stacked-3', {
+      scrollTrigger: {
+        trigger: '#stacked-at-scroll',
+        start: 'top top',
+        pin: true,
+        scrub: true
+      },
+      y: '100vh'
+    });
+
+  });
+})();
+{% endjavascript %}
 {% schema %}
   {
     "name": "impulsamos-tu-marca",
@@ -36,23 +62,3 @@
     ]
   }
 {% endschema %}
-{% javascript %} 
-(function () {
-  document.addEventListener('DOMContentLoaded', function() {
-    gsap.registerPlugin(ScrollTrigger);
-    let tl = gsap.timeline({
-      // yes, we can add it to an entire timeline!
-      scrollTrigger: {
-        trigger: '#stacked-at-scroll',
-        pin: true,
-        start: 'top top',
-        end: 'bottom',
-        scrub: 0.5,
-      }
-    });
-
-    tl.from('.stacked-2', { y: "100vh", delay: 1, duration: 3 })
-      .from('.stacked-3', { y: "100vh", delay: 1, duration: 3 })
-  });
-})();
-{% endjavascript %}

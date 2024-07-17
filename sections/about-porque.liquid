@@ -1,0 +1,72 @@
+<section id="porque-tarareo" class="twcss-relative twcss-flex twcss-flex-col twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen lg:twcss-aspect-[1.8/1] twcss-bg-black">
+  <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 lg:twcss-py-0">
+    <div class="twcss-grid twcss-grid-cols-3">
+      <div class="twcss-col-span-2">
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12">¿Porqué TARAREO?</h2>
+      </div>
+      <div>
+        <div class="funcionalidad-ergonomia">
+          <h2 class="twcss-font-novecento twcss-uppercase">Funcionalidad <br />y Ergonomía</h2>
+          <p>Así como el factor estético es importante, también el funcional. En Tarareo diseñamos considerando las necesidades de usuario u operario, para que  la acción para la que está destinado el diseño pueda ser desempeñada.</p>
+        </div>
+      </div>
+      <div class="twcss-py-10">
+        <div class="estetica">
+          <h2 class="twcss-font-novecento twcss-uppercase">Estética</h2>
+          <p>Como diseñadores industriales nos compete primariamente satisfacer las necesidades de los usuarios mediante la comunicación estética.</p>
+        </div>
+      </div>
+      <div class="twcss-row-start-3 twcss-col-start-3">
+        <div class="innovacion">
+          <h2 class="twcss-font-novecento twcss-uppercase">Innovación</h2>
+          <p>El talento creativo, tanto técnico como estético, la libertad de explorar diversas alternativas y propuestas, tanto de los productos como del entorno, nos impulsan a crear diseños y productos revolucionarios.</p>
+        </div>
+      </div>
+      <div class="twcss-aspect-[3/1]"></div>
+    </div>
+  </div>
+</section>
+{% javascript %} 
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    gsap.registerPlugin(ScrollTrigger);
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#porque-tarareo',
+        start: 'top top',
+        end: 'bottom',
+        pin: true,
+        scrub: true
+      }
+    });
+
+    tl.from('.funcionalidad-ergonomia', { y: '100vh' })
+      .from('.estetica', { y: '100vh' })
+      .from('.innovacion', { y: '100vh' });
+    // gsap.from('.estetica', {
+    //   scrollTrigger: {
+    //     trigger: '#stacked-at-scroll',
+    //     start: 'top top',
+    //     pin: true,
+    //     scrub: true
+    //   },
+    //   y: '100vh'
+    // });
+
+  });
+})();
+{% endjavascript %}
+{% schema %}
+  {
+    "name": "porque-tarareo",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [],
+    "presets": [
+      {
+        "name": "porque-tarareo"
+      }
+    ]
+  }
+{% endschema %}

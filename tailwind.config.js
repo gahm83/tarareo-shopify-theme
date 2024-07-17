@@ -27,6 +27,10 @@ module.exports = {
         marquee: 'marquee 20s linear infinite',
         'spin-slow': 'spin 7s linear infinite',
       },
+      spacing: {
+        screen: '100vw',
+        screen2x: '200vw',
+      },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },

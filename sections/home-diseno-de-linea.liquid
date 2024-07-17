@@ -1,4 +1,4 @@
-<section id="diseno-de-linea" class="twcss-min-h-[700px] twcss-h-screen twcss-flex twcss-items-center twcss-justify-center">
+<section id="diseno-de-linea" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen twcss-aspect-[1.8/1]"> 
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     <div class="twcss-grid twcss-grid-cols-2 twcss-relative">
       <div class="twcss-flex twcss-flex-col twcss-items-start twcss-justify-end twcss-relative">
@@ -11,7 +11,7 @@
       </div>
       <div class="">
         <nav class="twcss-flex twcss-flex-col twcss-items-end twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none">
-          {% for link in linklists.collection-menu.links %}
+          {% comment %} {% for product in collections['all'].products %}
             {% if link.type == 'collection_link' %}
               <a href="{{ link.url }}" class="diseno-linea">
                 <span class="twcss-cursor-pointer twcss-transition-all twcss-duration-150">{{ link.title }}</span>
@@ -23,7 +23,29 @@
                 {% endif %}
               </a>
             {% endif %}
-          {% endfor %}
+          {% endfor %} {% endcomment %}
+          
+          {% assign products = collections['all'].products | sort: 'created_at' %}
+
+          {% for product in products -%}
+            <a href="{{ product.url }}" class="diseno-linea">
+                <span class="twcss-cursor-pointer twcss-transition-all twcss-duration-150">{{ product.title }}</span>
+                {% for image in product.images %}
+                <figure class="twcss-absolute twcss-top-0 twcss-left-0 twcss-bottom-0 twcss-w-[350px] twcss-aspect-[3/2] twcss-transition-opacity twcss-duration-300 twcss-opacity-0 twcss-pointer-events-none">
+                  <img src="{{ image.src | image_url: width: 360, height: 560 }}" width="100%" height="100%" alt="{{ product.title }}" class="twcss-object-cover twcss-object-center twcss-w-full twcss-h-full twcss-inset-0">
+                </figure>
+                {% endfor %}
+              </a>
+          {%- endfor %}
+
+          {% comment %} {% for product in collections['all'].products %}
+            <p><a href="/admin/products/{{product.id}}" target="_blank">{{product.title}}</a></p>
+            {% for image in product.images %}
+              <p><img src="{{ image.src | product_img_url: "large" }}"></p>
+            {% endfor %}
+          {% endfor %} {% endcomment %}
+
+          
         </nav>
       </div>
     </div>
