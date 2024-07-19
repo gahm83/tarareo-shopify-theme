@@ -35,13 +35,6 @@
     <script src='{{ 'constants.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'pubsub.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'global.js' | asset_url }}' defer='defer'></script>
-
-    {% comment %} {% if template contains 'index' %} {% endcomment %}
-      <script src='{{ 'gsap.min.js' | asset_url }}' defer='defer'></script>
-      <script src='{{ 'ScrollTrigger.min.js' | asset_url }}' defer='defer'></script>
-      <script src='{{ 'swiper-bundle.min.js' | asset_url }}' defer='defer'></script>
-    {% comment %} {% endif %} {% endcomment %}
-    
     {%- if settings.animations_reveal_on_scroll -%}
       <script src='{{ 'animations.js' | asset_url }}' defer='defer'></script>
     {%- endif -%}
@@ -86,7 +79,7 @@
           endif
         %}
 
-        --color-foreground: 255,255,255;
+        --color-foreground: {{ scheme.settings.text.red }},{{ scheme.settings.text.green }},{{ scheme.settings.text.blue }};
         --color-background-contrast: {{ background_color_contrast.red }},{{ background_color_contrast.green }},{{ background_color_contrast.blue }};
         --color-shadow: {{ scheme.settings.shadow.red }},{{ scheme.settings.shadow.green }},{{ scheme.settings.shadow.blue }};
         --color-button: {{ scheme.settings.button.red }},{{ scheme.settings.button.green }},{{ scheme.settings.button.blue }};
@@ -235,30 +228,10 @@
         box-sizing: inherit;
       }
 
-      @font-face {
-        font-family: "NovecentoWide Bold";
-        src: url("{{ 'NovecentoSansWide-Bold.woff' | asset_url }}") format("woff"),
-            url("{{ 'NovecentoSansWide-Bold.woff2' | asset_url }}") format("woff2");
-      }
-
-      @font-face {
-        font-family: "Bebas Neue";
-        src: url("{{ 'BebasNeue-Regular.woff' | asset_url }}") format("woff"),
-            url("{{ 'BebasNeue-Regular.woff2' | asset_url }}") format("woff2");
-      }
-
-      @font-face {
-        font-family: "Minion Pro";
-        src: url("{{ 'MinionPro-Regular.woff' | asset_url }}") format("woff"),
-            url("{{ 'MinionPro-Regular.woff2' | asset_url }}") format("woff2");
-      }
-
       html {
         box-sizing: border-box;
         font-size: calc(var(--font-body-scale) * 62.5%);
         height: 100%;
-        /* scroll-snap-type: y mandatory;
-        overflow: scroll; */
       }
 
       body {
@@ -275,10 +248,6 @@
         font-weight: var(--font-body-weight);
       }
 
-      /* section {
-        scroll-snap-align: start;
-      } */
-
       @media screen and (min-width: 750px) {
         body {
           font-size: 1.6rem;
@@ -286,14 +255,8 @@
       }
     {% endstyle %}
 
-    
-
     {{ 'app.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
-
-    {% if template contains 'index' %}
-    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
-    {% endif %}
 
     {%- unless settings.type_body_font.system? -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}
