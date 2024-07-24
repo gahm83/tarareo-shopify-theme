@@ -668,6 +668,18 @@
         "name": "Liquid personalizado"
       }
     },
+    "custom-options": {
+      "name": "Opciones personalizadas",
+      "settings": {
+        "custom_liquid": {
+          "label": "Opciones personalizadas",
+          "info": "Agrega opciones de personalizacion de producto"
+        }
+      },
+      "presets": {
+        "name": "Opciones personalizadas"
+      }
+    },
     "featured-blog": {
       "name": "Artículos de blog",
       "settings": {

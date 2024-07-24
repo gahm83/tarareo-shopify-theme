@@ -1,0 +1,23 @@
+
+
+{% comment %} <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2"> {% endcomment %}
+<div class="swiper mainimage">
+  <div class="swiper-wrapper">
+    {% for image in product.images %} 
+      <div class="swiper-slide">
+        <img src="{{ image.src | product_img_url: 'master' }}" >
+      </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+<div thumbsSlider="" class="swiper thumbnails">
+  <div class="swiper-wrapper">
+    {% for image in product.images %} 
+      <div class="swiper-slide">
+        <img src="{{ image.src | product_img_url: 'master' }}" >
+      </div>
+    {% endfor %}
+  </div>
+</div>

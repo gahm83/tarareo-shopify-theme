@@ -38,6 +38,11 @@
     {%- if settings.animations_reveal_on_scroll -%}
       <script src='{{ 'animations.js' | asset_url }}' defer='defer'></script>
     {%- endif -%}
+    
+    <script src='{{ 'gsap.min.js' | asset_url }}' defer='defer'></script>
+    <script src='{{ 'ScrollTrigger.min.js' | asset_url }}' defer='defer'></script>
+    <script src='{{ 'swiper-bundle.min.js' | asset_url }}' defer='defer'></script>
+    
 
     {{ content_for_header }}
 
@@ -222,6 +227,24 @@
         --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
       }
 
+      @font-face {
+        font-family: "NovecentoWide Bold";
+        src: url("{{ 'NovecentoSansWide-Bold.woff' | asset_url }}") format("woff"),
+            url("{{ 'NovecentoSansWide-Bold.woff2' | asset_url }}") format("woff2");
+      }
+
+      @font-face {
+        font-family: "Bebas Neue";
+        src: url("{{ 'BebasNeue-Regular.woff' | asset_url }}") format("woff"),
+            url("{{ 'BebasNeue-Regular.woff2' | asset_url }}") format("woff2");
+      }
+
+      @font-face {
+        font-family: "Minion Pro";
+        src: url("{{ 'MinionPro-Regular.woff' | asset_url }}") format("woff"),
+            url("{{ 'MinionPro-Regular.woff2' | asset_url }}") format("woff2");
+      }
+
       *,
       *::before,
       *::after {
@@ -257,6 +280,7 @@
 
     {{ 'app.css' | asset_url | stylesheet_tag }}
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
     {%- unless settings.type_body_font.system? -%}
       {% comment %}theme-check-disable AssetPreload{% endcomment %}

@@ -68,10 +68,10 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     {% comment %} <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}"> {% endcomment %}
-    <div class="twcss-grid ">
+    <div class="twcss-grid twcss-grid-cols-2 twcss-gap-10">
       {% comment %} <div class="grid__item product__media-wrapper"> {% endcomment %}
-      <div>
-        {% render 'product-media-gallery', variant_images: variant_images %}
+      <div class="product__column-sticky">
+        {% render 'product-images', variant_images: variant_images %}
       </div>
       {% comment %} <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"> {% endcomment %}
       <div>
@@ -205,6 +205,146 @@
                 </p>
               {%- when 'custom_liquid' -%}
                 {{ block.settings.custom_liquid }}
+              {%- when 'custom_options' -%}
+                <div class="twcss-border twcss-border-black">
+                  <div class="twcss-bg-black twcss-border twcss-border-black twcss-px-6 twcss-py-2">
+                    <h4 class="twcss-text-white">Personaliza tu producto</h4>
+                  </div>
+                  <div class="twcss-px-6 twcss-py-4 twcss-space-y-4">
+                    {%- if product.metafields.options.acrilico.value != blank -%}
+                    <div>
+                      <p>Selecciona el color del acrílico</p>
+                      <div class="twcss-flex twcss-space-x-6">
+                        {% assign color_acrilico = product.metafields.options.acrilico.value %}
+                        {% for color in color_acrilico %}
+                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
+                          <input 
+                            type="radio"
+                            id="acrilico-{{ color.nombre.value | downcase }}"
+                            name="properties[Acrilico]"
+                            value="{{ color.nombre.value }}"
+                            class="twcss-absolute twcss-opacity twcss-z-10"
+                            required />
+                          <label for="acrilico-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full {% if color.nombre.value == '#000000' %} twcss-border twcss-border-black{% endif %}" style="background-color:{{ color.hex.value }};">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
+                          </label>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {%- endif -%}
+                    {%- if product.metafields.options.base.value != blank -%}
+                    <div>
+                      <p>Base</p>
+                      <div class="twcss-flex twcss-space-x-6">
+                        {% assign color_base = product.metafields.options.base.value %}
+                        {% for color in color_base %}
+                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
+                          <input 
+                            type="radio"
+                            id="base-{{ color.nombre.value | downcase }}"
+                            name="properties[Base]"
+                            value="{{ color.nombre.value }}"
+                            class="twcss-absolute twcss-opacity twcss-z-10"
+                            required />
+                          <label for="base-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
+                          </label>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {%- endif -%}
+                    {%- if product.metafields.options.led.value != blank -%}
+                    <div>
+                      <p>Led</p>
+                      <div class="twcss-flex twcss-space-x-6">
+                        {% assign color_led = product.metafields.options.led.value %}
+                        {% for color in color_led %}
+                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
+                          <input 
+                            type="radio"
+                            id="led-{{ color.nombre.value | downcase }}"
+                            name="properties[Luz]"
+                            value="{{ color.nombre.value }}"
+                            class="twcss-absolute twcss-opacity twcss-z-10"
+                            required />
+                          <label for="led-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
+                          </label>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {%- endif -%}
+                    {%- if product.metafields.options.madera.value != blank -%}
+                    <div>
+                      <p>Madera</p>
+                      <div class="twcss-flex twcss-space-x-6">
+                        {% assign color_base = product.metafields.options.madera.value %}
+                        {% for color in color_base %}
+                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
+                          <input 
+                            type="radio"
+                            id="madera-{{ color.nombre.value | downcase }}"
+                            name="properties[Luz]"
+                            value="{{ color.nombre.value }}"
+                            class="twcss-absolute twcss-opacity twcss-z-10"
+                            required />
+                          <label for="madera-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
+                          </label>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {%- endif -%}
+                    {%- if product.metafields.options.luz.value != blank -%}
+                    <div>
+                      <p>Luz</p>
+                      <div class="twcss-flex twcss-space-x-6">
+                        {% assign color_base = product.metafields.options.luz.value %}
+                        {% for color in color_base %}
+                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
+                          <input 
+                            type="radio"
+                            id="luz-{{ color.nombre.value | downcase }}"
+                            name="properties[Luz]"
+                            value="{{ color.nombre.value }}"
+                            class="twcss-absolute twcss-opacity twcss-z-10"
+                            required />
+                          <label for="luz-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
+                          </label>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {%- endif -%}
+                    {%- if product.metafields.options.vinil.value != blank -%}
+                    <div>
+                      <p>Vinil</p>
+                      <div class="twcss-flex twcss-space-x-6">
+                        {% assign color_vinil = product.metafields.options.vinil.value %}
+                        {% for color in color_vinil %}
+                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
+                          <input 
+                            type="radio"
+                            id="vinil-{{ color.nombre.value | downcase }}"
+                            name="properties[Vinil]"
+                            value="{{ color.nombre.value }}"
+                            class="twcss-absolute twcss-opacity twcss-z-10"
+                            required />
+                          <label for="vinil-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
+                          </label>
+                        </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    {%- endif -%}
+                  </div>
+                </div>
               {%- when 'collapsible_tab' -%}
                 <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
                   <details id="Details-{{ block.id }}-{{ section.id }}">
@@ -747,7 +887,69 @@
     </script>
   </div>
 </section>
+{% style %}
+  .product__title h1, .price { font-weight: 600; }
+  .price { font-size: 24px; }
+  .color-option label svg { display: none; }
+  .color-option input:checked + label svg { display: block; }
+  
 
+  .swiper-slide {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .mainimage {
+    height: 420px;
+    width: 100%;
+  }
+
+  .thumbnails {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 4px 0;
+  }
+
+  .thumbnails .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in;
+  }
+
+  .thumbnails .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+{% endstyle %}
+{% javascript %}
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    const swiper = new Swiper('.thumbnails', {
+      loop: true,
+      spaceBetween: 4,
+      slidesPerView: 4.5,
+      watchSlidesProgress: true,
+    });
+    const swiper2 = new Swiper('.mainimage', {
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: swiper,
+      },
+    });
+  });
+})();
+{% endjavascript %}
 {% schema %}
 {
   "name": "t:sections.main-product.name",
@@ -2096,6 +2298,18 @@
           "default": "Heading",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+        }
+      ]
+    },
+    {
+      "type": "custom_options",
+      "name": "t:sections.custom-options.name",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_options",
+          "label": "t:sections.custom-options.settings.custom_options.label",
+          "info": "t:sections.custom-options.settings.custom_options.info"
         }
       ]
     }
