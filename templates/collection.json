@@ -2,6 +2,8 @@
   "sections": {
     "hero": {
       "type": "tienda-hero",
+      "settings": {
+      }
     },
     "product-grid": {
       "type": "tienda-grid",
