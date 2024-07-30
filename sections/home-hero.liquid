@@ -4,23 +4,72 @@
   </video>
   <div class="twcss-relative">
     <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] twcss-w-9/12 twcss-mx-auto twcss-leading-[0.7] twcss-pointer-events-none">
+    {%- if section.blocks.size == 0 -%}
       <span class="twcss-font-minionpro twcss-italic">Keep</span>
       <span class="twcss-font-novecento">the</span>
-      <span class="twcss-relative twcss-font-novecento twcss-blur-[0.25vw]">party</span>
+      <span class="twcss-font-novecento twcss-blur-[0.25vw]">party</span>
       <span class="twcss-font-minionpro twcss-italic">going</span>
+    {%- else -%}
+      {% for block in section.blocks %}
+      <span  class="twcss-whitespace-nowrap twcss-font-{{ block.settings.fontfamily }} {% if block.settings.italic %} twcss-italic{% endif %} {% if block.settings.blur %} twcss-blur-[0.25vw]{% endif %}">{{ block.settings.text }}</span>
+      {% endfor %}
+    {%- endif -%}
     </h2>
   </div>
 </section>
 {% schema %}
   {
-    "name": "t:sections.home-hero.name",
+    "name": "Hero",
     "disabled_on": {
       "groups": ["header", "footer"]
     },
-    "settings": [],
-    "presets": [
+    "settings": [
       {
-        "name": "t:sections.home-hero.presets.name"
+        "type": "video",
+        "id": "video",
+        "label": "Hero video"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Title",
+        "type": "title",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "select",
+            "id": "fontfamily",
+            "options": [
+              {
+                "value": "minionpro",
+                "label": "Minion Pro"
+              },
+              {
+                "value": "novecento",
+                "label": "Novecento"
+              }
+            ],
+            "default": "minionpro",
+            "label": "Font Family"
+          },
+          {
+            "type": "checkbox",
+            "id": "italic",
+            "label": "Italics",
+            "default": false
+          }
+          ,
+          {
+            "type": "checkbox",
+            "id": "blur",
+            "label": "Blur Effect",
+            "default": false
+          }
+        ]
       }
     ]
   }
@@ -44,7 +93,6 @@
         scrub: 3,
       }
     });
-
     tl.from('#video-background', { y: "100vh", });
   });
 })();

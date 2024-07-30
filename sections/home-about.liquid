@@ -1,6 +1,26 @@
 <section id="tooltip-section" class="twcss-relative">
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     <div class="twcss-pt-16 twcss-pb-28">
+      <h2 class="twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[32px] twcss-leading-none">
+        {{ section.settings.content }}
+      </h2>
+    </div>
+    <div class="twcss-py-16">
+      <div class="twcss-grid twcss-grid-cols-4 twcss-grid-rows-3 twcss-gap-10">
+        {%- assign block_classnames = "about-item twcss-relative twcss-row-span-2 twcss-bg-neutral-500,about-item twcss-relative twcss-aspect-square,about-item twcss-relative twcss-col-span-2 twcss-bg-neutral-500,about-item twcss-relative twcss-row-start-2 twcss-col-start-2 twcss-bg-neutral-500,about-item twcss-relative twcss-aspect-square,about-item twcss-relative twcss-row-span-2 twcss-bg-neutral-500,about-item twcss-relative twcss-aspect-square,about-item twcss-relative twcss-col-span-2 twcss-bg-neutral-500" | split: "," -%}
+        {% for block in section.blocks %}
+        <div class="{{ block_classnames[forloop.index0] }}">
+          {{ block.settings.image | image_url: width: 512 | image_tag: class: "twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0  twcss-object-cover twcss-object-center" }}
+          <span class="tooltip twcss-bg-[#FFE500] twcss-transition-opacity twcss-duration-300 twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[32px] twcss-leading-none">{{ block.settings.text }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% comment %} <section id="tooltip-section" class="twcss-relative">
+  <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
+    <div class="twcss-pt-16 twcss-pb-28">
       <h2 class="twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[32px] twcss-leading-none">Conformado por un equipo de diseñadores industriales, Tarareo Estudio se enfoca en materializar todo aquello que pueda ser imaginado para crear productos utilitarios que impulsen tu marca, creen experiencias y propongan soluciones.</h2>
     </div>
     <div class="twcss-py-16">
@@ -40,7 +60,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> {% endcomment %}
 {% schema %}
   {
     "name": "About",
@@ -55,27 +75,23 @@
         "default": "About us!"
       }
     ],
+    "max_blocks": 8,
     "blocks": [
       {
-        "name": "Bloque",
+        "name": "Title",
         "type": "title",
         "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Marca"
+          },
           {
             "type": "image_picker",
             "id": "image",
             "label": "Image"
-          },
-          {
-            "type": "text",
-            "id": "marca",
-            "label": "Marca"
-          },
+          }
         ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "about"
       }
     ]
   }

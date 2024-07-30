@@ -1,27 +1,63 @@
-<section id="stacked-at-scroll" class="twcss-relative twcss-bg-black twcss-w-screen twcss-h-screen">
-  <div class="stacked-1 twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-pt-28">
-    <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 twcss-bg-black">
-      <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">IMPULSAMOS TU MARCA,</h2>
-    </div>
-  </div>
-  <div class="stacked-2 twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-pt-28">
-    <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 twcss-bg-black">
-      <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">PROPONEMOS SOLUCIONES,</h2>
-    </div>
-  </div>
-  <div class="stacked-3 twcss-absolute twcss-flex twcss-justify-center twcss-w-full twcss-h-full twcss-top-0 twcss-pt-28">
-    <div class="twcss-relative twcss-w-10/12 twcss-max-w-[1120px]">
-      <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none twcss-bg-black twcss-py-16">GENERAMOS EMOCIONES.</h2>
-      <div class="twcss-absolute twcss-w-[98px] twcss-top-48 twcss-bottom-24 twcss-left-0">
-        <div class="twcss-absolute twcss-bg-white twcss-w-[8px] twcss-h-[calc(100%-4px)] twcss-left-1/2 -twcss-translate-x-1/2">&nbsp;</div>
-        <img src="{{ 'arrow-down-xl.png' | asset_url }}" alt="" class="twcss-absolute twcss-bottom-0 twcss-left-0 twcss-w-full twcss-h-[53px]">
+
+<section id="stacked-at-scroll" class="twcss-relative twcss-bg-black twcss-w-screen twcss-h-screen twcss-flex twcss-flex-col">
+  {% for block in section.blocks %}
+    {% if forloop.index0 == 0 %}
+      <div class="stacked-1 twcss-w-full twcss-pt-40">
+      <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-bg-black">
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">{{ block.settings.text }},</h2>
       </div>
     </div>
-  </div>
+    {% elsif forloop.index0 == 1 %}
+    <div class="stacked-2 twcss-w-full twcss-pt-12">
+      <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-bg-black">
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">{{ block.settings.text }},</h2>
+      </div>
+    </div>
+    {% elsif forloop.index0 == 2 %}
+    <div class="stacked-3 twcss-w-full twcss-pt-12 twcss-flex twcss-justify-center twcss-flex-grow">
+      <div class="twcss-relative twcss-w-10/12 twcss-max-w-[1120px]">
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none twcss-bg-black">{{ block.settings.text }}.</h2>
+        <div class="twcss-absolute twcss-w-[98px] twcss-top-48 twcss-bottom-24 twcss-left-0">
+          <div class="twcss-absolute twcss-bg-white twcss-w-[8px] twcss-h-[calc(100%-4px)] twcss-left-1/2 -twcss-translate-x-1/2">&nbsp;</div>
+          <img src="{{ 'arrow-down-xl.png' | asset_url }}" width="100%" height="53" class="twcss-absolute twcss-bottom-0 twcss-left-0 twcss-w-full twcss-h-[53px]">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  {% endfor %}
   <div class="twcss-absolute twcss-flex twcss-justify-end twcss-w-10/12 twcss-max-w-[1120px] twcss-bottom-0 twcss-left-1/2 -twcss-translate-x-1/2 twcss-pb-24">
-    <img src="{{ 'shot-fuego-loco.png' | asset_url }}" width="180" height="180" class="bottom-right-item twcss-block"/>
+    {{ section.settings.foreground_image | image_url: width: 180 | image_tag: class: "bottom-right-item twcss-block" }}
   </div>
 </section>
+{% schema %}
+  {
+    "name": "Impulsamos tu marca",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "foreground_image",
+        "label": "Bottom Right Image"
+      }
+    ],
+    "max_blocks": 3,
+    "blocks": [
+      {
+        "name": "Slides",
+        "type": "title",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Slide Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
 {% javascript %}
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
@@ -34,7 +70,6 @@
       },
       x: '100vw'
     });
-    
     gsap.from('.stacked-2', {
       scrollTrigger: {
         trigger: '#tooltip-section',
@@ -43,7 +78,6 @@
       },
       y: '100vh'
     });
-
     gsap.from('.stacked-3', {
       scrollTrigger: {
         trigger: '#stacked-at-scroll',
@@ -53,21 +87,6 @@
       },
       y: '100vh'
     });
-
   });
 })();
 {% endjavascript %}
-{% schema %}
-  {
-    "name": "impulsamos-tu-marca",
-    "disabled_on": {
-      "groups": ["header", "footer"]
-    },
-    "settings": [],
-    "presets": [
-      {
-        "name": "impulsamos-tu-marca"
-      }
-    ]
-  }
-{% endschema %}
