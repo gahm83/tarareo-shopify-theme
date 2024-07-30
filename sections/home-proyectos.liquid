@@ -56,11 +56,30 @@
 </section>
 {% schema %}
   {
-    "name": "slider-proyectos",
+    "name": "Proyectos",
     "disabled_on": {
       "groups": ["header", "footer"]
     },
     "settings": [],
+    "max_blocks": 8,
+    "blocks": [
+      {
+        "name": "Experience",
+        "type": "title",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
     "presets": [
       {
         "name": "slider-proyectos"

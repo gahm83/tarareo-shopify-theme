@@ -5,12 +5,7 @@
       <div class="lg:twcss-col-span-5 twcss-space-y-8">
         <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12">¿Cómo funcionamos?</h2>
         <div class="twcss-text-white">
-          <p>
-            Nuestros productos son únicos. Cada uno requirió de nuestra imaginación y creatividad para hacerlos realidad.
-          </p>
-          <p>
-            *Tarareo Store te permite adquirir los productos y experiencias que no encontrarás en ningún otro lado.
-          </p>
+          {{ section.settings.content}}
         </div>
         <div class="twcss-flex twcss-flex-col md:twcss-flex-row twcss-items-start twcss-space-y-4 md:twcss-space-y-0 md:twcss-space-x-4 twcss-whitespace-nowrap">
           <a href="#diseno-de-linea" class="scroll-to twcss-flex twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-z-10">
@@ -28,11 +23,22 @@
 
 {% schema %}
   {
-    "name": "como-funcionamos",
+    "name": "¿Cómo funcionamos?",
     "disabled_on": {
       "groups": ["header", "footer"]
     },
-    "settings": [],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      }
+    ],
     "presets": [
       {
         "name": "como-funcionamos"

@@ -50,18 +50,53 @@
         </div>
       </div>
       <div class="twcss-w-9/12 twcss-mx-auto">
-        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] twcss-leading-none twcss-text-black twcss-text-center">Transformamos algo sencillo en un recuerdo que permanece durante más tiempo en la mente del consumidor.</h2>
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] twcss-leading-none twcss-text-black twcss-text-center">{{ section.settings.content}}</h2>
       </div>
     </div>
   </div>
 </section>
 {% schema %}
   {
-    "name": "de-la-vista-nace-el-amor",
+    "name": "De la vista nace el amor",
     "disabled_on": {
       "groups": ["header", "footer"]
     },
-    "settings": [],
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background Image"
+      },
+      {
+        "type": "textarea",
+        "id": "content",
+        "label": "Content"
+      }
+    ],
+    "max_blocks": 3,
+    "blocks": [
+      {
+        "name": "Bloque",
+        "type": "title",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle"
+          }
+        ]
+      }
+    ],
     "presets": [
       {
         "name": "de-la-vista-nace-el-amor"
