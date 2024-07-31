@@ -11,22 +11,7 @@
       </div>
       <div class="">
         <nav class="twcss-flex twcss-flex-col twcss-items-end twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none">
-          {% comment %} {% for product in collections['all'].products %}
-            {% if link.type == 'collection_link' %}
-              <a href="{{ link.url }}" class="diseno-linea">
-                <span class="twcss-cursor-pointer twcss-transition-all twcss-duration-150">{{ link.title }}</span>
-                {% assign collection = link.object %}
-                {% if collection.image %}
-                <figure class="twcss-absolute twcss-top-0 twcss-left-0 twcss-bottom-0 twcss-w-[350px] twcss-aspect-[3/2] twcss-transition-opacity twcss-duration-300 twcss-opacity-0 twcss-pointer-events-none">
-                  <img src="{{ collection.image | image_url: width: 360, height: 560 }}" width="100%" height="100%" alt="{{ link.title }}" class="object-cover twcss-object-center twcss-w-full twcss-h-full twcss-inset-0">
-                </figure>
-                {% endif %}
-              </a>
-            {% endif %}
-          {% endfor %} {% endcomment %}
-          
           {% assign products = collections['all'].products | sort: 'created_at' %}
-
           {% for product in products -%}
             <a href="{{ product.url }}" class="diseno-linea">
                 <span class="twcss-cursor-pointer twcss-transition-all twcss-duration-150">{{ product.title }}</span>
@@ -37,15 +22,6 @@
                 {% endfor %}
               </a>
           {%- endfor %}
-
-          {% comment %} {% for product in collections['all'].products %}
-            <p><a href="/admin/products/{{product.id}}" target="_blank">{{product.title}}</a></p>
-            {% for image in product.images %}
-              <p><img src="{{ image.src | product_img_url: "large" }}"></p>
-            {% endfor %}
-          {% endfor %} {% endcomment %}
-
-          
         </nav>
       </div>
     </div>
@@ -53,16 +29,10 @@
 </section>
 {% schema %}
   {
-    "name": "diseno-de-linea",
+    "name": "Diseño de Línea",
     "disabled_on": {
       "groups": ["header", "footer"]
-    },
-    "settings": [],
-    "presets": [
-      {
-        "name": "diseno-de-linea"
-      }
-    ]
+    }
   }
 {% endschema %}
 {% style %}
@@ -74,11 +44,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   let activeSpan = null;
   let activeFigure = null;
-
   document.querySelectorAll('.diseno-linea').forEach((link, index) => {
     const span = link.querySelector('span');
     const figure = link.querySelector('figure');
-    
     if (index === 0) {
       span.classList.add('active');
       figure.classList.remove('twcss-opacity-0');
@@ -86,29 +54,20 @@ document.addEventListener('DOMContentLoaded', function() {
       activeSpan = span;
       activeFigure = figure;
     }
-
     span.addEventListener('mouseover', () => {
-      // Handle the figure elements
       if (activeFigure && activeFigure !== figure) {
         activeFigure.classList.remove('twcss-opacity-100');
         activeFigure.classList.add('twcss-opacity-0');
       }
       figure.classList.remove('twcss-opacity-0');
       figure.classList.add('twcss-opacity-100');
-
-      // Handle the span elements
       if (activeSpan && activeSpan !== span) {
         activeSpan.classList.remove('active');
       }
       span.classList.add('active');
-
-      // Set the current figure and span as the active ones
       activeFigure = figure;
       activeSpan = span;
     });
-
-    // No need to handle mouseout separately, as we maintain the active state within mouseover
   });
 });
-
 {% endjavascript %}

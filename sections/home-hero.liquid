@@ -4,16 +4,9 @@
   </video>
   <div class="twcss-relative">
     <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] twcss-w-9/12 twcss-mx-auto twcss-leading-[0.7] twcss-pointer-events-none">
-    {%- if section.blocks.size == 0 -%}
-      <span class="twcss-font-minionpro twcss-italic">Keep</span>
-      <span class="twcss-font-novecento">the</span>
-      <span class="twcss-font-novecento twcss-blur-[0.25vw]">party</span>
-      <span class="twcss-font-minionpro twcss-italic">going</span>
-    {%- else -%}
-      {% for block in section.blocks %}
-      <span  class="twcss-whitespace-nowrap twcss-font-{{ block.settings.fontfamily }} {% if block.settings.italic %} twcss-italic{% endif %} {% if block.settings.blur %} twcss-blur-[0.25vw]{% endif %}">{{ block.settings.text }}</span>
-      {% endfor %}
-    {%- endif -%}
+    {% for block in section.blocks %}
+    <span  class="twcss-whitespace-nowrap twcss-font-{{ block.settings.fontfamily }} {% if block.settings.italic %} twcss-italic{% endif %} {% if block.settings.blur %} twcss-blur-[0.25vw]{% endif %}">{{ block.settings.text }}</span>
+    {% endfor %}
     </h2>
   </div>
 </section>

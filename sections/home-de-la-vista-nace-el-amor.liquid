@@ -1,53 +1,19 @@
 <section class="twcss-relative">
-  <img src="{{ 'avion-blanco.png' | asset_url }}" width="420" height="354" class="twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15">
-  <div class="twcss-overflow-hidden twcss-w-screen">
-    <div class=" twcss-flex  twcss-flex-nowrap twcss-animate-marquee">
-      <span class="twcss-flex twcss-justify-around twcss-basis-screen twcss-shrink-0">
-        <span class="marquee-item twcss-text-black twcss-text-7xl twcss-uppercase twcss-text-nowrap twcss-space-x-3 twcss-px-2 twcss-py-12">
-          <span class="twcss-font-minionpro">De la vista</span>
-          <span class="twcss-font-novecento">nace el amor</span>
-        </span>
-      </span>
-    </div> 
-  </div>
+  {%- if section.settings.image -%}{{ section.settings.image | image_url: width: 420 | image_tag: class: "twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15" }}{%- endif -%}
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     <div class="twcss-py-24 twcss-space-y-16">
       <div class="twcss-grid twcss-grid-cols-2 lg:twcss-grid-cols-3 twcss-gap-8">
+        {% for block in section.blocks %}
         <div class="twcss-text-center">
           <figure class="twcss-relative twcss-w-10/12 twcss-aspect-[0.8/1] twcss-mx-auto">
-            <img src="{{ 'cash.png' | file_url }}" width="850" height="853" class="twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0 twcss-object-contain twcss-object-center"/>
+            {{ block.settings.image | image_url: width: 512 | image_tag: class: "twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0 twcss-object-contain twcss-object-center" }}
           </figure>
           <div class="twcss-mt-6 twcss-space-y-4 twcss-text-black">
-            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black">
-              Entendemos tu necesidad
-            </h2>
-            <p>Incrementa venta y posiciona tu marca.</p>
+            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black">{{ block.settings.title }}</h2>
+            <p>{{ block.settings.title }}</p>
           </div>
         </div>
-        <div class="twcss-text-center">
-          <figure class="twcss-relative twcss-w-10/12 twcss-aspect-[0.8/1] twcss-mx-auto">
-            <img src="{{ 'moet.png' | file_url }}" width="187" height="670" class="twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0 twcss-object-contain twcss-object-center"/>
-          </figure>
-          <div class="twcss-mt-6 twcss-space-y-4 twcss-text-black">
-            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black">
-              Diseñamos un elemento ancla
-            </h2>
-            <p>Diseñamos un producto estético y práctico.</p>
-          </div>
-        </div>
-        <div class="twcss-col-span-2 lg:twcss-col-span-1">
-          <div class="twcss-w-1/2 lg:twcss-w-full twcss-mx-auto twcss-text-center">
-            <figure class="twcss-relative twcss-w-10/12 twcss-aspect-[0.8/1] twcss-mx-auto">
-              <img src="{{ '1720820834648.gif' | file_url }}" width="356" height="442" class="twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0  twcss-object-contain twcss-object-center"/>
-            </figure>
-            <div class="twcss-mt-6 twcss-space-y-4 twcss-text-black">
-              <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black">
-                Optimizamos la experiencia
-              </h2>
-              <p>Incrementa venta y posiciona tu marca.</p>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
       <div class="twcss-w-9/12 twcss-mx-auto">
         <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] twcss-leading-none twcss-text-black twcss-text-center">{{ section.settings.content}}</h2>

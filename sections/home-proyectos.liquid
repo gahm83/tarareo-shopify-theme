@@ -1,56 +1,19 @@
 <section class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-h-screen">
   <figure class="twcss-absolute twcss-aspect-[0.64/1] twcss-w-[75%] md:twcss-w-[32%] lg:twcss-w-[26%] max-h-[90%]">
-    <div id="ags" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-red-600 twcss-opacity-0">&nbsp;</div>
-    <div id="slp" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-orange-600 twcss-opacity-0">&nbsp;</div>
-    <div id="mor" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-amber-600 twcss-opacity-0">&nbsp;</div>
-    <div id="qroo" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-yellow-600 twcss-opacity-0">&nbsp;</div>
-    <div id="mty" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-lime-600 twcss-opacity-0">&nbsp;</div>
-    <div id="gdl" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-teal-600 twcss-opacity-0">&nbsp;</div>
-    <div id="Sin" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-indigo-600 twcss-opacity-0">&nbsp;</div>
+    {% for block in section.blocks %}
+      <div id="{{ block.settings.id }}" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-indigo-600 twcss-opacity-0">
+      {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 420 | image_tag: class: "twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15" }}{%- endif -%}
+      </div>
+    {% endfor %}
     <div id="qro" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-indigo-600 twcss-opacity-0">&nbsp;</div>
   </figure>
   <div class="swiper swiperProyectos twcss-relative twcss-z-10">
     <div class="swiper-wrapper">
-      <div
-        class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35"
-        data-img="ags">
-        Aguascalientes
+      {% for block in section.blocks %}
+      <div class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35" data-img="{{ block.settings.id }}">
+        {{ block.settings.text }}
       </div>
-      <div
-        class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35"
-        data-img="slp">
-        San Luis Potosí
-      </div>
-      <div
-        class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35"
-        data-img="mor">
-        Morelos
-      </div>
-      <div
-        class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35"
-        data-img="qroo">
-        Quinata Roo
-      </div>
-      <div
-        class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35"
-        data-img="mty">
-        Monterrey
-      </div>
-      <div
-        class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35"
-        data-img="gdl">
-        Guadalajara
-      </div>
-      <div
-        class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35"
-        data-img="Sin">
-        Sinaloa
-      </div>
-      <div
-        class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35"
-        data-img="qro">
-        Querérato
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
@@ -78,11 +41,6 @@
             "label": "Image"
           }
         ]
-      }
-    ],
-    "presets": [
-      {
-        "name": "slider-proyectos"
       }
     ]
   }
