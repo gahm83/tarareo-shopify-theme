@@ -1,4 +1,4 @@
-<section class="twcss-relative twcss-flex twcss-flex-col twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen lg:twcss-aspect-[1.8/1]{% if section.settings.schema == 'black' %} twcss-bg-black{% endif %}">
+<section class="twcss-relative twcss-flex twcss-flex-col twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen lg:twcss-aspect-[1.8/1] {% if section.settings.schema == 'black' %} twcss-bg-black{% endif %}">
   {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-relative lg:twcss-absolute lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-inset-y-0 lg:twcss-right-0 twcss-object-cover twcss-object-center" }}
   <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 lg:twcss-py-0">
     <div class="lg:twcss-grid lg:twcss-grid-cols-12">
@@ -42,11 +42,6 @@
         "label": "Background Color"
       },
       {
-        "type": "image_picker",
-        "id": "image",
-        "label": "Image"
-      },
-      {
         "type": "text",
         "id": "title",
         "label": "Title"
@@ -54,12 +49,17 @@
       {
         "type": "text",
         "id": "subtitle",
-        "label": "Subitle"
+        "label": "Title"
       },
       {
         "type": "richtext",
         "id": "content",
         "label": "Content"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
       }
     ]
   }
@@ -69,18 +69,21 @@
   document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('a[href^="#"]');
     for (const link of links) {
-      link.addEventListener('click', function(event) {
-        event.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.offsetTop,
-            behavior: 'smooth'
-          });
-        }
-      });
-    }
-  });
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      }
+    });
+  
 })();
-{% endjavascript %}
+
+
+ {% endjavascript %}

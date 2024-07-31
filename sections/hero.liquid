@@ -1,4 +1,7 @@
 <section id="hero-video" class="twcss-bg-black twcss-flex twcss-items-center twcss-justify-center twcss-h-screen twcss-overflow-hidden">
+  {% comment %} <video id="video-background" autoplay loop  muted class="twcss-absolute twcss-w-auto twcss-min-w-full twcss-min-h-full twcss-max-w-none twcss-pointer-events-none">
+    <source src="{{ 'intro.mp4' | file_url }}" type="video/mp4">
+    </video> {% endcomment %}
   {%- if section.settings.video %}{{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false }}{%- endif -%}
   <div class="twcss-relative">
     <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] twcss-w-9/12 twcss-mx-auto twcss-leading-[0.7] twcss-pointer-events-none">

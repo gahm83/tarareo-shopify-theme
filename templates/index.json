@@ -156,6 +156,8 @@
     },
     "marquee": {
       "type": "marquee",
+      "settings": {
+      }
     },
     "de_la_vista_nace_el_amor": {
       "type": "home-de-la-vista-nace-el-amor",

@@ -35,9 +35,9 @@
     <script src='{{ 'constants.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'pubsub.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'global.js' | asset_url }}' defer='defer'></script>
-    {% comment %} {%- if settings.animations_reveal_on_scroll -%}
+    {%- if settings.animations_reveal_on_scroll -%}
       <script src='{{ 'animations.js' | asset_url }}' defer='defer'></script>
-    {%- endif -%} {% endcomment %}
+    {%- endif -%}
     
     <script src='{{ 'gsap.min.js' | asset_url }}' defer='defer'></script>
     <script src='{{ 'ScrollTrigger.min.js' | asset_url }}' defer='defer'></script>

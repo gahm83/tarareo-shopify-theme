@@ -23,3 +23,32 @@
     ]
   }
 {% endschema %}
+{% style %}
+  .about-item:hover .tooltip {
+    opacity: 1;
+  }
+  .tooltip {
+    opacity: 0;
+    margin-left: 28px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1000;
+  }
+{% endstyle %}
+{% javascript %}
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    var containers = document.querySelectorAll('.about-item');
+    containers.forEach(container => {
+      var tooltip = container.querySelector('.tooltip');
+      container.addEventListener('mousemove', function(e) {
+        var rect = container.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+      });
+    });
+  });
+})();
+{% endjavascript %}
