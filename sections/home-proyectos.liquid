@@ -1,7 +1,7 @@
 <section class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-h-screen">
   <figure class="twcss-absolute twcss-aspect-[0.64/1] twcss-w-[75%] md:twcss-w-[32%] lg:twcss-w-[26%] max-h-[90%]">
     {% for block in section.blocks %}
-      <div id="{{ block.settings.id }}" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-indigo-600 twcss-opacity-0">
+      <div id="{Sin}" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-indigo-600 twcss-opacity-0">
       {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 420 | image_tag: class: "twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15" }}{%- endif -%}
       </div>
     {% endfor %}
@@ -51,42 +51,40 @@
   }
 {% endstyle %}
 {% javascript %}
-document.addEventListener('DOMContentLoaded', function() {
-
-  const imagesProyectos = document.querySelectorAll(".bg-state");
-
-  console.log(imagesProyectos);
-
-  const swiperProyectos = new Swiper(".swiperProyectos", {
-    slidesPerView: 1,
-    centeredSlides: true,
-    loop: true,
-    breakpoints: {
-      768: {
-        slidesPerView: 3
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    const imagesProyectos = document.querySelectorAll(".bg-state");
+    const swiperProyectos = new Swiper(".swiperProyectos", {
+      slidesPerView: 1,
+      centeredSlides: true,
+      loop: true,
+      breakpoints: {
+        768: {
+          slidesPerView: 3
+        },
+        1280: {
+          slidesPerView: 5
+        },
       },
-      1280: {
-        slidesPerView: 5
-      },
-    },
-    on: {
-      init: function () {
-        imagesProyectos[0].classList.add("twcss-opacity-100");
-        imagesProyectos[0].classList.remove("twcss-opacity-0");
-      },
-      realIndexChange: function () {
-        let index = this.realIndex; // Adjusted index to match the zero-based indexing
-        imagesProyectos.forEach((image, i) => {
-          if (i === index) {
-            image.classList.add("twcss-opacity-100");
-            image.classList.remove("twcss-opacity-0");
-          } else {
-            image.classList.remove("twcss-opacity-100");
-            image.classList.add("twcss-opacity-0");
-          }
-        });
-      },
-    }
+      on: {
+        init: function () {
+          imagesProyectos[0].classList.add("twcss-opacity-100");
+          imagesProyectos[0].classList.remove("twcss-opacity-0");
+        },
+        realIndexChange: function () {
+          let index = this.realIndex; // Adjusted index to match the zero-based indexing
+          imagesProyectos.forEach((image, i) => {
+            if (i === index) {
+              image.classList.add("twcss-opacity-100");
+              image.classList.remove("twcss-opacity-0");
+            } else {
+              image.classList.remove("twcss-opacity-100");
+              image.classList.add("twcss-opacity-0");
+            }
+          });
+        },
+      }
+    });
   });
-});
+})();
 {% endjavascript %}

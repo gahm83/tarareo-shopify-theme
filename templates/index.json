@@ -15,11 +15,6 @@
       "settings": {
       }
     },
-    "marquee": {
-      "type": "marquee",
-      "settings": {
-      }
-    },
     "de_la_vista_nace_el_amor": {
       "type": "home-de-la-vista-nace-el-amor",
       "settings": {
@@ -50,7 +45,6 @@
     "home_hero",
     "home_about",
     "impulsamos_tu_marca",
-    "marquee",
     "de_la_vista_nace_el_amor",
     "como_funcionamos",
     "diseno_de_linea",
