@@ -1,37 +1,21 @@
-<section id="porque-tarareo" class="twcss-relative twcss-flex twcss-flex-col twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen lg:twcss-aspect-[1.8/1] twcss-bg-black">
+<section id="porque-tarareo" class="twcss-relative twcss-bg-black twcss-w-screen twcss-h-screen twcss-flex twcss-items-center twcss-justify-center">
   <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 lg:twcss-py-0">
-    <div class="twcss-grid twcss-grid-cols-3">
-      <div class="twcss-col-span-2">
-        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12">¿Porqué TARAREO?</h2>
+    <div class="twcss-grid twcss-grid-cols-2 twcss-place-items-center">
+      <div>
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white">¿Porqué TARAREO?</h2>
+        <div class="twcss-space-y-8 twcss-mt-12">
+          {%- assign block_classnames = "funcionalidad-ergonomia,estetica,innovacion" | split: "," -%}
+          {% for block in section.blocks %}
+          <div class="twcss-text-white {{ block_classnames[forloop.index0] }}">
+            <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">{{  block.settings.title }}</h2>
+            <p>{{ block.settings.content }}</p>
+          </div>
+          {% endfor %}
+        </div>
       </div>
-      {% for block in section.blocks %}
-      {% if forloop.index0 == 0 %}
-        <div>
-          <div class="twcss-text-white funcionalidad-ergonomia">
-            <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">{{  block.settings.title }}</h2>
-            <p>{{ block.settings.content }}</p>
-          </div>
-        </div>
-      {% elsif forloop.index0 == 1 %}
-        <div class="twcss-py-10">
-          <div class="twcss-text-white estetica">
-            <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">{{  block.settings.title }}</h2>
-            <p>{{ block.settings.content }}</p>
-          </div>
-        </div>
-      {% elsif forloop.index0 == 2 %}
-        <div class="twcss-row-start-3 twcss-col-start-3 twcss-text-right">
-          <div class="twcss-text-white innovacion">
-            <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">{{  block.settings.title }}</h2>
-            <p>{{ block.settings.content }}</p>
-          </div>
-        </div>
-      {% endif %}
-      {% endfor %}
       <div class=" twcss-col-start-2 twcss-row-span-3">
         {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-block twcss-w-full" }}
       </div>
-      <div class="twcss-aspect-[3/1]"></div>
     </div>
   </div>
 </section>
@@ -48,20 +32,9 @@
         scrub: true
       }
     });
-
     tl.from('.funcionalidad-ergonomia', { y: '100vh' })
       .from('.estetica', { y: '100vh' })
       .from('.innovacion', { y: '100vh' });
-    // gsap.from('.estetica', {
-    //   scrollTrigger: {
-    //     trigger: '#stacked-at-scroll',
-    //     start: 'top top',
-    //     pin: true,
-    //     scrub: true
-    //   },
-    //   y: '100vh'
-    // });
-
   });
 })();
 {% endjavascript %}

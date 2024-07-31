@@ -3,13 +3,6 @@
     "main": {
       "type": "producto",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -20,6 +13,11 @@
           "settings": {
             "text": "{{ product.metafields.descriptors.subtitle.value }}",
             "text_style": "subtitle"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
           }
         },
         "price": {
@@ -44,22 +42,16 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
-        },
-        "description": {
-          "type": "description",
-          "settings": {
-          }
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "caption",
+        "description",
         "price",
         "quantity_selector",
         "custom_options_tkBiJg",
-        "buy_buttons",
-        "description"
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,

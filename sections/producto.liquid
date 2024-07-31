@@ -210,7 +210,7 @@
                   <div class="twcss-bg-black twcss-border twcss-border-black twcss-px-6 twcss-py-2">
                     <h4 class="twcss-text-white">Personaliza tu producto</h4>
                   </div>
-                  <div class="twcss-px-6 twcss-py-4 twcss-space-y-4">
+                  <div class="twcss-px-5 twcss-py-7 twcss-space-y-4">
                     {%- if product.metafields.options.acrilico.value != blank -%}
                     <div>
                       <p>Selecciona el color del acrílico</p>
@@ -343,6 +343,10 @@
                       </div>
                     </div>
                     {%- endif -%}
+                    <div class="twcss-flex twcss-flex-col">
+                      <label for="your-name">Notas:</label>
+                      <textarea id="your-name" name="properties[Your name]" placeholder="Escriba aquí sus notas" class="twcss-appearance-none twcss-bg-[#F2EEEE] twcss-px-4 twcss-py-3 twcss-rounded-lg twcss-border-transparent focus-visible:twcss-outline-none focus-visible:twcss-ring-0 "></textarea>
+                    </div>
                   </div>
                 </div>
               {%- when 'collapsible_tab' -%}
@@ -785,10 +789,6 @@
                 {% render 'icon-with-text', block: block %}
             {%- endcase -%}
           {%- endfor -%}
-          <a href="{{ product.url }}" class="link product__view-details animate-arrow">
-            {{ 'products.product.view_full_details' | t }}
-            {% render 'icon-arrow' %}
-          </a>
         </product-info>
       </div>
     </div>

@@ -73,7 +73,7 @@
   cursor: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%20fill%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E') 16 16, auto;
 }
 {% endstyle %}
-{% javascript %}
+{% comment %}
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
@@ -90,4 +90,4 @@
     tl.from('#video-background', { y: "100vh", });
   });
 })();
-{% endjavascript %}
+{% endcomment %}

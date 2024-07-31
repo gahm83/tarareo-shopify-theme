@@ -13,7 +13,7 @@
 <section class="contact-form twcss-relative twcss-bg-black twcss-overflow-hidden">
   {% if template contains 'index' or page.id == 100754653380 %}
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-12">
-    <div class="twcss-grid twcss-grid-cols-2 twcss-items-stretch">
+    <div class="twcss-grid lg:twcss-grid-cols-2 twcss-items-stretch twcss-gap-10">
       <div class="twcss-flex twcss-flex-col twcss-justify-between">
         <div class="twcss-space-y-5 twcss-text-white">
           <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12">!Generamos amor<br/> a tu marca!</h2>
@@ -56,11 +56,17 @@
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-pt-20">
     <div class="twcss-grid twcss-grid-cols-2">
       <div>
-        <img src="{{ 'tararelogotipo-footer.png' | asset_url }}" width="117" height="235" class="twcss-block twcss-mb-24"/>
+        {{ section.settings.image | image_url: width: 117 | image_tag: class: "twcss-block twcss-mb-24" }}
         <div class="twcss-space-y-8">
-          <p>📍León, Gto.</p>
-          <p>123-456-7890</p>
-          <p>info@tarareoestudio.com</p>
+          {%- if section.settings.direccion != blank -%}
+            <p>📍{{section.settings.direccion}}</p>
+          {%- endif -%}
+          {%- if section.settings.telefono != blank -%}
+            <p>{{section.settings.telefono}}</p>
+          {%- endif -%}
+          {%- if section.settings.email != blank -%}
+            <p>{{section.settings.email}}</p>
+          {%- endif -%}
         </div>
       </div>
       <div class="twcss-flex twcss-justify-end twcss-items-start"> 
@@ -72,15 +78,21 @@
       </div>
       <div class="twcss-col-span-2 twcss-pt-24 twcss-pb-12">
         <div class="twcss-flex twcss-items-center twcss-justify-center twcss-space-x-8 twcss-w-full">
-          <a href="">
+          {%- if section.settings.social_fb != blank -%}
+          <a href="{{ section.settings.social_fb }}" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z" fill="#000000"/></svg>
           </a>
-          <a href="">
+          {%- endif -%}
+          {%- if section.settings.social_ig != blank -%}
+          <a href="{{ section.settings.social_ig }}" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#000000" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"/></svg>
           </a>
-          <a href="">
+          {%- endif -%}
+          {%- if section.settings.social_tt != blank -%}
+          <a href="{{ section.settings.social_tt }}" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="#000000" d="M20.357 7.75a.537.537 0 0 0-.495-.516a4.723 4.723 0 0 1-2.415-.938a4.85 4.85 0 0 1-1.887-3.3a.538.538 0 0 0-.517-.496h-2.108a.517.517 0 0 0-.517.527v12.59a2.794 2.794 0 0 1-2.974 2.762a2.815 2.815 0 0 1-2.51-3.711A2.836 2.836 0 0 1 9.93 12.78a.506.506 0 0 0 .558-.506V9.807s-.896-.063-1.202-.063a5.271 5.271 0 0 0-4.101 1.93a5.789 5.789 0 0 0-1.37 2.52a5.862 5.862 0 0 0 2.14 6.072A5.926 5.926 0 0 0 9.591 21.5a5.946 5.946 0 0 0 4.207-1.719a5.841 5.841 0 0 0 1.75-4.133V8.71a7.844 7.844 0 0 0 4.218 1.613a.517.517 0 0 0 .548-.527V7.751z"/></svg>
           </a>
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -123,6 +135,43 @@
 {% endjavascript %}
 {% schema %}
 {
-  "name": "footer"
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "direccion",
+      "label": "Dirección"
+    },
+    {
+      "type": "text",
+      "id": "telefono",
+      "label": "Teléfono"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email"
+    },
+    {
+      "type": "url",
+      "id": "social_fb",
+      "label": "Facebook"
+    },
+    {
+      "type": "url",
+      "id": "social_ig",
+      "label": "Instagram"
+    },
+    {
+      "type": "url",
+      "id": "social_tt",
+      "label": "TikTok"
+    }
+  ] 
 }
 {% endschema %}
