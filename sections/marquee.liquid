@@ -1,17 +1,17 @@
-<div class="twcss-flex twcss-flex-nowrap twcss-animate-marquee">
-  <span class="twcss-flex twcss-justify-around twcss-basis-screen twcss-shrink-0">
-    <span class="marquee-item twcss-text-black twcss-text-7xl twcss-uppercase twcss-text-nowrap twcss-space-x-3 twcss-px-2 twcss-py-12">
-      {% for block in section.blocks %}
-      <span class="twcss-font-{{ block.settings.fontfamily }}{% if block.settings.italic %} twcss-italic{% endif %}">{{ block.settings.text }}</span>
-      {% endfor %}
+<section class="twcss-overflow-hidden twcss-w-screen">
+  <div class="twcss-flex twcss-flex-nowrap twcss-animate-marquee">
+    <span class="twcss-flex twcss-justify-around twcss-basis-screen twcss-shrink-0">
+      <span class="marquee-item twcss-text-black twcss-text-7xl twcss-uppercase twcss-text-nowrap twcss-space-x-3 twcss-px-2 twcss-py-12">
+        {% for block in section.blocks %}
+        <span class="twcss-font-{{ block.settings.fontfamily }}{% if block.settings.italic %} twcss-italic{% endif %}">{{ block.settings.text }}</span>
+        {% endfor %}
+      </span>
     </span>
-  </span>
-</div> 
+  </div> 
+</section>
 {% schema %}
   {
     "name": "Marquee",
-    "tag": "section",
-    "class": "twcss-overflow-hidden twcss-w-screen",
     "disabled_on": {
       "groups": ["header"]
     },

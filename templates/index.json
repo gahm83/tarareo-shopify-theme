@@ -150,15 +150,6 @@
         "title_9aeHiR",
         "title_ChP9je"
       ],
-<<<<<<< Updated upstream
-      "settings": {
-        "foreground_image": "shopify:\/\/shop_images\/shot-fuego-loco.png"
-      }
-    },
-    "marquee": {
-      "type": "marquee",
-=======
->>>>>>> Stashed changes
       "settings": {
         "foreground_image": "shopify:\/\/shop_images\/shot-fuego-loco.png"
       }
