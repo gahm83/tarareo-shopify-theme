@@ -1,24 +1,165 @@
 {
   "sections": {
     "hero": {
-      "type": "about-hero",
+      "type": "hero",
+      "blocks": {
+        "title_XTrhgx": {
+          "type": "title",
+          "settings": {
+            "text": "Pasión",
+            "fontfamily": "minionpro",
+            "italic": false,
+            "blur": false
+          }
+        },
+        "title_i8p7kq": {
+          "type": "title",
+          "settings": {
+            "text": "Por la belleza",
+            "fontfamily": "novecento",
+            "italic": false,
+            "blur": false
+          }
+        },
+        "title_LxkYHU": {
+          "type": "title",
+          "settings": {
+            "text": "",
+            "fontfamily": "novecento",
+            "italic": false,
+            "blur": false
+          }
+        },
+        "title_WWrnBN": {
+          "type": "title",
+          "settings": {
+            "text": "Y dedicación",
+            "fontfamily": "minionpro",
+            "italic": false,
+            "blur": false
+          }
+        },
+        "title_EV9QmK": {
+          "type": "title",
+          "settings": {
+            "text": "Pura",
+            "fontfamily": "novecento",
+            "italic": false,
+            "blur": false
+          }
+        }
+      },
+      "block_order": [
+        "title_XTrhgx",
+        "title_i8p7kq",
+        "title_LxkYHU",
+        "title_WWrnBN",
+        "title_EV9QmK"
+      ],
       "settings": {
       }
     },
-    "equipo": {
-      "type": "about-content",
+    "content": {
+      "type": "content",
       "settings": {
+        "content": "Tenemos 4 años de experiencia trabajando con los mejores centros de consumo del país. Trabajamos de la mano de un gran equipo de artistas, artesanos y un sin fin de herramientas, nos dedicamos a crear objetos que generan experiencias y amor a tu marca mientras cumplen con su función de la manera más estética."
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "blocks": {
+        "text_XEQEBM": {
+          "type": "text",
+          "settings": {
+            "text": "El Arte",
+            "fontfamily": "novecento",
+            "italic": false
+          }
+        },
+        "text_BTgwq6": {
+          "type": "text",
+          "settings": {
+            "text": "De diseñar",
+            "fontfamily": "minionpro",
+            "italic": true
+          }
+        },
+        "text_wqzL8B": {
+          "type": "text",
+          "settings": {
+            "text": "y fabricar",
+            "fontfamily": "novecento",
+            "italic": false
+          }
+        },
+        "text_cM8TVe": {
+          "type": "text",
+          "settings": {
+            "text": "Piezas Exclusivas",
+            "fontfamily": "minionpro",
+            "italic": true
+          }
+        }
+      },
+      "block_order": [
+        "text_XEQEBM",
+        "text_BTgwq6",
+        "text_wqzL8B",
+        "text_cM8TVe"
+      ],
+      "settings": {
+      }
+    },
+    "text_image": {
+      "type": "text-image",
+      "settings": {
+        "schema": "white",
+        "title": "",
+        "subtitle": "Conformado por un equipo de diseñadores industriales, Tarareo Estudio se enfoca en materializar todo aquello que pueda ser imaginado para crear productos utilitarios que impulsen tu marca, creen experiencias y propongan soluciones.",
+        "content": "<p>Nos especializamos en diseñar y desarrollar productos personalizados para centros de consumo (Antros, Bares y Restaurantes)​​ Glorificadores, Portashots & Cajas de Luz.<\/p>",
+        "image": "shopify:\/\/shop_images\/bg-equipo.jpg"
       }
     },
     "porque": {
       "type": "about-porque",
+      "blocks": {
+        "title_UHXGJm": {
+          "type": "title",
+          "settings": {
+            "title": "Funcionalidad y ergonomía",
+            "content": "Así como el factor estético es importante, también el funcional. En Tarareo diseñamos considerando las necesidades de usuario u operario, para que  la acción para la que está destinado el diseño pueda ser desempeñada."
+          }
+        },
+        "title_j7Rcgb": {
+          "type": "title",
+          "settings": {
+            "title": "Estética",
+            "content": "Como diseñadores industriales nos compete primariamente satisfacer las necesidades de los usuarios mediante la comunicación estética."
+          }
+        },
+        "title_dFfPXV": {
+          "type": "title",
+          "settings": {
+            "title": "Innovación",
+            "content": "El talento creativo, tanto técnico como estético, la libertad de explorar diversas alternativas y propuestas, tanto de los productos como del entorno, nos impulsan a crear diseños y productos revolucionarios."
+          }
+        }
+      },
+      "block_order": [
+        "title_UHXGJm",
+        "title_j7Rcgb",
+        "title_dFfPXV"
+      ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/porque-tarareo.png"
       }
     }
   },
   "order": [
     "hero",
-    "equipo",
+    "content",
+    "marquee",
+    "text_image",
     "porque"
   ]
 }

@@ -1,0 +1,25 @@
+<section id="tooltip-section" class="twcss-relative">
+  <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
+    <div class="twcss-py-16">
+      <h2 class="twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[32px] twcss-leading-none">
+        {{ section.settings.content }}
+      </h2>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Content",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "content",
+        "label": "Content",
+        "default": "About us!"
+      }
+    ]
+  }
+{% endschema %}

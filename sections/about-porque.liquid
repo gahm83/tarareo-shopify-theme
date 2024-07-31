@@ -4,27 +4,38 @@
       <div class="twcss-col-span-2">
         <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12">¿Porqué TARAREO?</h2>
       </div>
-      <div>
-        <div class="twcss-text-white funcionalidad-ergonomia">
-          <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">Funcionalidad <br />y Ergonomía</h2>
-          <p>Así como el factor estético es importante, también el funcional. En Tarareo diseñamos considerando las necesidades de usuario u operario, para que  la acción para la que está destinado el diseño pueda ser desempeñada.</p>
+      {% for block in section.blocks %}
+      {% if forloop.index0 == 0 %}
+        <div>
+          <div class="twcss-text-white funcionalidad-ergonomia">
+            <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">{{  block.settings.title }}</h2>
+            <p>{{ block.settings.content }}</p>
+          </div>
         </div>
-      </div>
-      <div class="twcss-py-10">
-        <div class="twcss-text-white estetica">
-          <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">Estética</h2>
-          <p>Como diseñadores industriales nos compete primariamente satisfacer las necesidades de los usuarios mediante la comunicación estética.</p>
+      {% elsif forloop.index0 == 1 %}
+        <div class="twcss-py-10">
+          <div class="twcss-text-white estetica">
+            <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">{{  block.settings.title }}</h2>
+            <p>{{ block.settings.content }}</p>
+          </div>
         </div>
-      </div>
-      <div class="twcss-row-start-3 twcss-col-start-3 twcss-text-right">
-        <div class="twcss-text-white innovacion">
-          <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">Innovación</h2>
-          <p>El talento creativo, tanto técnico como estético, la libertad de explorar diversas alternativas y propuestas, tanto de los productos como del entorno, nos impulsan a crear diseños y productos revolucionarios.</p>
+      {% elsif forloop.index0 == 2 %}
+        <div class="twcss-row-start-3 twcss-col-start-3 twcss-text-right">
+          <div class="twcss-text-white innovacion">
+            <h2 class="twcss-font-novecento twcss-uppercase twcss-text-white">{{  block.settings.title }}</h2>
+            <p>{{ block.settings.content }}</p>
+          </div>
         </div>
-      </div>
+      {% endif %}
+      {% endfor %}
       <div class=" twcss-col-start-2 twcss-row-span-3">
-        <img src="{{ 'porque-tarareo.png' | asset_url }}" width="827" height="682" class="twcss-block twcss-w-full">
-
+<<<<<<< Updated upstream
+        {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-block twcss-w-full" }}
+=======
+        <figure class="-twcss-mx-10 twcss-aspect-square twcss-rounded-full twcss-overflow-hidden">
+          {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-block twcss-w-full" }}
+        </figure>
+>>>>>>> Stashed changes
       </div>
       <div class="twcss-aspect-[3/1]"></div>
     </div>
@@ -62,14 +73,33 @@
 {% endjavascript %}
 {% schema %}
   {
-    "name": "porque-tarareo",
+    "name": "¿Por qué Tarareo?",
     "disabled_on": {
       "groups": ["header", "footer"]
     },
-    "settings": [],
-    "presets": [
+    "settings": [
       {
-        "name": "porque-tarareo"
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Title",
+        "type": "title",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Text"
+          },
+          {
+            "type": "textarea",
+            "id": "content",
+            "label": "Text"
+          }
+        ]
       }
     ]
   }

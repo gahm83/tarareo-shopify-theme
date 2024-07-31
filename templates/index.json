@@ -2,27 +2,212 @@
   "sections": {
     "home_hero": {
       "type": "home-hero",
+      "blocks": {
+        "title_UiNH3e": {
+          "type": "title",
+          "settings": {
+            "text": "Keep",
+            "fontfamily": "minionpro",
+            "italic": true,
+            "blur": false
+          }
+        },
+        "title_cB3QPy": {
+          "type": "title",
+          "settings": {
+            "text": "The",
+            "fontfamily": "novecento",
+            "italic": false,
+            "blur": false
+          }
+        },
+        "title_aW684z": {
+          "type": "title",
+          "settings": {
+            "text": "Party",
+            "fontfamily": "novecento",
+            "italic": false,
+            "blur": true
+          }
+        },
+        "title_Fcjwtc": {
+          "type": "title",
+          "settings": {
+            "text": "Going",
+            "fontfamily": "minionpro",
+            "italic": true,
+            "blur": false
+          }
+        }
+      },
+      "block_order": [
+        "title_UiNH3e",
+        "title_cB3QPy",
+        "title_aW684z",
+        "title_Fcjwtc"
+      ],
       "settings": {
       }
     },
     "home_about": {
       "type": "home-about",
+      "blocks": {
+        "title_pmFJjf": {
+          "type": "title",
+          "settings": {
+            "text": "No human!",
+            "image": "shopify:\/\/shop_images\/1720820441249.gif"
+          }
+        },
+        "title_wAMMGy": {
+          "type": "title",
+          "settings": {
+            "text": "Infinity Mirror",
+            "image": "shopify:\/\/shop_images\/1720820542714.gif"
+          }
+        },
+        "title_UzWMEn": {
+          "type": "title",
+          "settings": {
+            "text": "Crazy Trump",
+            "image": "shopify:\/\/shop_images\/trumps.jpg"
+          }
+        },
+        "title_bgzfdR": {
+          "type": "title",
+          "settings": {
+            "text": "Paint Buckets",
+            "image": "shopify:\/\/shop_images\/paint-bucket.jpg"
+          }
+        },
+        "title_tmCEQn": {
+          "type": "title",
+          "settings": {
+            "text": "R. Mutt 1917",
+            "image": "shopify:\/\/shop_images\/r-mutt-1917.jpg"
+          }
+        },
+        "title_hyp9wR": {
+          "type": "title",
+          "settings": {
+            "text": "Moet Moet Moet",
+            "image": "shopify:\/\/shop_images\/1720820562044.gif"
+          }
+        },
+        "title_xwUG9A": {
+          "type": "title",
+          "settings": {
+            "text": "Fireworks Hat",
+            "image": "shopify:\/\/shop_images\/party-hat.jpg"
+          }
+        },
+        "title_NBcWhE": {
+          "type": "title",
+          "settings": {
+            "text": "Shot Hat",
+            "image": "shopify:\/\/shop_images\/shot-hat.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "title_pmFJjf",
+        "title_wAMMGy",
+        "title_UzWMEn",
+        "title_bgzfdR",
+        "title_tmCEQn",
+        "title_hyp9wR",
+        "title_xwUG9A",
+        "title_NBcWhE"
+      ],
       "settings": {
+        "content": "Conformado por un equipo de diseñadores industriales, Tarareo Estudio se enfoca en materializar todo aquello que pueda ser imaginado para crear productos utilitarios que impulsen tu marca, creen experiencias y propongan soluciones."
       }
     },
     "impulsamos_tu_marca": {
       "type": "home-impulsamos-tu-marca",
+      "blocks": {
+        "title_bMCPqJ": {
+          "type": "title",
+          "settings": {
+            "text": "IMPULSAMOS TU MARCA"
+          }
+        },
+        "title_9aeHiR": {
+          "type": "title",
+          "settings": {
+            "text": "PROPONEMOS SOLUCIONES"
+          }
+        },
+        "title_ChP9je": {
+          "type": "title",
+          "settings": {
+            "text": "GENERAMOS EMOCIONES"
+          }
+        }
+      },
+      "block_order": [
+        "title_bMCPqJ",
+        "title_9aeHiR",
+        "title_ChP9je"
+      ],
+<<<<<<< Updated upstream
       "settings": {
+        "foreground_image": "shopify:\/\/shop_images\/shot-fuego-loco.png"
       }
+    },
+    "marquee": {
+      "type": "marquee",
+=======
+>>>>>>> Stashed changes
+      "settings": {
+        "foreground_image": "shopify:\/\/shop_images\/shot-fuego-loco.png"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
     },
     "de_la_vista_nace_el_amor": {
       "type": "home-de-la-vista-nace-el-amor",
+      "blocks": {
+        "title_AjCBWc": {
+          "type": "title",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/cash.png",
+            "title": "Entendemos tu necesidad",
+            "subtitle": "Incrementa venta y posiciona tu marca."
+          }
+        },
+        "title_Td3DKH": {
+          "type": "title",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/moet.png",
+            "title": "Diseñamos un elemento ancla",
+            "subtitle": "Diseñamos un producto estético y práctico."
+          }
+        },
+        "title_BUGKgz": {
+          "type": "title",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/1720820834648.gif",
+            "title": "Optimizamos la experiencia",
+            "subtitle": "Incrementa venta y posiciona tu marca"
+          }
+        }
+      },
+      "block_order": [
+        "title_AjCBWc",
+        "title_Td3DKH",
+        "title_BUGKgz"
+      ],
       "settings": {
+        "content": ""
       }
     },
     "como_funcionamos": {
       "type": "home-como-funcionamos",
       "settings": {
+        "title": "¿Cómo funcionamos?",
+        "content": "<p>Nuestros productos son únicos. Cada uno requirió de nuestra imaginación y creatividad para hacerlos realidad.<\/p><p>Tarareo Store te permite adquirir los productos y experiencias que no encontrarás en ningún otro lado.<\/p>"
       }
     },
     "diseno_de_linea": {
@@ -37,6 +222,58 @@
     },
     "proyectos": {
       "type": "home-proyectos",
+      "blocks": {
+        "title_eHQerg": {
+          "type": "title",
+          "settings": {
+            "text": "Aguascalientes",
+            "image": "shopify:\/\/shop_images\/happy-fckn-bday_6e19ab42-341a-4728-af77-1f21e1900675.jpg"
+          }
+        },
+        "title_qxgHUg": {
+          "type": "title",
+          "settings": {
+            "text": "Baja California Norte",
+            "image": "shopify:\/\/shop_images\/mini-slider_626e39a1-ed42-4b77-b1b3-547bfc480d14.jpg"
+          }
+        },
+        "title_km4WMH": {
+          "type": "title",
+          "settings": {
+            "text": "Chihuahua",
+            "image": "shopify:\/\/shop_images\/marquesina_84d92b4c-42b0-4d85-8c0d-e0d5d61560b1.jpg"
+          }
+        },
+        "title_GAK4HM": {
+          "type": "title",
+          "settings": {
+            "text": "Durango",
+            "image": "shopify:\/\/shop_images\/avion_9a7fd62e-34e2-4755-96ab-6748784130d0.jpg"
+          }
+        },
+        "title_meiPBh": {
+          "type": "title",
+          "settings": {
+            "text": "Zacatecas",
+            "image": "shopify:\/\/shop_images\/mini-slider_626e39a1-ed42-4b77-b1b3-547bfc480d14.jpg"
+          }
+        },
+        "title_8FVinV": {
+          "type": "title",
+          "settings": {
+            "text": "Ciudad de México",
+            "image": "shopify:\/\/shop_images\/ruleta_06ac3c07-8a84-407d-ad71-e1c4d88ae18e.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "title_eHQerg",
+        "title_qxgHUg",
+        "title_km4WMH",
+        "title_GAK4HM",
+        "title_meiPBh",
+        "title_8FVinV"
+      ],
       "settings": {
       }
     }
@@ -45,6 +282,7 @@
     "home_hero",
     "home_about",
     "impulsamos_tu_marca",
+    "marquee",
     "de_la_vista_nace_el_amor",
     "como_funcionamos",
     "diseno_de_linea",

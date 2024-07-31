@@ -1,0 +1,104 @@
+<section class="twcss-relative twcss-flex twcss-flex-col twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen lg:twcss-aspect-[1.8/1] {% if section.settings.schema == 'black' %} twcss-bg-black{% endif %}">
+  {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-relative lg:twcss-absolute lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-inset-y-0 lg:twcss-right-0 twcss-object-cover twcss-object-center" }}
+  <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 lg:twcss-py-0">
+    <div class="lg:twcss-grid lg:twcss-grid-cols-12">
+      <div class="lg:twcss-col-span-5 twcss-space-y-8">
+        {% if section.settings.title != blank %}
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none w-8/12 {% if section.settings.schema == 'black' %} twcss-text-white{% endif %}">{{ section.settings.title }}</h2>
+        {% endif %}
+        {% if section.settings.subtitle != blank %}
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] twcss-leading-none {% if section.settings.schema == 'black' %} twcss-text-white{% endif %}">{{ section.settings.subtitle }}</h2>
+        {% endif %}
+        {% if section.settings.content != blank %}
+        <div class="{% if section.settings.schema == 'black' %} twcss-text-white{% endif %}">
+          {{ section.settings.content}}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Text / Image",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "select",
+        "id": "schema",
+        "options": [
+          {
+            "value": "black",
+            "label": "Black"
+          },
+          {
+            "value": "white",
+            "label": "White"
+          }
+        ],
+        "default": "black",
+        "label": "Background Color"
+      },
+      {
+<<<<<<< Updated upstream
+=======
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+>>>>>>> Stashed changes
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+<<<<<<< Updated upstream
+        "label": "Title"
+=======
+        "label": "Subitle"
+>>>>>>> Stashed changes
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+<<<<<<< Updated upstream
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+=======
+>>>>>>> Stashed changes
+      }
+    ]
+  }
+{% endschema %}
+{% javascript %} 
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    for (const link of links) {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      }
+    });
+  
+})();
+
+
+ {% endjavascript %}
