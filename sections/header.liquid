@@ -281,8 +281,8 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        <span>Carrito</span>
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset [&_svg]:twcss-w-12 [&_svg]:twcss-h-12 [&_svg]:twcss-mr-3" id="cart-icon-bubble">
+        {% render 'cart-icon' %}
         {%- if cart.item_count < 100 -%}
           <span aria-hidden="false">({{ cart.item_count }})</span>
           {%- else -%}

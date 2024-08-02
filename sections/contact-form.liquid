@@ -1,18 +1,16 @@
 {{ 'section-contact-form.css' | asset_url | stylesheet_tag }}
-
-
-<section class="twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen twcss-bg-black contact-form lg:twcss-aspect-[2.4/1]">
+<section class="twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen twcss-bg-black contact-form lg:twcss-aspect-[2.4/1] twcss-py-24">
   <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
-    <div class="twcss-grid twcss-grid-cols-2 twcss-self-stretch">
+    <div class="twcss-grid twcss-gap-5 lg:twcss-grid-cols-2 twcss-self-stretch">
       <div class=" twcss-flex twcss-flex-col twcss-justify-between">
         <div class="twcss-space-y-5 twcss-text-white">
-          <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12">Dale amor<br/> a tu marca</h2>
+          <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12">Dale amor<br class="twcss-hidden lg:twcss-block"/> a tu marca</h2>
           <p>Envíanos un mensaje para empezar a <i class=" twcss-font-minionpro">crear magia</i>.</p>
         </div>
         <img src="{{ 'contact-us.png' | asset_url }}" width="480" height="140" />
       </div>
       <div>
-        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12 twcss-mb-8">Get in<br/> touch</h2>
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-leading-none twcss-text-white w-8/12 twcss-mb-8">Get in<br class="twcss-hidden lg:twcss-block"/> touch</h2>
         {%- form 'contact', id: 'ContactForm' -%}
           {%- if form.posted_successfully? -%}
             <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
@@ -35,7 +33,7 @@
               </li>
             </ul>
           {%- endif -%}
-          <div class="contact__fields">
+          <div class="contact__fields twcss-space-y-5 lg:twcss-space-y-0">
             <div class="field">
               <input
                 class="twcss-appearance-none twcss-bg-transparent twcss-border twcss-border-white twcss-text-white twcss-rounded-md twcss-h-12 twcss-w-full twcss-px-5 placeholder:twcss-text-white/70"

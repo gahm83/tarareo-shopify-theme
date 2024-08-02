@@ -1,40 +1,65 @@
-<section id="diseno-personalizado" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-max-h-screen twcss-aspect-[1.8/1] twcss-bg-black">  
-  <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
-    <ol class="twcss-list-decimal twcss-grid twcss-grid-cols-12 twcss-text-white twcss-gap-y-16 twcss-leading-none">
-      <li class="marker:twcss-text-7xl marker:twcss-absolute marker:twcss-top-0 twcss-col-span-4 twcss-col-start-3">
-        <p><span class="twcss-text-5xl">Acercamiento a tu marca</span> una llamada, un zoom o una visita al estudio</p>
-      </li>
-      <li class="marker:twcss-text-7xl marker:twcss-absolute marker:twcss-top-0 twcss-col-span-4 twcss-col-start-8">
-        <p><span class="twcss-text-5xl">Recaudamos uinformación</span> para entender tus necesidades</p>
-      </li>
-      <li class="marker:twcss-text-7xl marker:twcss-absolute marker:twcss-top-0 twcss-col-span-4 twcss-col-start-9 twcss-row-start-2">
-        <p><span class="twcss-text-5xl">Pagas un seguro de diseño de $1,450.00</span> para generarte un montón de ideas que se adapten a lo que necesitas.</p>
-        <p><small>*Ese monto se abonará posteriormente a tu proyecto</small></p>
-      </li>
-      <li class="marker:twcss-text-7xl marker:twcss-absolute marker:twcss-top-0 twcss-col-span-4 twcss-col-start-4 twcss-row-start-2 -twcss-translate-x-20">
-        <p><span class="twcss-text-5xl">Anticipo del 50% para poner manos a la obra</span> una vez que te enamoraste de las propuestas</p>
-      </li>
-      <li class="marker:twcss-text-7xl marker:twcss-absolute marker:twcss-top-0 twcss-col-span-3 twcss-col-start-4 twcss-row-start-3">
-        <p><span class="twcss-text-5xl">Empezamos a materializar las ideas</span> en nuestro estudio con ayuda de artesanos y un sinfin de herramientas</p>
-      </li>
-      <li class="marker:twcss-text-7xl marker:twcss-absolute marker:twcss-top-0 twcss-col-span-4 twcss-col-start-9 twcss-row-start-3">
-        <p><span class="twcss-text-5xl">entregamos algo increíble</span> que te ayudará a posicionar tu marca, incrementar ventas o simplemente hacer que tus clientes vivan una experiencia inolvidable.</p>
-      </li>
-    </ol>
-    <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none twcss-text-white twcss-w-1/4 twcss-break-keep">¿Quieres un diseño personalizado?</h2>
+<section id="diseno-personalizado" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-screen twcss-pt-40 twcss-pb-24 lg:twcss-py-0 lg:twcss-h-screen twcss-bg-black">  
+  <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-24 lg:twcss-py-0">
+    <div class="flex twcss-flex-col lg:twcss-flex-col-reverse twcss-space-y-16 lg:twcss-py-0">
+      <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-leading-none twcss-text-white">¿Quieres un diseño personalizado?</h2>
+      {% assign marker_class = "twcss-relative max-lg:odd:twcss-ml-16 max-lg:even:twcss-ml-32 marker:twcss-text-7xl marker:twcss-absolute marker:twcss-top-4" %}
+      <ol class="twcss-list-decimal twcss-text-white twcss-leading-none twcss-flex twcss-flex-col lg:twcss-grid lg:twcss-grid-cols-12 lg:twcss-gap-y-16 ">
+        <li class="{{ marker_class }} lg:twcss-col-span-4 lg:twcss-col-start-3">
+          <p class="twcss-text-2xl"><span class="twcss-text-4xl twcss-block">Acercamiento a tu marca</span> una llamada, un zoom o una visita al estudio</p>
+        </li>
+        <li class="{{ marker_class }} lg:twcss-col-span-4 lg:twcss-col-start-8">
+          <p class="twcss-text-2xl"><span class="twcss-text-4xl twcss-block">Recaudamos uinformación</span> para entender tus necesidades</p>
+        </li>
+        <li class="{{ marker_class }} lg:twcss-col-span-4 lg:twcss-col-start-9 lg:twcss-row-start-2">
+          <p class="twcss-text-2xl"><span class="twcss-text-4xl twcss-block">Pagas un seguro de diseño de $1,450.00</span> para generarte un montón de ideas que se adapten a lo que necesitas.</p>
+          <p><small>*Ese monto se abonará posteriormente a tu proyecto</small></p>
+        </li>
+        <li class="{{ marker_class }} lg:twcss-col-span-4 lg:twcss-col-start-4 lg:twcss-row-start-2 lg:-twcss-translate-x-20">
+          <p class="twcss-text-2xl"><span class="twcss-text-4xl twcss-block">Anticipo del 50% para poner manos a la obra</span> una vez que te enamoraste de las propuestas</p>
+        </li>
+        <li class="{{ marker_class }} lg:twcss-col-span-3 lg:twcss-col-start-4 lg:twcss-row-start-3">
+          <p class="twcss-text-2xl"><span class="twcss-text-4xl twcss-block">Empezamos a materializar las ideas</span> en nuestro estudio con ayuda de artesanos y un sinfin de herramientas</p>
+        </li>
+        <li class="{{ marker_class }} lg:twcss-col-span-4 lg:twcss-col-start-9 lg:twcss-row-start-3">
+          <p class="twcss-text-2xl"><span class="twcss-text-4xl twcss-block">entregamos algo increíble</span> que te ayudará a posicionar tu marca, incrementar ventas o simplemente hacer que tus clientes vivan una experiencia inolvidable.</p>
+        </li>
+      </ol>
+      <div class="twcss-flex twcss-justify-center">
+        <a href="#contact-us" class="twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8">
+          <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">Contacto</span>
+          <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.29 0.751953L17.1258 2.06897L27.3661 11.1211L0.5 11.1211L0.5 12.8789L27.3661 12.8789L17.1258 21.931L18.29 23.248L30.5 12.4547V11.5452L18.29 0.751953Z" fill="black"/>
+          </svg>
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 {% schema %}
   {
-    "name": "diseno-personalizado",
+    "name": "Diseño Personalizado",
     "disabled_on": {
       "groups": ["header", "footer"]
-    },
-    "settings": [],
-    "presets": [
-      {
-        "name": "diseno-personalizado"
-      }
-    ]
+    }
   }
 {% endschema %}
+{% javascript %} 
+  (function () {
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('a[href^="#"]');
+      for (const link of links) {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      }
+    });
+  })();
+  {% endjavascript %}

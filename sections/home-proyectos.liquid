@@ -1,65 +1,37 @@
-<section class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-h-screen">
-  <figure class="twcss-absolute twcss-aspect-[0.64/1] twcss-w-[75%] md:twcss-w-[32%] lg:twcss-w-[26%] max-h-[90%]">
+<section class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-py-24">
+  {% comment %} <figure class="twcss-relative twcss-aspect-[0.7/1] twcss-w-[75%] lg:twcss-w-[26%]"> {% endcomment %}
+  <figure class="twcss-relative twcss-aspect-[0.7/1] twcss-w-[75%] lg:twcss-w-[24%] twcss-mx-auto twcss-pointer-events-none">
     {% for block in section.blocks %}
-      <div id="{Sin}" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-opacity-0">
+      <div id="{{ block.settings.id }}" class="slide-proyecto twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-opacity-0">
       {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 612 | image_tag: class: "twcss-block twcss-absolute twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-right-0 twcss-w-full twcss-h-full" }}{%- endif -%}
       </div>
     {% endfor %}
-    <div id="qro" class="bg-state twcss-absolute twcss-top-0 twcss-left-0 twcss-right-0 twcss-bottom-0 twcss-w-full twcss-h-full twcss-duration-300 twcss-transition-opacity twcss-bg-indigo-600 twcss-opacity-0">&nbsp;</div>
   </figure>
-  <div class="swiper swiperProyectos twcss-relative twcss-z-10">
+  <div class="swiper swiper-proyectos !twcss-absolute twcss-inset-0 twcss-w-full twcss-h-full twcss-z-10">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
-      <div class="swiper-slide twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-py-16 twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition-opacity twcss-opacity-35" data-img="{{ block.settings.id }}">
-        {{ block.settings.text }}
+      <div class="swiper-slide !twcss-flex twcss-items-center twcss-justify-center twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition" data-img="{{ block.settings.id }}">
+        <span class="twcss-block twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-px-5 twcss-pt-3 twcss-pb-2 lg:twcss-max-w-[70%]twcss-backdrop-blur">
+          {{ block.settings.text }}
+        </span>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
-{% schema %}
-  {
-    "name": "Proyectos",
-    "disabled_on": {
-      "groups": ["header", "footer"]
-    },
-    "settings": [],
-    "max_blocks": 8,
-    "blocks": [
-      {
-        "name": "Experience",
-        "type": "title",
-        "settings": [
-          {
-            "type": "text",
-            "id": "text",
-            "label": "Text"
-          },
-          {
-            "type": "image_picker",
-            "id": "image",
-            "label": "Image"
-          }
-        ]
-      }
-    ]
-  }
-{% endschema %}
 {% style %}
-  .swiper-slide.swiper-slide-active {
-    opacity: 100;
-  }
+  .swiper-proyectos .swiper-slide.swiper-slide-active span { backdrop-filter: blur(8px); }
 {% endstyle %}
 {% javascript %}
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
-    const imagesProyectos = document.querySelectorAll(".bg-state");
-    const swiperProyectos = new Swiper(".swiperProyectos", {
-      slidesPerView: 1,
+    const imagesProyectos = document.querySelectorAll(".slide-proyecto");
+    const swiperProyectos = new Swiper(".swiper-proyectos", {
+      slidesPerView: "auto",
       centeredSlides: true,
       loop: true,
       breakpoints: {
-        768: {
+        990: {
           slidesPerView: 3
         },
         1280: {
@@ -88,3 +60,31 @@
   });
 })();
 {% endjavascript %}
+{% schema %}
+  {
+    "name": "Proyectos",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [],
+    "max_blocks": 8,
+    "blocks": [
+      {
+        "name": "Experience",
+        "type": "title",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

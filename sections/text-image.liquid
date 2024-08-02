@@ -1,18 +1,29 @@
-<section id="text-image" class="twcss-relative twcss-w-screen twcss-h-screen twcss-flex twcss-flex-col twcss-items-center twcss-justify-center {% if section.settings.schema == 'black' %} twcss-bg-black{% endif %}">
-  {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-relative lg:twcss-absolute lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-inset-y-0 lg:twcss-right-0 twcss-object-cover twcss-object-center" }}
-  <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-py-16 lg:twcss-py-0">
+<section id="text-image" class="twcss-relative twcss-w-full lg:twcss-h-screen {% if section.settings.schema == 'black' %} twcss-bg-black{% endif %}">
+  <figure class="twcss-relative twcss-aspect-video lg:twcss-absolute lg:twcss-aspect-auto lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-top-0 lg:twcss-right-0 lg:twcss-bottom-0">
+    {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-absolute twcss-w-full twcss-h-full twcss-object-cover twcss-object-center" }}
+  </figure>
+  <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-h-full twcss-mx-auto twcss-flex twcss-items-center twcss-py-16 lg:twcss-py-0">
     <div class="lg:twcss-grid lg:twcss-grid-cols-12">
       <div class="lg:twcss-col-span-5 twcss-space-y-8">
         {% if section.settings.title != blank %}
-        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-leading-none w-8/12 {% if section.settings.schema == 'black' %} twcss-text-white{% endif %}">{{ section.settings.title }}</h2>
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-leading-none w-8/12 {% if section.settings.schema == 'black' %} twcss-text-white{% endif %}">{{ section.settings.title }}</h2>
         {% endif %}
         {% if section.settings.subtitle != blank %}
         <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] twcss-leading-none {% if section.settings.schema == 'black' %} twcss-text-white{% endif %}">{{ section.settings.subtitle }}</h2>
         {% endif %}
         {% if section.settings.content != blank %}
-        <div class="{% if section.settings.schema == 'black' %} twcss-text-white{% endif %}">
+        <div class="twcss-text-2xl twcss-space-y-6 {% if section.settings.schema == 'black' %} twcss-text-white{% endif %}">
           {{ section.settings.content}}
-          </div>
+        </div>
+        {% endif %}
+        {% if section.blocks.size > 0 %}
+        <div class=" twcss-flex -twcss-m-3 twcss-flex-wrap">
+          {% for block in section.blocks %}
+          <a href="{{ block.settings.url }}" class=" scroll-to twcss-flex twcss-flex-wrap twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-z-10 twcss-m-3 twcss-whitespace-nowrap">
+            <span>{{ block.settings.text }}</span>
+          </a>
+          {% endfor %}
+        </div>
         {% endif %}
       </div>
     </div>
@@ -61,7 +72,26 @@
         "id": "image",
         "label": "Image"
       }
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "name": "Link",
+        "settings": [
+          {
+            "id": "url",
+            "type": "text",
+            "label": "Target"
+          },
+          {
+            "id": "text",
+            "type": "text",
+            "label": "Link text"
+          }
+        ]
+      }
     ]
+    
   }
 {% endschema %}
 {% javascript %} 
@@ -69,21 +99,18 @@
   document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('a[href^="#"]');
     for (const link of links) {
-        link.addEventListener('click', function(event) {
-          event.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop,
-              behavior: 'smooth'
-            });
-          }
-        });
-      }
-    });
-  
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+  });
 })();
-
-
- {% endjavascript %}
+{% endjavascript %}

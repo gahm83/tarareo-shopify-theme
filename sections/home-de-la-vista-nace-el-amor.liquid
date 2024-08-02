@@ -1,21 +1,21 @@
 <section class="twcss-relative">
-  {%- if section.settings.image -%}{{ section.settings.image | image_url: width: 420 | image_tag: class: "twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15" }}{%- endif -%}
+  {%- if section.settings.image -%}{{ section.settings.image | image_url: width: 420 | image_tag: class: "twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15 twcss-pointer-events-none" }}{%- endif -%}
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     <div class="twcss-py-24 twcss-space-y-16">
-      <div class="twcss-grid twcss-grid-cols-2 lg:twcss-grid-cols-3 twcss-gap-8">
+      <div class="twcss-space-y-12 lg:twcss-space-y-0 lg:twcss-grid lg:twcss-grid-cols-3 twcss-gap-8">
         {% for block in section.blocks %}
         <div class="twcss-text-center">
           <figure class="twcss-relative twcss-w-10/12 twcss-aspect-[0.8/1] twcss-mx-auto">
             {{ block.settings.image | image_url: width: 512 | image_tag: class: "twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0 twcss-object-contain twcss-object-center" }}
           </figure>
           <div class="twcss-mt-6 twcss-space-y-4 twcss-text-black">
-            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black">{{ block.settings.title }}</h2>
+            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black twcss-text-[24px] lg:twcss-text-[32px]">{{ block.settings.title }}</h2>
             <p>{{ block.settings.title }}</p>
           </div>
         </div>
         {% endfor %}
       </div>
-      <div class="twcss-w-9/12 twcss-mx-auto">
+      <div class="twcss-mx-auto">
         <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] twcss-leading-none twcss-text-black twcss-text-center">{{ section.settings.content}}</h2>
       </div>
     </div>

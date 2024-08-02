@@ -1,7 +1,7 @@
 {
   "sections": {
-    "home_hero": {
-      "type": "home-hero",
+    "hero": {
+      "type": "hero",
       "blocks": {
         "title_UiNH3e": {
           "type": "title",
@@ -47,6 +47,13 @@
         "title_Fcjwtc"
       ],
       "settings": {
+        "video": "shopify:\/\/files\/videos\/intro.mp4"
+      }
+    },
+    "content": {
+      "type": "content",
+      "settings": {
+        "content": "Conformado por un equipo de diseñadores industriales, Tarareo Estudio se enfoca en materializar todo aquello que pueda ser imaginado para crear productos utilitarios que impulsen tu marca, creen experiencias y propongan soluciones."
       }
     },
     "home_about": {
@@ -120,7 +127,6 @@
         "title_NBcWhE"
       ],
       "settings": {
-        "content": "Conformado por un equipo de diseñadores industriales, Tarareo Estudio se enfoca en materializar todo aquello que pueda ser imaginado para crear productos utilitarios que impulsen tu marca, creen experiencias y propongan soluciones."
       }
     },
     "impulsamos_tu_marca": {
@@ -156,6 +162,28 @@
     },
     "marquee": {
       "type": "marquee",
+      "blocks": {
+        "text_BXkcVR": {
+          "type": "text",
+          "settings": {
+            "text": "De la vista",
+            "fontfamily": "novecento",
+            "italic": false
+          }
+        },
+        "text_fXfTKh": {
+          "type": "text",
+          "settings": {
+            "text": "Nace el amor",
+            "fontfamily": "minionpro",
+            "italic": true
+          }
+        }
+      },
+      "block_order": [
+        "text_BXkcVR",
+        "text_fXfTKh"
+      ],
       "settings": {
       }
     },
@@ -197,11 +225,39 @@
         "content": "TRANSFORMAMOS ALGO SENCILLO EN UN RECUERDO QUE PERMANECE DURANTE MÁS TIEMPO EN LA MENTE DEL CONSUMIDOR."
       }
     },
-    "como_funcionamos": {
-      "type": "home-como-funcionamos",
+    "text_image": {
+      "type": "text-image",
+      "blocks": {
+        "link_xzeAna": {
+          "type": "link",
+          "settings": {
+            "url": "#diseno-de-linea",
+            "text": "Diseño de línea"
+          }
+        },
+        "link_kB49h6": {
+          "type": "link",
+          "settings": {
+            "url": "#diseno-personalizado",
+            "text": "Diseño personalizado"
+          }
+        }
+      },
+      "block_order": [
+        "link_xzeAna",
+        "link_kB49h6"
+      ],
       "settings": {
+        "schema": "black",
         "title": "¿Cómo funcionamos?",
-        "content": "<p>Nuestros productos son únicos. Cada uno requirió de nuestra imaginación y creatividad para hacerlos realidad.<\/p><p>Tarareo Store te permite adquirir los productos y experiencias que no encontrarás en ningún otro lado.<\/p>"
+        "subtitle": "",
+        "content": "<p>Nuestros productos son únicos. Cada uno requirió de nuestra imaginación y creatividad para hacerlos realidad.<\/p><p>Tarareo Store te permite adquirir los productos y experiencias que no encontrarás en ningún otro lado.<\/p>",
+        "image": "shopify:\/\/shop_images\/bg-como-funcionamos.jpg"
+      }
+    },
+    "diseno_de_linea_mobile": {
+      "type": "home-diseno-de-linea-mobile",
+      "settings": {
       }
     },
     "diseno_de_linea": {
@@ -273,12 +329,14 @@
     }
   },
   "order": [
-    "home_hero",
+    "hero",
+    "content",
     "home_about",
     "impulsamos_tu_marca",
     "marquee",
     "de_la_vista_nace_el_amor",
-    "como_funcionamos",
+    "text_image",
+    "diseno_de_linea_mobile",
     "diseno_de_linea",
     "diseno_personalizado",
     "proyectos"

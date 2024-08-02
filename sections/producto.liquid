@@ -68,7 +68,7 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     {% comment %} <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}"> {% endcomment %}
-    <div class="twcss-grid twcss-grid-cols-2 twcss-gap-10">
+    <div class="twcss-grid lg:twcss-grid-cols-2 twcss-gap-10">
       {% comment %} <div class="grid__item product__media-wrapper"> {% endcomment %}
       <div class="product__column-sticky">
         {% render 'product-images', variant_images: variant_images %}
@@ -265,7 +265,7 @@
                           <input 
                             type="radio"
                             id="led-{{ color.nombre.value | downcase }}"
-                            name="properties[Luz]"
+                            name="properties[Led]"
                             value="{{ color.nombre.value }}"
                             class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
                             required />
@@ -281,13 +281,13 @@
                     <div>
                       <p>Madera</p>
                       <div class="twcss-flex twcss-space-x-6">
-                        {% assign color_base = product.metafields.options.madera.value %}
-                        {% for color in color_base %}
+                        {% assign color_madera = product.metafields.options.madera.value %}
+                        {% for color in color_madera %}
                         <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
                           <input 
                             type="radio"
                             id="madera-{{ color.nombre.value | downcase }}"
-                            name="properties[Luz]"
+                            name="properties[Madera]"
                             value="{{ color.nombre.value }}"
                             class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
                             required />
@@ -345,7 +345,7 @@
                     {%- endif -%}
                     <div class="twcss-flex twcss-flex-col">
                       <label for="your-name">Notas:</label>
-                      <textarea id="your-name" name="properties[Your name]" placeholder="Escriba aquí sus notas" class="twcss-appearance-none twcss-bg-[#F2EEEE] twcss-px-4 twcss-py-3 twcss-rounded-lg twcss-border-transparent focus-visible:twcss-outline-none focus-visible:twcss-ring-0 "></textarea>
+                      <textarea id="your-name" name="properties[Notas]" placeholder="Escriba aquí sus notas" class="twcss-appearance-none twcss-bg-[#F2EEEE] twcss-px-4 twcss-py-3 twcss-rounded-lg twcss-border-transparent focus-visible:twcss-outline-none focus-visible:twcss-ring-0 "></textarea>
                     </div>
                   </div>
                 </div>
@@ -937,7 +937,7 @@
       slidesPerView: 4.5,
       watchSlidesProgress: true,
     });
-    const swiper2 = new Swiper('.mainimage', {
+    const swiper2 = new Swiper('.main', {
       loop: true,
       navigation: {
         nextEl: ".swiper-button-next",
@@ -947,6 +947,34 @@
         swiper: swiper,
       },
     });
+
+    const addToCartButton = document.querySelector("#ProductSubmitButton-template--17374963957956__main");
+    const avaiableOptions = ['properties[Acrilico]', 'properties[Base]', 'properties[Led]', 'properties[Madera]', 'properties[Luz]', 'properties[Vinil]'];
+    const radioNames = avaiableOptions.filter(radioGroup => {
+      return document.querySelector(`input[name="${radioGroup}"]`);
+    });
+    const selectedGroups = new Set();
+    function checkAllGroupsSelected() {
+      if (selectedGroups.size === radioNames.length) {
+        addToCartButton.disabled = false;
+      } else {
+        addToCartButton.disabled = true;
+      }
+    }
+    function checkOptions(event) {
+      const groupName = event.target.name;
+      selectedGroups.add(groupName);
+      checkAllGroupsSelected();
+    }
+    radioNames.forEach(radioGroup => {
+      const optionInputs = document.querySelectorAll(`input[name="${radioGroup}"]`);
+      if (optionInputs.length > 0) {
+        optionInputs.forEach(optionInput => {
+          optionInput.addEventListener('change', checkOptions);
+        });
+      }
+    });
+    checkAllGroupsSelected();
   });
 })();
 {% endjavascript %}

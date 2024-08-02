@@ -1,32 +1,35 @@
 
-<section id="stacked-at-scroll" class="twcss-relative twcss-bg-black twcss-w-screen twcss-h-screen twcss-flex twcss-flex-col">
+<section id="stacked-at-scroll" class="twcss-relative twcss-w-full twcss-h-screen twcss-flex twcss-flex-col twcss-bg-black twcss-overflow-hidden">
   {% for block in section.blocks %}
     {% if forloop.index0 == 0 %}
-      <div class="stacked-1 twcss-w-full twcss-pt-40">
+    <div class="stacked-1 twcss-w-full twcss-pt-40">
       <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-bg-black">
-        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">{{ block.settings.text }},</h2>
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-text-white twcss-leading-none">{{ block.settings.text }},</h2>
       </div>
     </div>
     {% elsif forloop.index0 == 1 %}
     <div class="stacked-2 twcss-w-full twcss-pt-12">
       <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-bg-black">
-        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none">{{ block.settings.text }},</h2>
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-text-white twcss-leading-none">{{ block.settings.text }},</h2>
       </div>
     </div>
     {% elsif forloop.index0 == 2 %}
-    <div class="stacked-3 twcss-w-full twcss-pt-12 twcss-flex twcss-justify-center twcss-flex-grow">
-      <div class="twcss-relative twcss-w-10/12 twcss-max-w-[1120px]">
-        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[64px] twcss-text-white twcss-leading-none twcss-bg-black">{{ block.settings.text }}.</h2>
-        <div class="twcss-absolute twcss-w-[98px] twcss-top-48 twcss-bottom-24 twcss-left-0">
-          <div class="twcss-absolute twcss-bg-white twcss-w-[8px] twcss-h-[calc(100%-4px)] twcss-left-1/2 -twcss-translate-x-1/2">&nbsp;</div>
-          <img src="{{ 'arrow-down-xl.png' | asset_url }}" width="100%" height="53" class="twcss-absolute twcss-bottom-0 twcss-left-0 twcss-w-full twcss-h-[53px]">
+    <div class="stacked-3 twcss-w-full twcss-py-12 lg:twcss-pb-24 twcss-flex twcss-justify-center twcss-flex-grow">
+      <div class="twcss-relative twcss-w-10/12 twcss-max-w-[1120px] twcss-h-full twcss-flex twcss-flex-col twcss-space-y-12">
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-text-white twcss-leading-none twcss-bg-black">{{ block.settings.text }}.</h2>
+        {% comment %} twcss-top-48 twcss-bottom-24 twcss-left-0 {% endcomment %}
+        <div class="twcss-relative twcss-w-20 lg:twcss-w-24 twcss-flex twcss-flex-grow">
+          <div class="twcss-absolute twcss-bg-white twcss-w-[5px] lg:twcss-w-[8px] twcss-h-[calc(100%-5px)] twcss-left-1/2 -twcss-translate-x-1/2 twcss-rounded-t-lg">&nbsp;</div>
+          <div class="twcss-absolute aspect-[2/1] twcss-bottom-0 twcss-w-full">
+            <img src="{{ 'arrow-down-xl.png' | asset_url }}" width="100%" height="53" class="twcss-w-full">
+          </div>
         </div>
       </div>
     </div>
     {% endif %}
   {% endfor %}
-  <div class="twcss-absolute twcss-flex twcss-justify-end twcss-w-10/12 twcss-max-w-[1120px] twcss-bottom-0 twcss-left-1/2 -twcss-translate-x-1/2 twcss-pb-24">
-    {{ section.settings.foreground_image | image_url: width: 180 | image_tag: class: "bottom-right-item twcss-block" }}
+  <div class="twcss-absolute twcss-flex twcss-justify-end twcss-w-10/12 twcss-max-w-[1120px] twcss-bottom-0 twcss-left-1/2 -twcss-translate-x-1/2 twcss-pb-16 lg:twcss-pb-24">
+    {{ section.settings.foreground_image | image_url: width: 180 | image_tag: class: "max-md:twcss-max-w-44 bottom-right-item twcss-block" }}
   </div>
 </section>
 {% schema %}
