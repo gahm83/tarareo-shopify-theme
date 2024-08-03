@@ -1,22 +1,23 @@
-<div class="gallery">                
-  <div class="swiper gallery-slider">
-    <div class="swiper-wrapper">
-      {% for image in product.images %} 
-        <div class="swiper-slide">
-          {{ image.src | image_url: width: 770, height: 974 | image_tag }}
-        </div>
-      {% endfor %}
-    </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-  <div class="swiper gallery-thumbs">
-    <div class="swiper-wrapper">
-      {% for image in product.images %} 
+
+
+{% comment %} <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2"> {% endcomment %}
+<div class="swiper main twcss-w-full">
+  <div class="swiper-wrapper">
+    {% for image in product.images %} 
       <div class="swiper-slide">
-        {{ image.src | image_url: width: 770, height: 974 | image_tag: class: "twcss-relative twcss-w-full twcss-h-full twcss-object-cover twcss-object-center"}}
+        <img src="{{ image.src | product_img_url: 'master' }}" >
       </div>
-      {% endfor %}
-    </div>
+    {% endfor %}
+  </div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</div>
+<div class="swiper thumbnails twcss-w-full">
+  <div class="swiper-wrapper">
+    {% for image in product.images %} 
+      <div class="swiper-slide">
+        <img src="{{ image.src | product_img_url: 'master' }}" >
+      </div>
+    {% endfor %}
   </div>
 </div>

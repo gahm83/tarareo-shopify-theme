@@ -19,7 +19,7 @@
         {% if section.blocks.size > 0 %}
         <div class=" twcss-flex -twcss-m-3 twcss-flex-wrap">
           {% for block in section.blocks %}
-          <a href="{{ block.settings.url }}" class=" scroll-to twcss-flex twcss-flex-wrap twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-z-10 twcss-m-3 twcss-whitespace-nowrap">
+          <a href="{{ block.settings.url }}" class=" scroll-to twcss-flex twcss-flex-wrap twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-m-3 twcss-whitespace-nowrap">
             <span>{{ block.settings.text }}</span>
           </a>
           {% endfor %}

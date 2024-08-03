@@ -80,6 +80,9 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .menu-drawer__inner-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   height: 100%;
 }
 
@@ -88,11 +91,20 @@ details[open].menu-opening > .menu-drawer__submenu {
   grid-template-rows: 1fr auto;
   align-content: space-between;
   overflow-y: auto;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .menu-drawer__navigation {
   padding: 3rem 0;
+}
+
+.menu-drawer__brand_social-icons {
+  padding: 3rem;
+}
+
+.menu-drawer__brand_social-icons svg {
+  display: block;
+  width: 24vw;
 }
 
 .menu-drawer__inner-submenu {
@@ -185,7 +197,9 @@ details[open].menu-opening > .menu-drawer__submenu {
 }
 
 @media screen and (max-width: 749px) {
-  .header--has-account:where(:not(.header--has-social):not(.header--has-localizations))
+  .header--has-account:where(
+      :not(.header--has-social):not(.header--has-localizations)
+    )
     .menu-drawer__utility-links {
     padding: 2rem 3rem;
   }
