@@ -1,4 +1,4 @@
-<section id="porque-tarareo" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-pt-40 twcss-pb-24 lg:twcss-h-screen twcss-bg-black">
+<section id="porque-tarareo" class="twcss-relative twcss-bg-black twcss-h-screen twcss-flex twcss-items-center">
   <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-space-y-16">
     <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-leading-none twcss-text-white">¿Porqué TARAREO?</h2>
     <div class="twcss-flex twcss-flex-col-reverse lg:twcss-grid lg:twcss-grid-cols-2 twcss-place-items-center">
@@ -22,19 +22,17 @@
 {% javascript %} 
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
-    gsap.registerPlugin(ScrollTrigger);
-    let tl = gsap.timeline({
+    // gsap.registerPlugin(ScrollTrigger);
+    let timelinePorque = gsap.timeline({
       scrollTrigger: {
         trigger: '#porque-tarareo',
-        start: 'top top',
-        end: 'bottom',
         pin: true,
-        scrub: true
+        start: 'top',
+        end: 'bottom',
+        scrub: 5,
       }
     });
-    tl.from('.funcionalidad-ergonomia', { y: '100vh' })
-      .from('.estetica', { y: '100vh' })
-      .from('.innovacion', { y: '100vh' });
+    timelinePorque.from('.funcionalidad-ergonomia', { y: "100vh", });
   });
 })();
 {% endjavascript %}
