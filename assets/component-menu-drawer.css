@@ -102,11 +102,6 @@ details[open].menu-opening > .menu-drawer__submenu {
   padding: 3rem;
 }
 
-.menu-drawer__brand_social-icons svg {
-  display: block;
-  width: 24vw;
-}
-
 .menu-drawer__inner-submenu {
   height: 100%;
   overflow-x: hidden;
