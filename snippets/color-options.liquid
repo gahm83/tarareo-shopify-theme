@@ -1,0 +1,20 @@
+<div>
+  <p>{%- if title == "Acrilico" -%}Selecciona el color del acrílico{%- else -%}{{ title }}{%- endif -%}</p>
+  <div class="twcss-flex twcss-flex-wrap -twcss-mx-2">
+    {% assign colors = options %}
+    {% for color in colors %}
+    <div class="color-option twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-16 twcss-h-16 twcss-shrink-0 twcss-overflow-hidden">
+      <input 
+        type="radio"
+        id="{{ title | downcase }}-{{ color.nombre.value | downcase }}"
+        name="properties[{{ title }}]"
+        value="{{ color.nombre.value }}"
+        class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
+        required />
+      <label for="{{ title | downcase }}-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-12 twcss-h-12 twcss-rounded-full {% if color.hex.value == '#ffffff' %} twcss-border twcss-border-black/25{%- endif -%}" style="background-color:{{ color.hex.value }};">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-9 twcss-h-9 twcss-drop-shadow-md"><path fill="{% if color.hex.value == '#ffffff' %} #000000{%- else -%} #ffffff{%- endif -%}" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
+      </label>
+    </div>
+    {% endfor %}
+  </div>
+</div>

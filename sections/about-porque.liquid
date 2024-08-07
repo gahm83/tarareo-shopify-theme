@@ -22,9 +22,10 @@
 {% javascript %} 
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
+    
     gsap.registerPlugin(ScrollTrigger);
-    let tlHero = gsap.timeline({
-      // yes, we can add it to an entire timeline!
+    
+    const tl1 = gsap.timeline({
       scrollTrigger: {
         trigger: '#hero-video',
         pin: true,
@@ -33,18 +34,19 @@
         scrub: 3,
       }
     });
-    tlHero.from('#video-background', { y: "100vh", });
+    tl1.from('#video-background', { y: "+=100%" });
 
-    let tlPorque = gsap.timeline({
+    const tl2 = gsap.timeline({
       scrollTrigger: {
         trigger: '#porque-tarareo',
-        start: 'top top',
+        start: 'top',
         end: 'bottom',
         pin: true,
-        scrub: true
+        scrub: 3,
       }
     });
-    tlPorque.from('.funcionalidad-ergonomia', { y: '100vh' })
+
+    tl2.from('.funcionalidad-ergonomia', { y: '100vh' })
       .from('.estetica', { y: '100vh' })
       .from('.innovacion', { y: '100vh' });
   });

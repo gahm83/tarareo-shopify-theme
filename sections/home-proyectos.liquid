@@ -25,6 +25,34 @@
 {% javascript %}
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
+    
+    gsap.registerPlugin(ScrollTrigger);
+    
+    const tl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#hero-video',
+        pin: true,
+        start: 'top',
+        end: 'bottom',
+        scrub: 3,
+      }
+    });
+    tl1.from('#video-background', { y: "+=100%" });
+    
+    const tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#stacked-at-scroll',
+        start: 'top',
+        end: 'bottom',
+        pin: true,
+        scrub: 3,
+      }
+    });
+    tl2.from('.bottom-right-item', { x: "50vw" })
+      .from('.stacked-1', { y: "100vh" })
+      .from('.stacked-2', { y: "100vh" })
+      .from('.stacked-3', { y: "100vh" });
+
     const imagesProyectos = document.querySelectorAll(".slide-proyecto");
     const swiperProyectos = new Swiper(".swiper-proyectos", {
       slidesPerView: "auto",
@@ -66,7 +94,6 @@
     "disabled_on": {
       "groups": ["header", "footer"]
     },
-    "settings": [],
     "max_blocks": 8,
     "blocks": [
       {

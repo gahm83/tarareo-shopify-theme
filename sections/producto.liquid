@@ -212,140 +212,32 @@
                   </div>
                   <div class="twcss-px-5 twcss-py-7 twcss-space-y-4">
                     {%- if product.metafields.options.acrilico.value != blank -%}
-                    <div>
-                      <p>Selecciona el color del acrílico</p>
-                      <div class="twcss-flex twcss-space-x-6">
-                        {% assign color_acrilico = product.metafields.options.acrilico.value %}
-                        {% for color in color_acrilico %}
-                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
-                          <input 
-                            type="radio"
-                            id="acrilico-{{ color.nombre.value | downcase }}"
-                            name="properties[Acrilico]"
-                            value="{{ color.nombre.value }}"
-                            class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
-                            required />
-                          <label for="acrilico-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full {% if color.nombre.value == '#000000' %} twcss-border twcss-border-black{% endif %}" style="background-color:{{ color.hex.value }};">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
-                          </label>
-                        </div>
-                        {% endfor %}
-                      </div>
-                    </div>
+                      {% assign colors = product.metafields.options.acrilico.value %}
+                      {% render 'color-options', title: 'Acrilico', options: colors %}
                     {%- endif -%}
                     {%- if product.metafields.options.base.value != blank -%}
-                    <div>
-                      <p>Base</p>
-                      <div class="twcss-flex twcss-space-x-6">
-                        {% assign color_base = product.metafields.options.base.value %}
-                        {% for color in color_base %}
-                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
-                          <input 
-                            type="radio"
-                            id="base-{{ color.nombre.value | downcase }}"
-                            name="properties[Base]"
-                            value="{{ color.nombre.value }}"
-                            class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
-                            required />
-                          <label for="base-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
-                          </label>
-                        </div>
-                        {% endfor %}
-                      </div>
-                    </div>
+                      {% assign colors = product.metafields.options.base.value %}
+                      {% render 'color-options', title: 'Base', options: colors %}
                     {%- endif -%}
                     {%- if product.metafields.options.led.value != blank -%}
-                    <div>
-                      <p>Led</p>
-                      <div class="twcss-flex twcss-space-x-6">
-                        {% assign color_led = product.metafields.options.led.value %}
-                        {% for color in color_led %}
-                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
-                          <input 
-                            type="radio"
-                            id="led-{{ color.nombre.value | downcase }}"
-                            name="properties[Led]"
-                            value="{{ color.nombre.value }}"
-                            class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
-                            required />
-                          <label for="led-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
-                          </label>
-                        </div>
-                        {% endfor %}
-                      </div>
-                    </div>
-                    {%- endif -%}
-                    {%- if product.metafields.options.madera.value != blank -%}
-                    <div>
-                      <p>Madera</p>
-                      <div class="twcss-flex twcss-space-x-6">
-                        {% assign color_madera = product.metafields.options.madera.value %}
-                        {% for color in color_madera %}
-                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
-                          <input 
-                            type="radio"
-                            id="madera-{{ color.nombre.value | downcase }}"
-                            name="properties[Madera]"
-                            value="{{ color.nombre.value }}"
-                            class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
-                            required />
-                          <label for="madera-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
-                          </label>
-                        </div>
-                        {% endfor %}
-                      </div>
-                    </div>
+                      {% assign colors = product.metafields.options.led.value %}
+                      {% render 'color-options', title: 'Led', options: colors %}
                     {%- endif -%}
                     {%- if product.metafields.options.luz.value != blank -%}
-                    <div>
-                      <p>Luz</p>
-                      <div class="twcss-flex twcss-space-x-6">
-                        {% assign color_base = product.metafields.options.luz.value %}
-                        {% for color in color_base %}
-                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
-                          <input 
-                            type="radio"
-                            id="luz-{{ color.nombre.value | downcase }}"
-                            name="properties[Luz]"
-                            value="{{ color.nombre.value }}"
-                            class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
-                            required />
-                          <label for="luz-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
-                          </label>
-                        </div>
-                        {% endfor %}
-                      </div>
-                    </div>
+                      {% assign colors = product.metafields.options.luz.value %}
+                      {% render 'color-options', title: 'Luz', options: colors %}
+                    {%- endif -%}
+                    {%- if product.metafields.options.madera.value != blank -%}
+                      {% assign colors = product.metafields.options.madera.value %}
+                      {% render 'color-options', title: 'Madera', options: colors %}
                     {%- endif -%}
                     {%- if product.metafields.options.vinil.value != blank -%}
-                    <div>
-                      <p>Vinil</p>
-                      <div class="twcss-flex twcss-space-x-6">
-                        {% assign color_vinil = product.metafields.options.vinil.value %}
-                        {% for color in color_vinil %}
-                        <div class="color-option twcss-relative wcss-flex twcss-w-12 twcss-h-12 twcss-overflow-hidden">
-                          <input 
-                            type="radio"
-                            id="vinil-{{ color.nombre.value | downcase }}"
-                            name="properties[Vinil]"
-                            value="{{ color.nombre.value }}"
-                            class="twcss-absolute twcss-opacity twcss-z-10 twcss-opacity-0"
-                            required />
-                          <label for="vinil-{{ color.nombre.value | downcase }}" class="twcss-absolute twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-h-full twcss-rounded-full" style="background-color:{{ color.hex.value }};">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" class="twcss-w-7 twcss-h-7"><path fill="#ffffff" fill-rule="evenodd" d="m6 10l-2 2l6 6L20 8l-2-2l-8 8z"/></svg>
-                          </label>
-                        </div>
-                        {% endfor %}
-                      </div>
-                    </div>
+                      {% assign colors = product.metafields.options.vinil.value %}
+                      {% render 'color-options', title: 'Vinil', options: colors %}
                     {%- endif -%}
                     <div class="twcss-flex twcss-flex-col">
                       <label for="your-name">Notas:</label>
-                      <textarea id="your-name" name="properties[Notas]" placeholder="Escriba aquí sus notas" class="twcss-appearance-none twcss-bg-[#F2EEEE] twcss-px-4 twcss-py-3 twcss-rounded-lg twcss-border-transparent focus-visible:twcss-outline-none focus-visible:twcss-ring-0 "></textarea>
+                      <textarea id="your-name" name="properties[Notas]" placeholder="Escriba aquí sus notas" class="twcss-appearance-none twcss-bg-neutral-100 twcss-px-4 twcss-py-3 twcss-rounded-lg twcss-border-transparent focus-visible:twcss-outline-none focus-visible:twcss-ring-0 "></textarea>
                     </div>
                   </div>
                 </div>
@@ -392,7 +284,7 @@
                   </label>
                   <div class="price-per-item__container">
                     <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
-                      <button class="quantity__button" name="minus" type="button">
+                      <button class="quantity__button !twcss-bg-black" name="minus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                         </span>
@@ -414,7 +306,7 @@
                         value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
                         form="{{ product_form_id }}"
                       >
-                      <button class="quantity__button" name="plus" type="button">
+                      <button class="quantity__button !twcss-bg-black" name="plus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                         </span>
@@ -893,36 +785,60 @@
   .color-option label svg { display: none; }
   .color-option input:checked + label svg { display: block; }
 
-  .swiper.slider { height: 480px; }
-  .swiper.thumbs { margin-top: 4px; }
-  .swiper.thumbs .swiper-slide { opacity: 0.6; }
-  .swiper.thumbs .swiper-slide.swiper-slide-active { opacity: 1; }
+    .swiper.slider {
+      width: 100%;
+      height: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .swiper-slide {
+      background-size: cover;
+      background-position: center;
+    }
+
+    .thumbs {
+      margin-top: 4px;
+    }
+
+    .thumbs .swiper-slide {
+      width: 22.5%;
+      opacity: 0.4;
+    }
+
+    .thumbs .swiper-slide.swiper-slide-thumb-active {
+      opacity: 1;
+    }
 {% endstyle %}
 {% javascript %}
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
-    
-    const slider = new Swiper('.slider', {
-      slidesPerView: 1,
-    centeredSlides: true,
+
+  const swiper = new Swiper(".thumbs", {
+    slidesPerView: 'auto',
+    spaceBetween: 4,
     loop: true,
-    loopAdditionalSlides: 6,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      }
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    on: {
+      click() {
+        console.log('index', this.clickedIndex);
+        swiper.slideTo(this.clickedIndex);    
+      },
+    },
+  });
+  const swiper2 = new Swiper(".slider", {
+    slidesPerView: 1,
+      thumbs: {
+        swiper: swiper,
+      },
+      on: {
+        init: function () {
+          console.log('swiper initialized');
+          swiper.slideTo(1, 1, false);
+        },
+      },
     });
-
-    const thumbs = new Swiper('.thumbs', {
-      slidesPerView: 4,
-      spaceBetween: 4,
-      centeredSlides: true,
-      loop: true,
-      slideToClickedSlide: true,
-    });
-
-    slider.controller.control = thumbs;
-    thumbs.controller.control = slider;
 
     const addToCartButton = document.querySelector("#ProductSubmitButton-template--17374963957956__main");
     const avaiableOptions = ['properties[Acrilico]', 'properties[Base]', 'properties[Led]', 'properties[Madera]', 'properties[Luz]', 'properties[Vinil]'];
