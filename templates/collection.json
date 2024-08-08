@@ -1,7 +1,57 @@
 {
   "sections": {
-    "hero": {
-      "type": "tienda-hero",
+    "image_text": {
+      "type": "image-text",
+      "settings": {
+        "schema": "white",
+        "title": "No tienes tanto tiempo...",
+        "subtitle": "We got you",
+        "content": "<p>Creamos tarareo store para que puedas tener nuestros productos (hechos con el mismo amor e intelecto) pero en un lapso de tiempo más corto de lo habitual, los productos de línea son diseños previamente desarrollados que tenemos en stock esperando que los personalicemos para ti.<\/p>",
+        "image": "shopify:\/\/shop_images\/sinergia.png"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "blocks": {
+        "text_cKUnan": {
+          "type": "text",
+          "settings": {
+            "text": "Get people",
+            "fontfamily": "minionpro",
+            "italic": true
+          }
+        },
+        "text_Pk3tRB": {
+          "type": "text",
+          "settings": {
+            "text": "talking",
+            "fontfamily": "novecento",
+            "italic": false
+          }
+        },
+        "text_4Jw9Nz": {
+          "type": "text",
+          "settings": {
+            "text": "about your",
+            "fontfamily": "minionpro",
+            "italic": true
+          }
+        },
+        "text_QYgAXe": {
+          "type": "text",
+          "settings": {
+            "text": "brand",
+            "fontfamily": "novecento",
+            "italic": false
+          }
+        }
+      },
+      "block_order": [
+        "text_cKUnan",
+        "text_Pk3tRB",
+        "text_4Jw9Nz",
+        "text_QYgAXe"
+      ],
       "settings": {
       }
     },
@@ -10,11 +60,15 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
+        "color_scheme": "",
         "image_ratio": "adapt",
+        "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "none",
         "enable_filtering": true,
+        "filter_type": "horizontal",
         "enable_sorting": true,
         "columns_mobile": "2",
         "padding_top": 36,
@@ -23,7 +77,8 @@
     }
   },
   "order": [
-    "hero",
+    "image_text",
+    "marquee",
     "product-grid"
   ]
 }

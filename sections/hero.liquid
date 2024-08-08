@@ -1,5 +1,8 @@
 <section id="hero-video" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-aspect-video twcss-overflow-hidden twcss-bg-black lg:twcss-h-screen">
-  {%- if section.settings.video %}{{ section.settings.video | video_tag: id: "video-background", autoplay: true, loop: true, muted: true, controls: false, class: "twcss-absolute twcss-w-auto twcss-min-w-full twcss-min-h-full twcss-max-w-none twcss-pointer-events-none" }}{%- endif -%}
+  {% comment %} <video id="video-background" autoplay loop  muted class="twcss-absolute twcss-w-auto twcss-min-w-full twcss-min-h-full twcss-max-w-none twcss-pointer-events-none">
+    <source src="{{ 'intro.mp4' | file_url }}" type="video/mp4">
+    </video> {% endcomment %}
+  {%- if section.settings.video %}{{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: "twcss-absolute twcss-w-auto twcss-min-w-full twcss-min-h-full twcss-max-w-none twcss-pointer-events-none" }}{%- endif -%}
   <div class="twcss-relative">
     <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] lg:twcss-w-9/12 lg:twcss-mx-auto twcss-leading-[0.7] twcss-pointer-events-none">
     {% for block in section.blocks %}
@@ -70,3 +73,21 @@
   cursor: url('data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2248%22%20height%3D%2248%22%20viewBox%3D%220%200%2016%2016%22%3E%3Ccircle%20cx%3D%228%22%20cy%3D%228%22%20r%3D%224%22%20fill%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E') 16 16, auto;
 }
 {% endstyle %}
+{% comment %}
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    gsap.registerPlugin(ScrollTrigger);
+    let tl = gsap.timeline({
+      // yes, we can add it to an entire timeline!
+      scrollTrigger: {
+        trigger: '#hero-video',
+        pin: true,
+        start: 'top',
+        end: 'bottom',
+        scrub: 3,
+      }
+    });
+    tl.from('#video-background', { y: "100vh", });
+  });
+})();
+{% endcomment %}

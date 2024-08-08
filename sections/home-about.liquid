@@ -1,20 +1,13 @@
 <section id="tooltip-section" class="twcss-relative">
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     <div class="twcss-py-16">
-      <div class="twcss-grid twcss-grid-cols-2 lg:twcss-grid-cols-4 twcss-row-span-4 -twcss-m-[16px]">
-        {%- assign block_classnames = "
-        twcss-col-span-1 twcss-row-span-2,
-        twcss-col-span-1 twcss-row-span-1 twcss-aspect-square,
-        twcss-col-span-1 twcss-row-span-1 twcss-aspect-square lg:twcss-col-start-2,
-        twcss-col-span-2 twcss-row-span-2 twcss-aspect-[2/1] lg:twcss-row-start-1 lg:twcss-col-start-3,
-        twcss-col-span-1 twcss-row-span-1 twcss-aspect-square lg:twcss-row-start-2 lg:twcss-col-start-3,
-        twcss-col-span-1 twcss-row-span-2 lg:twcss-col-start-4 lg:twcss-row-start-2,
-        twcss-col-span-1 twcss-row-span-1 twcss-aspect-square,
-        twcss-col-span-2 twcss-row-span-2 twcss-aspect-[2/1]" | split: "," -%}
+      {% comment %} <h2 class="twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[24px] lg:twcss-text-[32px] twcss-leading-none">{{ section.settings.content }}</h2> {% endcomment %}
+      <div class="twcss-grid twcss-grid-cols-2 lg:twcss-grid-cols-4 twcss-grid-rows-6 lg:twcss-grid-rows-3 -twcss-m-3">
+        {%- assign block_classnames = "about-item twcss-relative twcss-row-span-2,about-item twcss-relative twcss-aspect-square,about-item twcss-relative twcss-col-span-2,about-item twcss-relative twcss-row-start-2 twcss-col-start-2,about-item twcss-relative twcss-aspect-square,about-item twcss-relative twcss-row-span-2,about-item twcss-relative twcss-aspect-square,about-item twcss-relative twcss-col-span-2" | split: "," -%}
         {% for block in section.blocks %}
-        <div class="about-item {{ block_classnames[forloop.index0] }}">
-          {{ block.settings.image | image_url: width: 512 | image_tag: class: "twcss-w-full twcss-h-full twcss-object-cover twcss-object-center twcss-border-[16px] twcss-border-white" }}
-          <span class="tooltip twcss-bg-[#FFE500] twcss-transition-opacity twcss-duration-300 twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[32px] twcss-leading-none twcss-whitespace-nowrap">{{ block.settings.text }}</span>
+        <div class="about-item twcss-relative {{ block_classnames[forloop.index0] }}">
+          {{ block.settings.image | image_url: width: 512 | image_tag: class: "twcss-absolute twcss-w-[calc(100%-1.5rem)] twcss-h-[calc(100%-1.5rem)] twcss-top-3 twcss-right-3 twcss-bottom-3 twcss-left-3 twcss-object-cover twcss-object-center" }}
+          <span class="tooltip twcss-bg-[#FFE500] twcss-transition-opacity twcss-duration-300 twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[32px] twcss-leading-none">{{ block.settings.text }}</span>
         </div>
         {% endfor %}
       </div>
@@ -56,70 +49,24 @@
     opacity: 0;
     margin-left: 28px;
     padding: 10px;
-    position: fixed;
+    position: absolute;
     z-index: 1000;
   }
 {% endstyle %}
 {% javascript %}
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
-  //   var containers = document.querySelectorAll('.about-item');
-  //   containers.forEach(container => {
-  //     var tooltip = container.querySelector('.tooltip');
-  //     container.addEventListener('mousemove', function(e) {
-  //       var rect = container.getBoundingClientRect();
-  //       var x = e.clientX - rect.left;
-  //       var y = e.clientY - rect.top;
-  //       tooltip.style.left = x + 'px';
-  //       tooltip.style.top = y + 'px';
-  //     });
-  //   });
-
-  document.querySelectorAll('.about-item').forEach(container => {
-    const tooltip = container.querySelector('.tooltip');
-
-    let mouse = { x: 0, y: 0 };
-
-    const ref = {
-      getBoundingClientRect: () => ({
-        top: mouse.y,
-        right: mouse.x,
-        bottom: mouse.y,
-        left: mouse.x,
-        width: 0,
-        height: 0,
-      }),
-      clientWidth: 0,
-      clientHeight: 0,
-    };
-
-    const popper = Popper.createPopper(ref, tooltip, {
-      placement: 'bottom-start',
-      modifiers: [
-        {
-          name: 'offset',
-          options: {
-            offset: [10, 10],
-          },
-        },
-      ],
+    var containers = document.querySelectorAll('.about-item');
+    containers.forEach(container => {
+      var tooltip = container.querySelector('.tooltip');
+      container.addEventListener('mousemove', function(e) {
+        var rect = container.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+      });
     });
-
-    container.addEventListener('mousemove', (event) => {
-      const rect = container.getBoundingClientRect();
-      console.log(event, rect);
-      mouse = {
-        x: event.clientX,
-        y: event.clientY
-      };
-      tooltip.style.display = 'block';
-      popper.update();
-    });
-
-    container.addEventListener('mouseleave', () => {
-      tooltip.style.display = 'none';
-    });
-  });
   });
 })();
 {% endjavascript %}

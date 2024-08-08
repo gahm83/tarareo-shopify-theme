@@ -255,11 +255,6 @@
         "image": "shopify:\/\/shop_images\/bg-como-funcionamos.jpg"
       }
     },
-    "diseno_de_linea_mobile": {
-      "type": "home-diseno-de-linea-mobile",
-      "settings": {
-      }
-    },
     "diseno_de_linea": {
       "type": "home-diseno-de-linea",
       "settings": {
@@ -287,11 +282,53 @@
             "image": "shopify:\/\/shop_images\/mini-slider_626e39a1-ed42-4b77-b1b3-547bfc480d14.jpg"
           }
         },
+        "title_ABBnxt": {
+          "type": "title",
+          "settings": {
+            "text": "Baja California Sur",
+            "image": "shopify:\/\/shop_images\/IMG_1372.heic"
+          }
+        },
+        "title_QUF67J": {
+          "type": "title",
+          "settings": {
+            "text": "Campeche",
+            "image": "shopify:\/\/shop_images\/slider_0712.jpg"
+          }
+        },
+        "title_FHBbiy": {
+          "type": "title",
+          "settings": {
+            "text": "Chiapas",
+            "image": "shopify:\/\/shop_images\/pastel_1803.jpg"
+          }
+        },
         "title_km4WMH": {
           "type": "title",
           "settings": {
             "text": "Chihuahua",
             "image": "shopify:\/\/shop_images\/marquesina_84d92b4c-42b0-4d85-8c0d-e0d5d61560b1.jpg"
+          }
+        },
+        "title_8FVinV": {
+          "type": "title",
+          "settings": {
+            "text": "CDMX",
+            "image": "shopify:\/\/shop_images\/ruleta_06ac3c07-8a84-407d-ad71-e1c4d88ae18e.jpg"
+          }
+        },
+        "title_TmnFBb": {
+          "type": "title",
+          "settings": {
+            "text": "Coahuila",
+            "image": "shopify:\/\/shop_images\/pastel_1359.jpg"
+          }
+        },
+        "title_3RAUdb": {
+          "type": "title",
+          "settings": {
+            "text": "Colima",
+            "image": "shopify:\/\/shop_images\/pastel_0702.jpg"
           }
         },
         "title_GAK4HM": {
@@ -301,28 +338,179 @@
             "image": "shopify:\/\/shop_images\/avion_9a7fd62e-34e2-4755-96ab-6748784130d0.jpg"
           }
         },
+        "title_VWcmVh": {
+          "type": "title",
+          "settings": {
+            "text": "Edo. Mex",
+            "image": "shopify:\/\/shop_images\/IMG_1372.heic"
+          }
+        },
+        "title_nBdECg": {
+          "type": "title",
+          "settings": {
+            "text": "Guadalajara",
+            "image": "shopify:\/\/shop_images\/pastel_1356.jpg"
+          }
+        },
+        "title_mNxkBy": {
+          "type": "title",
+          "settings": {
+            "text": "Guanajuato",
+            "image": "shopify:\/\/shop_images\/mini-slider_8299.jpg"
+          }
+        },
+        "title_nrwpxX": {
+          "type": "title",
+          "settings": {
+            "text": "Guerrero"
+          }
+        },
+        "title_cKYqP8": {
+          "type": "title",
+          "settings": {
+            "text": "Hidalgo"
+          }
+        },
+        "title_JkbNYK": {
+          "type": "title",
+          "settings": {
+            "text": "Michoacán"
+          }
+        },
+        "title_KMPHzK": {
+          "type": "title",
+          "settings": {
+            "text": "Monterrey",
+            "image": "shopify:\/\/shop_images\/3f7f5cf8-5541-4053-b594-e57e86a5d453.jpg"
+          }
+        },
+        "title_CTeWPT": {
+          "type": "title",
+          "settings": {
+            "text": "Morelos"
+          }
+        },
+        "title_7ktqfE": {
+          "type": "title",
+          "settings": {
+            "text": "Nayarit"
+          }
+        },
+        "title_69FQii": {
+          "type": "title",
+          "settings": {
+            "text": "Oaxaca"
+          }
+        },
+        "title_8yBGHz": {
+          "type": "title",
+          "settings": {
+            "text": "Puebla"
+          }
+        },
+        "title_3YAhpt": {
+          "type": "title",
+          "settings": {
+            "text": "Querétaro"
+          }
+        },
+        "title_pXEjCm": {
+          "type": "title",
+          "settings": {
+            "text": "Quinta Roo"
+          }
+        },
+        "title_nazQwi": {
+          "type": "title",
+          "settings": {
+            "text": "San Luis Potosí"
+          }
+        },
+        "title_i63Ffw": {
+          "type": "title",
+          "settings": {
+            "text": "Sinaloa",
+            "image": "shopify:\/\/shop_images\/IMG_1372.heic"
+          }
+        },
+        "title_NyapfF": {
+          "type": "title",
+          "settings": {
+            "text": "Sonora",
+            "image": "shopify:\/\/shop_images\/3f7f5cf8-5541-4053-b594-e57e86a5d453.jpg"
+          }
+        },
+        "title_jrDXH4": {
+          "type": "title",
+          "settings": {
+            "text": "Tabasco"
+          }
+        },
+        "title_FJTJFm": {
+          "type": "title",
+          "settings": {
+            "text": "Tamaulipas"
+          }
+        },
+        "title_NQDFFC": {
+          "type": "title",
+          "settings": {
+            "text": "Tlaxcala"
+          }
+        },
+        "title_xgqtd3": {
+          "type": "title",
+          "settings": {
+            "text": "Veracruz"
+          }
+        },
+        "title_eNzfA6": {
+          "type": "title",
+          "settings": {
+            "text": "Yucatan"
+          }
+        },
         "title_meiPBh": {
           "type": "title",
           "settings": {
             "text": "Zacatecas",
             "image": "shopify:\/\/shop_images\/mini-slider_626e39a1-ed42-4b77-b1b3-547bfc480d14.jpg"
           }
-        },
-        "title_8FVinV": {
-          "type": "title",
-          "settings": {
-            "text": "Ciudad de México",
-            "image": "shopify:\/\/shop_images\/ruleta_06ac3c07-8a84-407d-ad71-e1c4d88ae18e.jpg"
-          }
         }
       },
       "block_order": [
         "title_eHQerg",
         "title_qxgHUg",
+        "title_ABBnxt",
+        "title_QUF67J",
+        "title_FHBbiy",
         "title_km4WMH",
+        "title_8FVinV",
+        "title_TmnFBb",
+        "title_3RAUdb",
         "title_GAK4HM",
-        "title_meiPBh",
-        "title_8FVinV"
+        "title_VWcmVh",
+        "title_nBdECg",
+        "title_mNxkBy",
+        "title_nrwpxX",
+        "title_cKYqP8",
+        "title_JkbNYK",
+        "title_KMPHzK",
+        "title_CTeWPT",
+        "title_7ktqfE",
+        "title_69FQii",
+        "title_8yBGHz",
+        "title_3YAhpt",
+        "title_pXEjCm",
+        "title_nazQwi",
+        "title_i63Ffw",
+        "title_NyapfF",
+        "title_jrDXH4",
+        "title_FJTJFm",
+        "title_NQDFFC",
+        "title_xgqtd3",
+        "title_eNzfA6",
+        "title_meiPBh"
       ],
       "settings": {
       }
@@ -336,7 +524,6 @@
     "marquee",
     "de_la_vista_nace_el_amor",
     "text_image",
-    "diseno_de_linea_mobile",
     "diseno_de_linea",
     "diseno_personalizado",
     "proyectos"

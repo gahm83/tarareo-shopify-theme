@@ -17,6 +17,7 @@
     <div class="stacked-3 twcss-w-full twcss-py-12 lg:twcss-pb-24 twcss-flex twcss-justify-center twcss-flex-grow">
       <div class="twcss-relative twcss-w-10/12 twcss-max-w-[1120px] twcss-h-full twcss-flex twcss-flex-col twcss-space-y-12">
         <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-text-white twcss-leading-none twcss-bg-black">{{ block.settings.text }}.</h2>
+        {% comment %} twcss-top-48 twcss-bottom-24 twcss-left-0 {% endcomment %}
         <div class="twcss-relative twcss-w-20 lg:twcss-w-24 twcss-flex twcss-flex-grow">
           <div class="twcss-absolute twcss-bg-white twcss-w-[5px] lg:twcss-w-[8px] twcss-h-[calc(100%-5px)] twcss-left-1/2 -twcss-translate-x-1/2 twcss-rounded-t-lg">&nbsp;</div>
           <div class="twcss-absolute aspect-[2/1] twcss-bottom-0 twcss-w-full">
@@ -60,3 +61,35 @@
     ]
   }
 {% endschema %}
+{% javascript %}
+(function () {
+  document.addEventListener('DOMContentLoaded', function() {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.bottom-right-item', {
+      scrollTrigger: {
+        trigger: '#tooltip-section',
+        start: 'bottom bottom',
+        scrub: true
+      },
+      x: '100vw'
+    });
+    gsap.from('.stacked-2', {
+      scrollTrigger: {
+        trigger: '#tooltip-section',
+        start: 'bottom bottom',
+        scrub: 2
+      },
+      y: '100vh'
+    });
+    gsap.from('.stacked-3', {
+      scrollTrigger: {
+        trigger: '#stacked-at-scroll',
+        start: 'top top',
+        pin: true,
+        scrub: true
+      },
+      y: '100vh'
+    });
+  });
+})();
+{% endjavascript %}
