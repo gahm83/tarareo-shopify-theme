@@ -44,7 +44,7 @@
           </ul>
         {%- endif -%}
         <div class="twcss-grid twcss-grid-cols-2 twcss-gap-5">
-          <div class="field">
+          <div class="field twcss-col-span-2 md:twcss-col-span-1">
             <input
               class="twcss-appearance-none twcss-bg-transparent twcss-border twcss-border-white twcss-text-white twcss-rounded-md twcss-h-12 twcss-w-full twcss-px-5 placeholder:twcss-text-white/70"
               autocomplete="name"
@@ -56,7 +56,7 @@
             >
             {% comment %} <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label> {% endcomment %}
           </div>
-          <div class="field field--with-error">
+          <div class="field field--with-error twcss-col-span-2 md:twcss-col-span-1">
             <input
               autocomplete="email"
               type="email"

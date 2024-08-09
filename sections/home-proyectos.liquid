@@ -18,6 +18,12 @@
       {% endfor %}
     </div>
   </div>
+  <a href="/collections/tarareo" class="twcss-absolute twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8 twcss-z-1 twcss-translate-y-1/2 -twcss-translate-x-1/2 twcss-left-1/2 twcss-bottom-24 twcss-z-10">
+      <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">{{ section.settings.text }}</span>
+      <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18.29 0.751953L17.1258 2.06897L27.3661 11.1211L0.5 11.1211L0.5 12.8789L27.3661 12.8789L17.1258 21.931L18.29 23.248L30.5 12.4547V11.5452L18.29 0.751953Z" fill="black"/>
+      </svg>
+    </a>
 </section>
 {% style %}
   .swiper-proyectos .swiper-slide.swiper-slide-active span { backdrop-filter: blur(8px); }
@@ -38,20 +44,43 @@
       }
     });
     tlHero.from('#video-background', { y: "+=100%" });
-    
-    const tl2 = gsap.timeline({
+
+    const triggerElement = document.querySelector("#tooltip-section");
+    const elementHeight = triggerElement.offsetHeight;
+
+    let tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '#stacked-at-scroll',
-        start: 'top',
-        end: 'bottom',
-        pin: true,
-        scrub: 3,
+        trigger: triggerElement,
+        start: `${elementHeight * 0.75}px center`,
+        endTrigger: "#stacked-at-scroll",
+        end: 'top',
+        scrub: true,
+        markers: true
       }
     });
-    tl2.from('.bottom-right-item', { x: "50vw" })
-      .from('.stacked-1', { y: "100vh" })
-      .from('.stacked-2', { y: "100vh" })
-      .from('.stacked-3', { y: "100vh" });
+    tl.from(".stacked-1", { y: '100vh' })
+    
+    let tl2 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#stacked-at-scroll",
+        start: "top",
+        end: "bottom",
+        scrub: 3,
+        pin: true
+      }
+    });
+    tl2.from(".stacked-2", { y: '100vh' })
+      .from(".stacked-3", { y: '100vh' });
+
+    let tl3 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#stacked-at-scroll",
+        start: 'top',
+        end: 'bottom',
+        scrub: true
+      }
+    });
+    tl3.from(".bottom-right-item", { x: '50vw' });
 
     const imagesProyectos = document.querySelectorAll(".slide-proyecto");
     const swiperProyectos = new Swiper(".swiper-proyectos", {
@@ -94,7 +123,13 @@
     "disabled_on": {
       "groups": ["header", "footer"]
     },
-    "settings": [],
+    "settings": [
+      {
+        "type": "text",
+        "id": "text",
+        "label": "Button text"
+      }
+    ],
     "max_blocks": 32,
     "blocks": [
       {
