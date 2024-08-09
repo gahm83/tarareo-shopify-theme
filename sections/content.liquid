@@ -1,7 +1,7 @@
 <section id="tooltip-section" class="twcss-relative">
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     <div class="twcss-py-16">
-      <h2 class="twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[24px] lg:twcss-text-[32px] twcss-leading-none">
+      <h2 class="twcss-font-bebasneue twcss-text-black twcss-uppercase twcss-text-[21px] lg:twcss-text-[32px] twcss-leading-none">
         {{ section.settings.content }}
       </h2>
     </div>
@@ -23,32 +23,3 @@
     ]
   }
 {% endschema %}
-{% style %}
-  .about-item:hover .tooltip {
-    opacity: 1;
-  }
-  .tooltip {
-    opacity: 0;
-    margin-left: 28px;
-    padding: 10px;
-    position: absolute;
-    z-index: 1000;
-  }
-{% endstyle %}
-{% javascript %}
-(function () {
-  document.addEventListener('DOMContentLoaded', function() {
-    var containers = document.querySelectorAll('.about-item');
-    containers.forEach(container => {
-      var tooltip = container.querySelector('.tooltip');
-      container.addEventListener('mousemove', function(e) {
-        var rect = container.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
-        tooltip.style.left = x + 'px';
-        tooltip.style.top = y + 'px';
-      });
-    });
-  });
-})();
-{% endjavascript %}

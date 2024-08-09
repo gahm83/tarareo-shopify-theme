@@ -16,7 +16,7 @@
             <a href="{{ product.url }}" class="diseno-linea">
               <span class="twcss-cursor-pointer twcss-transition-all twcss-duration-150">{{ product.title }}</span>
               {% for image in product.images %}
-              <figure class="twcss-absolute twcss-top-0 twcss-left-0 twcss-bottom-0 twcss-w-[350px] twcss-aspect-[3/2] twcss-transition-opacity twcss-duration-300 twcss-opacity-0 twcss-pointer-events-none">
+              <figure class="twcss-absolute twcss-top-0 twcss-left-0 twcss-bottom-0 twcss-w-[350px] twcss-aspect-[2/3] twcss-transition-opacity twcss-duration-300 twcss-opacity-0 twcss-pointer-events-none">
                 <img src="{{ image.src | image_url: width: 360, height: 560 }}" width="100%" height="100%" alt="{{ product.title }}" class="twcss-object-cover twcss-object-center twcss-w-full twcss-h-full twcss-inset-0"> 
               </figure>
               {% endfor %}
@@ -70,32 +70,6 @@
         activeSpan = span;
       });
     });
-/*
-    const imagesProyectos = document.querySelectorAll(".slide-proyecto");
-    const swiperProyectos = new Swiper(".swiper-productos", {
-      slidesPerView: "auto",
-      centeredSlides: true,
-      loop: true
-      on: {
-        init: function () {
-          imagesProyectos[0].classList.add("twcss-opacity-100");
-          imagesProyectos[0].classList.remove("twcss-opacity-0");
-        },
-        realIndexChange: function () {
-          let index = this.realIndex; // Adjusted index to match the zero-based indexing
-          imagesProyectos.forEach((image, i) => {
-            if (i === index) {
-              image.classList.add("twcss-opacity-100");
-              image.classList.remove("twcss-opacity-0");
-            } else {
-              image.classList.remove("twcss-opacity-100");
-              image.classList.add("twcss-opacity-0");
-            }
-          });
-        },
-      }
-    });
-  */    
   });
 })();
 {% endjavascript %}

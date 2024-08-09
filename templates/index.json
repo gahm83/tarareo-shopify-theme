@@ -263,6 +263,8 @@
     "diseno_personalizado": {
       "type": "home-diseno-personalizado",
       "settings": {
+        "image_mobile": "shopify:\/\/shop_images\/mobile.png",
+        "image_desktop": "shopify:\/\/shop_images\/proceso.png"
       }
     },
     "proyectos": {

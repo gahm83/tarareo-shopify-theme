@@ -19,7 +19,7 @@
         <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-text-white twcss-leading-none twcss-bg-black">{{ block.settings.text }}.</h2>
         {% comment %} twcss-top-48 twcss-bottom-24 twcss-left-0 {% endcomment %}
         <div class="twcss-relative twcss-w-20 lg:twcss-w-24 twcss-flex twcss-flex-grow">
-          <div class="twcss-absolute twcss-bg-white twcss-w-[5px] lg:twcss-w-[8px] twcss-h-[calc(100%-5px)] twcss-left-1/2 -twcss-translate-x-1/2 twcss-rounded-t-lg">&nbsp;</div>
+          <div class="twcss-absolute twcss-bg-white twcss-w-[4px] lg:twcss-w-[6px] twcss-h-[calc(100%-5px)] twcss-left-1/2 -twcss-translate-x-1/2 twcss-rounded-t-lg">&nbsp;</div>
           <div class="twcss-absolute aspect-[2/1] twcss-bottom-0 twcss-w-full">
             <img src="{{ 'arrow-down-xl.png' | asset_url }}" width="100%" height="53" class="twcss-w-full">
           </div>
@@ -29,7 +29,9 @@
     {% endif %}
   {% endfor %}
   <div class="twcss-absolute twcss-flex twcss-justify-end twcss-w-10/12 twcss-max-w-[1120px] twcss-bottom-0 twcss-left-1/2 -twcss-translate-x-1/2 twcss-pb-16 lg:twcss-pb-24">
-    {{ section.settings.foreground_image | image_url: width: 180 | image_tag: class: "max-md:twcss-max-w-44 bottom-right-item twcss-block" }}
+  <figure class="aspect-[0.43/1] max-md:twcss-max-w-44 bottom-right-item">
+  {{ section.settings.foreground_image | image_url: width: 180 height: 442 | image_tag: class: " twcss-block twcss-w-full twcss-h-full twcss-object-cover twcss-object-center" }}
+  </figure>
   </div>
 </section>
 {% schema %}
@@ -61,35 +63,3 @@
     ]
   }
 {% endschema %}
-{% javascript %}
-(function () {
-  document.addEventListener('DOMContentLoaded', function() {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.bottom-right-item', {
-      scrollTrigger: {
-        trigger: '#tooltip-section',
-        start: 'bottom bottom',
-        scrub: true
-      },
-      x: '100vw'
-    });
-    gsap.from('.stacked-2', {
-      scrollTrigger: {
-        trigger: '#tooltip-section',
-        start: 'bottom bottom',
-        scrub: 2
-      },
-      y: '100vh'
-    });
-    gsap.from('.stacked-3', {
-      scrollTrigger: {
-        trigger: '#stacked-at-scroll',
-        start: 'top top',
-        pin: true,
-        scrub: true
-      },
-      y: '100vh'
-    });
-  });
-})();
-{% endjavascript %}

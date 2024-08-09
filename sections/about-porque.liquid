@@ -1,4 +1,4 @@
-<section id="porque-tarareo" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-pt-40 twcss-pb-24 lg:twcss-h-screen twcss-bg-black">
+<section id="porque-tarareo" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-pt-40 twcss-pb-24 twcss-min-h-screen twcss-bg-black">
   <div class="twcss-w-11/12 lg:twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto twcss-space-y-16">
     <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-leading-none twcss-text-white">¿Porqué TARAREO?</h2>
     <div class="twcss-flex twcss-flex-col-reverse lg:twcss-grid lg:twcss-grid-cols-2 twcss-place-items-center">
@@ -23,17 +23,16 @@
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
     gsap.registerPlugin(ScrollTrigger);
-    let tlHero = gsap.timeline({
-      // yes, we can add it to an entire timeline!
+    const tlHero = gsap.timeline({
       scrollTrigger: {
         trigger: '#hero-video',
         pin: true,
         start: 'top',
         end: 'bottom',
-        scrub: 3,
+        scrub: 2,
       }
     });
-    tlHero.from('#video-background', { y: "100vh", });
+    tlHero.from('#video-background', { y: "+=100%" });
 
     let tlPorque = gsap.timeline({
       scrollTrigger: {
