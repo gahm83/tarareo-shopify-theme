@@ -1,26 +1,34 @@
-<section class="twcss-relative">
-  {%- if section.settings.image -%}{{ section.settings.image | image_url: width: 420 | image_tag: class: "twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15 twcss-pointer-events-none" }}{%- endif -%}
+<section id="stacked-at-scroll" class="twcss-relative twcss-w-full twcss-h-screen twcss-flex twcss-items-end twcss-justify-center twcss-bg-black twcss-overflow-hidden">
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
-    <div class="twcss-py-24 twcss-space-y-16">
-      <div class="twcss-space-y-12 lg:twcss-space-y-0 lg:twcss-grid lg:twcss-grid-cols-3 twcss-gap-8">
+    <div class="twcss-py-24 twcss-space-y-5">
+      <ol class="twcss-grid twcss-grid-cols-12 twcss-grid-rows-3 twcss-gap-y-28 twcss-text-white twcss-font-bebasneue twcss-leading-none">
+        {%- assign block_classnames = "stacked-1 twcss-row-start-1, stacked-2 twcss-col-start-5 twcss-row-start-2, stacked-3 twcss-col-start-9 twcss-row-start-3 " | split: "," -%}
         {% for block in section.blocks %}
-        <div class="twcss-text-center">
-          <figure class="twcss-relative twcss-w-10/12 twcss-aspect-[0.8/1] twcss-mx-auto">
-            {{ block.settings.image | image_url: width: 512 | image_tag: class: "twcss-absolute twcss-w-full twcss-h-full twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-left-0 twcss-object-contain twcss-object-center" }}
-          </figure>
-          <div class="twcss-mt-6 twcss-space-y-4 twcss-text-black">
-            <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-black twcss-text-[24px] lg:twcss-text-[32px]">{{ block.settings.title }}</h2>
-            <p>{{ block.settings.subtitle }}</p>
-          </div>
-        </div>
+        <li class="twcss-relative twcss-col-span-4 twcss-whitespace-nowrap {{ block_classnames[forloop.index0] }}">
+          <span class="twcss-text-[32px] lg:twcss-text-[48px] twcss-uppercase">{{ block.settings.title }}</span>
+          <span class="twcss-block twcss-text-[24px] lg:twcss-text-[32px] twcss-text-white/75">{{ block.settings.subtitle }}</span>
+        </li>
         {% endfor %}
+      </ol>
+      <div class="twcss-flex">
+        <a href="/collections/tarareo" class="twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8 twcss-relative twcss-z-10 watch-products">
+          <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">Ver productos</span>
+          <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.29 0.751953L17.1258 2.06897L27.3661 11.1211L0.5 11.1211L0.5 12.8789L27.3661 12.8789L17.1258 21.931L18.29 23.248L30.5 12.4547V11.5452L18.29 0.751953Z" fill="black"/>
+          </svg>
+        </a>
       </div>
-      <div class="twcss-mx-auto">
-        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-leading-none twcss-text-[21px] lg:twcss-text-[32px] twcss-text-black twcss-text-center">{{ section.settings.content}}</h2>
-      </div>
+      {%- if section.settings.image -%}{{ section.settings.image | image_url: width: 420, height: 355 | image_tag: class: "twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15 twcss-pointer-events-none" }}{%- endif -%}
     </div>
   </div>
 </section>
+{%  style  %}
+
+  ol.twcss-grid-cols-12 { list-style: none; counter-reset: counter; }
+  ol.twcss-grid-cols-12 li { counter-increment: counter; }
+  ol.twcss-grid-cols-12 li::before { content: counter(counter) ". "; font-size: 76px; position: absolute; right: 100%; top: -2px }
+
+{% endstyle %}
 {% schema %}
   {
     "name": "De la vista nace el amor",

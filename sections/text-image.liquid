@@ -1,4 +1,4 @@
-<section id="text-image" class="twcss-relative twcss-w-full lg:twcss-h-screen {% if section.settings.schema == 'black' %} twcss-bg-black{% endif %}">
+<section id="text-image" class="twcss-relative twcss-w-full lg:twcss-h-screen {% if section.settings.schema == 'yellow' %} twcss-bg-[#FFE500]{% endif %}">
   <figure class="twcss-relative twcss-aspect-video lg:twcss-absolute lg:twcss-aspect-auto lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-top-0 lg:twcss-right-0 lg:twcss-bottom-0">
     {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-absolute twcss-w-full twcss-h-full twcss-object-cover twcss-object-center" }}
   </figure>
@@ -17,9 +17,10 @@
         </div>
         {% endif %}
         {% if section.blocks.size > 0 %}
+        {%- assign block_classnames = "twcss-bg-white twcss-border-white twcss-text-black,twcss-bg-black twcss-border-black twcss-text-white hover:twcss-text-black" | split: "," -%}
         <div class=" twcss-flex -twcss-m-3 twcss-flex-wrap">
           {% for block in section.blocks %}
-          <a href="{{ block.settings.url }}" class=" scroll-to twcss-flex twcss-flex-wrap twcss-items-center twcss-space-x-2 twcss-border twcss-border-white twcss-rounded-l-full twcss-rounded-r-full twcss-text-white twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-m-3 twcss-whitespace-nowrap">
+          <a href="{{ block.settings.url }}" class="scroll-to twcss-flex twcss-flex-wrap twcss-items-center twcss-space-x-2 twcss-rounded-l-full twcss-rounded-r-full twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-m-3 twcss-border twcss-whitespace-nowrap twcss-transition-all twcss-duration-150 {% if section.settings.schema == 'yellow' %} {{ block_classnames[forloop.index0] }}{% endif %} hover:twcss-border-black hover:twcss-bg-transparent">
             <span>{{ block.settings.text }}</span>
           </a>
           {% endfor %}
@@ -41,15 +42,15 @@
         "id": "schema",
         "options": [
           {
-            "value": "black",
-            "label": "Black"
+            "value": "yellow",
+            "label": "Yellow"
           },
           {
             "value": "white",
             "label": "White"
           }
         ],
-        "default": "black",
+        "default": "yellow",
         "label": "Background Color"
       },
       {

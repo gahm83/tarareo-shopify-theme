@@ -2,10 +2,9 @@
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
     <div class="twcss-flex twcss-flex-col twcss-items-end twcss-relative">
       <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-leading-none twcss-text-white lg:twcss-absolute lg:twcss-bottom-0 lg:twcss-left-0 lg:twcss-w-1/3">¿Quieres un diseño personalizado?</h2>
-      {{ section.settings.image_desktop |  image_url: width: 1024 | image_tag: class: "twcss-w-10/12 twcss-justify-self-end twcss-hidden lg:twcss-block"}}
-      
+      {{ section.settings.image_desktop |  image_url: width: 1024 | image_tag: class: "twcss-w-10/12 twcss-justify-self-end twcss-mb-24 twcss-hidden lg:twcss-block"}}
       {% assign marker_class = "twcss-relative odd:twcss-ml-16 even:twcss-ml-32 marker:twcss-text-7xl marker:twcss-absolute marker:twcss-top-16" %}
-      <ol class="twcss-list-decimal twcss-text-white twcss-leading-none twcss-flex twcss-flex-col twcss-gap-y-5">
+      <ol class="twcss-list-decimal twcss-text-white twcss-leading-none twcss-flex twcss-flex-col twcss-gap-y-5 lg:twcss-hidden">
         <li class="{{ marker_class }} lg:twcss-col-span-4 lg:twcss-col-start-3">
           <p class="twcss-text-2xl"><span class="twcss-text-4xl twcss-block">Acercamiento a tu marca</span> una llamada, un zoom o una visita al estudio</p>
         </li>
@@ -26,6 +25,14 @@
           <p class="twcss-text-2xl"><span class="twcss-text-4xl twcss-block">entregamos algo increíble</span> que te ayudará a posicionar tu marca, incrementar ventas o simplemente hacer que tus clientes vivan una experiencia inolvidable.</p>
         </li>
       </ol>
+      <div class="twcss-flex twcss-justify-center">
+        <a href="#contact-us" class="twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8">
+          <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">Contacto</span>
+          <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.29 0.751953L17.1258 2.06897L27.3661 11.1211L0.5 11.1211L0.5 12.8789L27.3661 12.8789L17.1258 21.931L18.29 23.248L30.5 12.4547V11.5452L18.29 0.751953Z" fill="black"/>
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 </section>

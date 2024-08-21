@@ -50,12 +50,6 @@
         "video": "shopify:\/\/files\/videos\/intro.mp4"
       }
     },
-    "content": {
-      "type": "content",
-      "settings": {
-        "content": "Conformado por un equipo de diseñadores industriales, Tarareo Estudio se enfoca en materializar todo aquello que pueda ser imaginado para crear productos utilitarios que impulsen tu marca, creen experiencias y propongan soluciones."
-      }
-    },
     "home_about": {
       "type": "home-about",
       "blocks": {
@@ -129,64 +123,6 @@
       "settings": {
       }
     },
-    "impulsamos_tu_marca": {
-      "type": "home-impulsamos-tu-marca",
-      "blocks": {
-        "title_bMCPqJ": {
-          "type": "title",
-          "settings": {
-            "text": "IMPULSAMOS TU MARCA"
-          }
-        },
-        "title_9aeHiR": {
-          "type": "title",
-          "settings": {
-            "text": "PROPONEMOS SOLUCIONES"
-          }
-        },
-        "title_ChP9je": {
-          "type": "title",
-          "settings": {
-            "text": "GENERAMOS EMOCIONES"
-          }
-        }
-      },
-      "block_order": [
-        "title_bMCPqJ",
-        "title_9aeHiR",
-        "title_ChP9je"
-      ],
-      "settings": {
-        "foreground_image": "shopify:\/\/shop_images\/shot-fuego-loco.png"
-      }
-    },
-    "marquee": {
-      "type": "marquee",
-      "blocks": {
-        "text_BXkcVR": {
-          "type": "text",
-          "settings": {
-            "text": "De la vista",
-            "fontfamily": "novecento",
-            "italic": false
-          }
-        },
-        "text_fXfTKh": {
-          "type": "text",
-          "settings": {
-            "text": "Nace el amor",
-            "fontfamily": "minionpro",
-            "italic": true
-          }
-        }
-      },
-      "block_order": [
-        "text_BXkcVR",
-        "text_fXfTKh"
-      ],
-      "settings": {
-      }
-    },
     "de_la_vista_nace_el_amor": {
       "type": "home-de-la-vista-nace-el-amor",
       "blocks": {
@@ -248,10 +184,10 @@
         "link_kB49h6"
       ],
       "settings": {
-        "schema": "black",
-        "title": "¿Cómo funcionamos?",
+        "schema": "yellow",
+        "title": "Donde la magia ocurre",
         "subtitle": "",
-        "content": "<p>Nuestros productos son únicos. Cada uno requirió de nuestra imaginación y creatividad para hacerlos realidad.<\/p><p>Tarareo Store te permite adquirir los productos y experiencias que no encontrarás en ningún otro lado.<\/p>",
+        "content": "<p>Nuestros productos no solo destacan, sino que crean experiencias inolvidables para cada cliente.<\/p>",
         "image": "shopify:\/\/shop_images\/bg-como-funcionamos.jpg"
       }
     },
@@ -261,11 +197,7 @@
       }
     },
     "diseno_personalizado": {
-      "type": "home-diseno-personalizado",
-      "settings": {
-        "image_mobile": "shopify:\/\/shop_images\/mobile.png",
-        "image_desktop": "shopify:\/\/shop_images\/proceso.png"
-      }
+      "type": "video"
     },
     "proyectos": {
       "type": "home-proyectos",
@@ -515,15 +447,13 @@
         "title_meiPBh"
       ],
       "settings": {
+        "text": "Envios a toda la república"
       }
     }
   },
   "order": [
     "hero",
-    "content",
     "home_about",
-    "impulsamos_tu_marca",
-    "marquee",
     "de_la_vista_nace_el_amor",
     "text_image",
     "diseno_de_linea",

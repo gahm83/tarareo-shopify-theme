@@ -3,7 +3,16 @@
     <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
       <div class="twcss-grid twcss-grid-cols-2 twcss-relative">
         <div class="twcss-flex twcss-flex-col twcss-items-start twcss-justify-end twcss-relative">
-          <a href="/collections/tarareo" class="twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8 twcss-relative twcss-z-10 twcss-translate-y-1/2 -twcss-translate-x-1/4">
+          {% assign products = collections['all'].products | sort: 'created_at' %}
+          {% for product in products %}
+          {% assign images = product.images %}
+          {% if images.size > 0 %}
+            <figure id="{{ product.id }}" class="twcss-absolute twcss-top-0 twcss-left-0 twcss-bottom-0 twcss-w-[350px] twcss-transition-opacity twcss-duration-300 twcss-opacity-0 twcss-pointer-events-none">
+              <img src="{{ images[0] | image_url: width: 360, height: 560 }}" width="100%" height="100%" alt="{{ product.title }}" class="twcss-object-cover twcss-object-center twcss-w-full twcss-h-full twcss-inset-0">
+            </figure>
+          {% endif %}
+          {% endfor %}
+          <a href="/collections/tarareo" class="twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8 twcss-relative twcss-z-[1] twcss-translate-y-1/2 -twcss-translate-x-1/4">
             <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">Ir a la tienda</span>
             <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18.29 0.751953L17.1258 2.06897L27.3661 11.1211L0.5 11.1211L0.5 12.8789L27.3661 12.8789L17.1258 21.931L18.29 23.248L30.5 12.4547V11.5452L18.29 0.751953Z" fill="black"/>
@@ -14,13 +23,8 @@
           <nav class="twcss-flex twcss-flex-col twcss-items-end twcss-font-bebasneue twcss-uppercase twcss-text-[36px] lg:twcss-text-[64px] twcss-leading-none">
             {% assign products = collections['all'].products | sort: 'created_at' %}
             {% for product in products -%}
-              <a href="{{ product.url }}" class="diseno-linea">
+              <a href="{{ product.url }}" data-image="{{ product.id }}" class="diseno-linea">
                 <span class="twcss-cursor-pointer twcss-transition-all twcss-duration-150">{{ product.title }}</span>
-                {% for image in product.images %}
-                <figure class="twcss-absolute twcss-top-0 twcss-left-0 twcss-bottom-0 twcss-w-[350px] twcss-aspect-[3/2] twcss-transition-opacity twcss-duration-300 twcss-opacity-0 twcss-pointer-events-none">
-                  <img src="{{ image.src | image_url: width: 360, height: 560 }}" width="100%" height="100%" alt="{{ product.title }}" class="twcss-object-cover twcss-object-center twcss-w-full twcss-h-full twcss-inset-0">
-                </figure>
-                {% endfor %}
               </a>
             {%- endfor %}
           </nav>
@@ -80,7 +84,8 @@
       let activeFigure = null;
       document.querySelectorAll('.diseno-linea').forEach((link, index) => {
         const span = link.querySelector('span');
-        const figure = link.querySelector('figure');
+        const figure = document.getElementById(link.dataset.image);
+        console.log(span, figure);
         if (index === 0) {
           span.classList.add('active');
           figure.classList.remove('twcss-opacity-0');

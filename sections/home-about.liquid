@@ -1,23 +1,21 @@
 <section id="tooltip-section" class="twcss-relative">
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
-    <div class="twcss-py-16">
+    <div class="twcss-py-16 twcss-space-y-16"> 
+      <div class="twcss-flex twcss-justify-center twcss-items-center">
+        <h2 class="twcss-font-bebasneue twcss-uppercase twcss-text-[32px] lg:twcss-text-[48px] twcss-leading-none twcss-cursor-pointer twcss-transition-all twcss-duration-150 text-shadow">{{ section.settings.title }}</h2>
+      </div>
       <div class="twcss-grid twcss-grid-cols-2 twcss-grid-rows-6 lg:twcss-grid-cols-4 lg:twcss-grid-rows-3 -twcss-m-3">
-        {%- assign block_classnames = "
-        twcss-col-span-1 twcss-row-span-2 twcss-aspect-[1/2],
-        twcss-aspect-square,
-        twcss-col-span-2,
-        twcss-row-start-2 twcss-col-start-2,
-        twcss-aspect-square,
-        twcss-row-span-2,
-        twcss-aspect-square,
-        twcss-col-span-2" | split: "," -%}
+        {%- assign block_classnames = "twcss-col-span-1 twcss-row-span-2 twcss-aspect-[1/2],twcss-aspect-square,twcss-col-span-2,twcss-row-start-2 twcss-col-start-2,twcss-aspect-square,twcss-row-span-2,twcss-aspect-square,twcss-col-span-2" | split: "," -%}
         {% for block in section.blocks %}
         <div class="tooltip-item twcss-relative {{ block_classnames[forloop.index0] }} group">
           {{ block.settings.image | image_url: width: 512 | image_tag: class: "twcss-absolute twcss-w-[calc(100%-1.5rem)] twcss-h-[calc(100%-1.5rem)] twcss-top-3 twcss-right-3 twcss-bottom-3 twcss-left-3  twcss-object-cover twcss-object-center" }}
           <span class="twcss-absolute twcss-bottom-0 twcss-right-0 twcss-px-2 twcss-pt-2 twcss-pb-1 twcss-bg-[#FFE500] twcss-text-black twcss-font-bebasneue twcss-uppercase twcss-leading-none twcss-text-[20px] lg:twcss-hidden">{{ block.settings.text }}</span>
-          <span class="tooltip twcss-absolute twcss-bottom-0 twcss-right-0 twcss-px-2 twcss-pt-2 twcss-pb-1 twcss-bg-[#FFE500] twcss-text-black twcss-font-bebasneue twcss-uppercase twcss-leading-none twcss-text-[32px] twcss-hidden lg:twcss-block">{{ block.settings.text }}</span>
+          <span class="tooltip twcss-absolute twcss-bottom-0 twcss-right-0 twcss-px-2 twcss-pt-2 twcss-pb-1 twcss-bg-[#FFE500] twcss-text-black twcss-font-bebasneue twcss-uppercase twcss-leading-none twcss-text-[32px] twcss-hidden lg:twcss-block twcss-z-50">{{ block.settings.text }}</span>
         </div>
         {% endfor %}
+      </div>
+      <div class="twcss-flex twcss-justify-center twcss-items-center">
+        <a href="/collections/tarareo" class="twcss-font-bebasneue twcss-uppercase twcss-text-[48px] lg:twcss-text-[72px] twcss-leading-none twcss-cursor-pointer twcss-transition-all twcss-duration-150 text-shadow">{{ section.settings.cta }}</a>
       </div>
     </div>
   </div>
@@ -28,6 +26,18 @@
     "disabled_on": {
       "groups": ["header", "footer"]
     },
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "cta",
+        "label": "CTA"
+      }
+    ],
     "max_blocks": 8,
     "blocks": [
       {
@@ -74,13 +84,6 @@
       const popper = Popper.createPopper(ref, tooltip, {
         placement: 'bottom-start',
         modifiers: [
-          {
-            name: 'flip',
-            options: {
-              fallbackPlacements: ['right', 'left'],
-              boundary: container,
-            },
-          },
           {
             name: 'offset',
             options: {
