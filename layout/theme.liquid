@@ -328,9 +328,9 @@
 
     {% sections 'header-group' %}
 
-    <main id='MainContent' class='content-for-layout focus-none' role='main' tabindex='-1'>
+    {% comment %} <main id='MainContent' class='content-for-layout focus-none' role='main' tabindex='-1'> {% endcomment %}
       {{ content_for_layout }}
-    </main>
+    {% comment %} </main> {% endcomment %}
 
     {% sections 'footer-group' %}
 

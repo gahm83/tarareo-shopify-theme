@@ -1,4 +1,4 @@
-<section id="hero-video" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-overflow-hidden twcss-bg-black twcss-h-screen">
+<section id="hero-video" class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-overflow-hidden twcss-bg-black twcss-h-screen twcss-z-20">
   {%- if section.settings.video %}{{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, id: "video-background", class: "twcss-absolute twcss-min-w-full twcss-min-h-full twcss-max-w-none twcss-pointer-events-none" }}{%- endif -%}
   <div class="twcss-relative">
     <h2 class="twcss-text-white twcss-text-center twcss-uppercase twcss-text-[10vw] lg:twcss-w-9/12 lg:twcss-mx-auto twcss-leading-[0.7] twcss-pointer-events-none">

@@ -121,8 +121,10 @@
         "title_NBcWhE"
       ],
       "settings": {
-        "title": "¿Tienes una idea? Nosotros la hacemos realidad",
-        "cta": "Cotiza tu diseño personalizado"
+        "cta_top_url": "shopify:\/\/collections\/tarareo",
+        "cta_top": "¿Tienes una idea? Nosotros la hacemos realidad",
+        "cta_bottom_url": "shopify:\/\/collections\/tarareo",
+        "cta_bottom": "Cotiza tu diseño personalizado"
       }
     },
     "de_la_vista_nace_el_amor": {
@@ -160,7 +162,8 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/tarareo-avion-blanco.png",
-        "content": "TRANSFORMAMOS ALGO SENCILLO EN UN RECUERDO QUE PERMANECE DURANTE MÁS TIEMPO EN LA MENTE DEL CONSUMIDOR."
+        "cta_bottom_url": "shopify:\/\/collections\/tarareo",
+        "cta_bottom": "Ver productos"
       }
     },
     "text_image": {
@@ -190,7 +193,7 @@
         "title": "Donde la magia ocurre",
         "subtitle": "",
         "content": "<p>Nuestros productos no solo destacan, sino que crean experiencias inolvidables para cada cliente.<\/p>",
-        "image": "shopify:\/\/shop_images\/Diseno_sin_titulo.png"
+        "image": "shopify:\/\/shop_images\/Diseno_sin_titulo_55aa4540-8803-4e54-8314-f1e21b9b639d.png"
       }
     },
     "diseno_de_linea": {
@@ -201,7 +204,7 @@
     "diseno_personalizado": {
       "type": "simple-video",
       "settings": {
-        "video": "shopify:\/\/files\/videos\/copy_4398D6E5-DC5B-4522-BFAF-9A3B33CA1292 2.MOV",
+        "video": "shopify:\/\/files\/videos\/copy_4398D6E5-DC5B-4522-BFAF-9A3B33CA1292 2.MOV"
       }
     },
     "proyectos": {
@@ -452,7 +455,10 @@
         "title_meiPBh"
       ],
       "settings": {
-        "text": "Envios a toda la república"
+        "cta_top_url": "shopify:\/\/collections\/tarareo",
+        "cta_top": "Ir a la tienda",
+        "cta_bottom_url": "shopify:\/\/collections\/tarareo",
+        "cta_bottom": "Envios a toda la república"
       }
     }
   },

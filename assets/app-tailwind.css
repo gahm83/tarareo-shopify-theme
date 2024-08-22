@@ -6,6 +6,10 @@
   --swiper-navigation-color: #ffe500;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 .text-shadow {
   color: #000000;
   text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
