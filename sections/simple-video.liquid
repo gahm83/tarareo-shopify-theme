@@ -1,0 +1,45 @@
+<section class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full twcss-overflow-hidden twcss-bg-black twcss-h-screen">
+  {%- if section.settings.video %}{{ section.settings.video | video_tag: autoplay: false, loop: false, muted: true, controls: false, id: "simple-video", class: "twcss-absolute max-lg:twcss-min-w-full twcss-min-h-full twcss-max-w-none twcss-pointer-events-none" }}{%- endif -%}
+  <div class="twcss-relative">
+    <button id="play-pause" class="twcss-w-12 twcss-h-12 twcss-flex twcss-justify-center twcss-items-center paused">
+      <svg width="32" height="32" viewBox="0 0 512 512" class="twcss-absolute twcss-transition-opacity twcss-duration-150 play"><path fill="#ffffff" d="M0 0v512l512-256z"/></svg>
+      <svg width="32" height="32" viewBox="0 0 512 512" class="twcss-absolute twcss-transition-opacity twcss-duration-150 pause"><path fill="#ffffff" d="M0 512h162.9V0H0zM349.1 0v512H512V0z"/></svg>
+    </button>
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "Hero",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "video",
+        "id": "video",
+        "label": "Hero video"
+      }
+    ]
+  }
+{% endschema %}
+{% style %}
+  #play-pause.paused .pause, #play-pause.playing .play { opacity: 0; }
+{% endstyle %}
+{% javascript %}
+  (function () {
+    document.addEventListener('DOMContentLoaded', function() {
+      const media = document.querySelector('#simple-video');
+      const playPause = document.querySelector('#play-pause');
+      playPause.addEventListener('click', playPauseMedia);
+      function playPauseMedia() {
+        if (media.paused) {
+          playPause.classList.replace("paused", "playing");
+          media.play();
+        } else {
+          playPause.classList.replace("playing", "paused");
+          media.pause();
+        }
+      }
+    });
+  })();
+  {% endjavascript %}

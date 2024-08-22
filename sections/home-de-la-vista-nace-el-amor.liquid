@@ -1,34 +1,91 @@
-<section id="stacked-at-scroll" class="twcss-relative twcss-w-full twcss-h-screen twcss-flex twcss-items-end twcss-justify-center twcss-bg-black twcss-overflow-hidden">
-  <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-mx-auto">
-    <div class="twcss-py-24 twcss-space-y-5">
-      <ol class="twcss-grid twcss-grid-cols-12 twcss-grid-rows-3 twcss-gap-y-28 twcss-text-white twcss-font-bebasneue twcss-leading-none">
-        {%- assign block_classnames = "stacked-1 twcss-row-start-1, stacked-2 twcss-col-start-5 twcss-row-start-2, stacked-3 twcss-col-start-9 twcss-row-start-3 " | split: "," -%}
+<section id="stacked-at-scroll" class="twcss-relative twcss-w-full twcss-h-screen twcss-flex twcss-items-center twcss-justify-center twcss-bg-black twcss-overflow-hidden">
+  <div class="twcss-w-10/12 twcss-mx-auto">
+    <div class="twcss-pt-28 twcss-space-y-5">
+      <ol class="twcss-ml-20 twcss-grid twcss-grid-cols-1 lg:twcss-grid-cols-3 twcss-grid-rows-3 twcss-gap-y-16 lg:twcss-gap-y-28 twcss-text-white twcss-font-bebasneue twcss-leading-none">
+        {%- assign block_classnames = "stacked-1,
+        stacked-2 lg:twcss-col-start-2 lg:twcss-row-start-2 ,
+        stacked-3 lg:twcss-row-start-3 lg:twcss-col-start-3
+        " | split: "," -%}
         {% for block in section.blocks %}
-        <li class="twcss-relative twcss-col-span-4 twcss-whitespace-nowrap {{ block_classnames[forloop.index0] }}">
+        <li class="twcss-relative twcss-col-span-1 {{ block_classnames[forloop.index0] }}">
           <span class="twcss-text-[32px] lg:twcss-text-[48px] twcss-uppercase">{{ block.settings.title }}</span>
-          <span class="twcss-block twcss-text-[24px] lg:twcss-text-[32px] twcss-text-white/75">{{ block.settings.subtitle }}</span>
+          <span class="twcss-text-[24px] lg:twcss-text-[32px] twcss-text-white/75">{{ block.settings.subtitle }}</span>
         </li>
         {% endfor %}
       </ol>
+      <div class="twcss-flex twcss-items-start twcss-justify-end twcss-h-full  lg:twcss-absolute lg:twcss-top-16 lg:twcss-right-24 lg:twcss-left-0 twcss-pointer-events-none">
+      {%- if section.settings.image -%}{{ section.settings.image | image_url: width: 420, height: 355 | image_tag: class: "twcss-block twcss-w-7/12 lg:twcss-w-3/12  avion-tarareo" }}{%- endif -%}
+      </div>
       <div class="twcss-flex">
-        <a href="/collections/tarareo" class="twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8 twcss-relative twcss-z-10 watch-products">
-          <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">Ver productos</span>
+        <a href="{{ section.settings.cta_bottom_url }}" class="twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8 twcss-relative twcss-z-10 watch-products">
+          <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">{{ section.settings.cta_bottom }}</span>
           <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.29 0.751953L17.1258 2.06897L27.3661 11.1211L0.5 11.1211L0.5 12.8789L27.3661 12.8789L17.1258 21.931L18.29 23.248L30.5 12.4547V11.5452L18.29 0.751953Z" fill="black"/>
           </svg>
         </a>
       </div>
-      {%- if section.settings.image -%}{{ section.settings.image | image_url: width: 420, height: 355 | image_tag: class: "twcss-block twcss-absolute -twcss-bottom-16 -twcss-left-16 twcss-opacity-15 twcss-pointer-events-none" }}{%- endif -%}
     </div>
   </div>
 </section>
-{%  style  %}
-
-  ol.twcss-grid-cols-12 { list-style: none; counter-reset: counter; }
-  ol.twcss-grid-cols-12 li { counter-increment: counter; }
-  ol.twcss-grid-cols-12 li::before { content: counter(counter) ". "; font-size: 76px; position: absolute; right: 100%; top: -2px }
-
+{% style %}
+ol.twcss-grid.twcss-grid-cols-1 { list-style: none; counter-reset: counter; }
+ol.twcss-grid.twcss-grid-cols-1 li { counter-increment: counter; }
+ol.twcss-grid.twcss-grid-cols-1 li::before { content: counter(counter) ". "; font-size: 76px; position: absolute; right: 100%; top: -2px }
 {% endstyle %}
+{% javascript %}
+  (function () {
+    document.addEventListener('DOMContentLoaded', function() {
+  
+      gsap.registerPlugin(ScrollTrigger);
+      const triggerElement = document.querySelector("#tooltip-section");
+      const elementHeight = triggerElement.offsetHeight;
+      
+      let mm = gsap.matchMedia();
+
+      mm.add("(max-width: 989px)", () => {
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#stacked-at-scroll",
+            start: "top",
+            end: "bottom",
+            scrub: 3,
+            pin: true
+          }
+        });
+        tl.from(".stacked-1", { y: '100vh' })
+          .from(".stacked-2", { y: '100vh' })
+          .from(".stacked-3", { y: '100vh' })
+          .from(".avion-tarareo", { marginTop: 'auto', marginRight: 'auto', scale: 0.5, opacity: 0 })
+          .from(".watch-products", { x: '25vw', opacity: 0 });
+      });
+      mm.add("(min-width: 990px)", () => {
+        let tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: triggerElement,
+            start: `${elementHeight * 0.75}px center`,
+            endTrigger: "#stacked-at-scroll",
+            end: 'top',
+            scrub: true
+          }
+        });
+        tl.from(".avion-tarareo", { marginRight: 'auto', scale: 0.5, opacity: 0 });
+        let tl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#stacked-at-scroll",
+            start: "top",
+            end: "bottom",
+            scrub: 3,
+            pin: true
+          }
+        });
+        tl2.from(".stacked-1", { y: '100vh' })
+          .from(".stacked-2", { y: '100vh' })
+          .from(".stacked-3", { y: '100vh' })
+          .from(".watch-products", { x: '25vw', opacity: 0 });
+      });
+    });
+  })();
+{% endjavascript %}
 {% schema %}
   {
     "name": "De la vista nace el amor",
@@ -42,9 +99,14 @@
         "label": "Background Image"
       },
       {
-        "type": "textarea",
-        "id": "content",
-        "label": "Content"
+        "type": "url",
+        "id": "cta_bottom_url",
+        "label": "CTA Url"
+      },
+      {
+        "type": "text",
+        "id": "cta_bottom",
+        "label": "CTA"
       }
     ],
     "max_blocks": 3,

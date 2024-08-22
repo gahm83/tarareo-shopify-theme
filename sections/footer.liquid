@@ -152,7 +152,7 @@
       </div>
       <div class="twcss-flex twcss-flex-col twcss-items-center md:twcss-items-start twcss-space-y-20 md:twcss-col-start-1">
         {{ section.settings.image | image_url: width: 117 | image_tag }}
-        <div class="twcss-space-y-8">
+        <div class="twcss-space-y-8 twcss-text-center">
           {%- if section.settings.direccion != blank -%}
             <p>📍{{section.settings.direccion}}</p>
           {%- endif -%}

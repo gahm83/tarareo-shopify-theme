@@ -1,5 +1,5 @@
 <section id="text-image" class="twcss-relative twcss-w-full lg:twcss-h-screen {% if section.settings.schema == 'yellow' %} twcss-bg-[#FFE500]{% endif %}">
-  <figure class="twcss-relative twcss-aspect-video lg:twcss-absolute lg:twcss-aspect-auto lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-top-0 lg:twcss-right-0 lg:twcss-bottom-0">
+  <figure class="twcss-relative twcss-aspect-[1/0.9] lg:twcss-absolute lg:twcss-aspect-auto lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-top-0 lg:twcss-right-0 lg:twcss-bottom-0">
     {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-absolute twcss-w-full twcss-h-full twcss-object-cover twcss-object-center" }}
   </figure>
   <div class="twcss-w-10/12 twcss-max-w-[1120px] twcss-h-full twcss-mx-auto twcss-flex twcss-items-center twcss-py-16 lg:twcss-py-0">

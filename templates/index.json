@@ -121,6 +121,8 @@
         "title_NBcWhE"
       ],
       "settings": {
+        "title": "¿Tienes una idea? Nosotros la hacemos realidad",
+        "cta": "Cotiza tu diseño personalizado"
       }
     },
     "de_la_vista_nace_el_amor": {
@@ -157,7 +159,7 @@
         "title_BUGKgz"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/avion-blanco.png",
+        "image": "shopify:\/\/shop_images\/tarareo-avion-blanco.png",
         "content": "TRANSFORMAMOS ALGO SENCILLO EN UN RECUERDO QUE PERMANECE DURANTE MÁS TIEMPO EN LA MENTE DEL CONSUMIDOR."
       }
     },
@@ -188,7 +190,7 @@
         "title": "Donde la magia ocurre",
         "subtitle": "",
         "content": "<p>Nuestros productos no solo destacan, sino que crean experiencias inolvidables para cada cliente.<\/p>",
-        "image": "shopify:\/\/shop_images\/bg-como-funcionamos.jpg"
+        "image": "shopify:\/\/shop_images\/Diseno_sin_titulo.png"
       }
     },
     "diseno_de_linea": {
@@ -197,7 +199,10 @@
       }
     },
     "diseno_personalizado": {
-      "type": "video"
+      "type": "simple-video",
+      "settings": {
+        "video": "shopify:\/\/files\/videos\/copy_4398D6E5-DC5B-4522-BFAF-9A3B33CA1292 2.MOV",
+      }
     },
     "proyectos": {
       "type": "home-proyectos",

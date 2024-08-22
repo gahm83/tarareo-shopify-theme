@@ -1,5 +1,5 @@
 <section class="twcss-space-y-12 twcss-py-24 twcss-flex twcss-flex-col twcss-items-center">
-  <a href="#" class="twcss-font-bebasneue twcss-uppercase twcss-text-[48px] lg:twcss-text-[72px] twcss-leading-none twcss-cursor-pointer twcss-transition-all twcss-duration-150 text-shadow">Ir a la tienda</a>
+  <a href="{{ section.settings.cta_top_url }}" class="twcss-font-bebasneue twcss-uppercase twcss-text-[48px] lg:twcss-text-[72px] twcss-leading-none twcss-cursor-pointer twcss-transition-all twcss-duration-150 text-shadow">{{ section.settings.cta_top }}</a>
   <div class="twcss-relative twcss-flex twcss-items-center twcss-justify-center twcss-w-full">
     {% comment %} <figure class="twcss-relative twcss-aspect-[0.7/1] twcss-w-[75%] lg:twcss-w-[26%]"> {% endcomment %}
     <figure class="twcss-relative twcss-aspect-[0.7/1] twcss-w-[75%] lg:twcss-w-[24%] twcss-mx-auto twcss-pointer-events-none">
@@ -8,78 +8,43 @@
         {%- if block.settings.image -%}{{ block.settings.image | image_url: width: 612 | image_tag: class: "twcss-block twcss-absolute twcss-top-0 twcss-right-0 twcss-bottom-0 twcss-right-0 twcss-w-full twcss-h-full" }}{%- endif -%}
         </div>
       {% endfor %}
+      <a href="{{ section.settings.cta_bottom_url }}" class="twcss-absolute twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8 twcss-z-1 twcss-translate-y-1/2 -twcss-translate-x-1/2 twcss-left-1/2 twcss-bottom-0 twcss-z-10">
+        <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">{{ section.settings.cta_bottom }}</span>
+        <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.29 0.751953L17.1258 2.06897L27.3661 11.1211L0.5 11.1211L0.5 12.8789L27.3661 12.8789L17.1258 21.931L18.29 23.248L30.5 12.4547V11.5452L18.29 0.751953Z" fill="black"/>
+        </svg>
+      </a>
     </figure>
     <div class="swiper swiper-proyectos !twcss-absolute twcss-inset-0 twcss-w-full twcss-h-full twcss-z-10">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
-        <div class="swiper-slide !twcss-flex twcss-items-center twcss-justify-center twcss-cursor-grab active:twcss-cursor-grabbing twcss-duration-150 twcss-transition" data-img="{{ block.settings.id }}">
-          <span class="twcss-block twcss-text-center twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-px-5 twcss-pt-3 twcss-pb-2 lg:twcss-max-w-[70%]twcss-backdrop-blur">
+        <div class="swiper-slide !twcss-flex twcss-items-center twcss-justify-center twcss-cursor-grab active:twcss-cursor-grabbing" data-img="{{ block.settings.id }}">
+          <span class="twcss-block twcss-text-6xl twcss-font-bebasneue twcss-text-black twcss-px-5 twcss-pt-3 twcss-pb-2 twcss-backdrop-blur">
             {{ block.settings.text }}
           </span>
         </div>
         {% endfor %}
       </div>
     </div>
-    <a href="/collections/tarareo" class="twcss-absolute twcss-flex twcss-items-center twcss-space-x-2 twcss-bg-[#FFE500] twcss-text-black twcss-rounded-l-full twcss-rounded-r-full twcss-text-4xl twcss-font-bebasneue twcss-uppercase twcss-px-8 twcss-z-1 twcss-translate-y-1/2 -twcss-translate-x-1/2 twcss-left-1/2 twcss-bottom-24 twcss-z-10">
-        <span class="twcss-block twcss-pt-3 twcss-pb-2 twcss-whitespace-nowrap">{{ section.settings.text }}</span>
-        <svg width="31" height="24" viewBox="0 0 31 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.29 0.751953L17.1258 2.06897L27.3661 11.1211L0.5 11.1211L0.5 12.8789L27.3661 12.8789L17.1258 21.931L18.29 23.248L30.5 12.4547V11.5452L18.29 0.751953Z" fill="black"/>
-        </svg>
-      </a>
+    <button class="swiper-button-prev proyecto-prev">&nbsp;</button>
+    <button class="swiper-button-next proyecto-next">&nbsp;</button>
   </div>
 </section>
-{% style %}
-  .swiper-proyectos .swiper-slide.swiper-slide-active span { backdrop-filter: blur(8px); }
-{% endstyle %}
 {% javascript %}
 (function () {
   document.addEventListener('DOMContentLoaded', function() {
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    const triggerElement = document.querySelector("#tooltip-section");
-    const elementHeight = triggerElement.offsetHeight;
-
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerElement,
-        start: `${elementHeight * 0.75}px center`,
-        endTrigger: "#stacked-at-scroll",
-        end: 'top',
-        scrub: true
-      }
-    });
-    tl.from(".avion-tarareo", { x: '-75vw', opacity: 0 })
-    
-    let tl2 = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#stacked-at-scroll",
-        start: "top",
-        end: "bottom",
-        scrub: 3,
-        pin: true
-      }
-    });
-    tl2.from(".stacked-1", { y: '100vh' })
-      .from(".stacked-2", { y: '100vh' })
-      .from(".stacked-3", { y: '100vh' })
-      .from(".watch-products", { x: '50vw', opacity: 0 });
-
-    // let tl3 = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: "#stacked-at-scroll",
-    //     start: 'top',
-    //     end: 'bottom',
-    //     scrub: true
-    //   }
-    // });
-    // tl3.from(".bottom-right-item", { x: '50vw' });
-
     const imagesProyectos = document.querySelectorAll(".slide-proyecto");
     const swiperProyectos = new Swiper(".swiper-proyectos", {
+      autoplay: {
+        delay: 3000,
+      },
       slidesPerView: "auto",
       centeredSlides: true,
       loop: true,
+      navigation: {
+        nextEl: ".proyecto-prev",
+        prevEl: ".proyecto-next",
+      },
       breakpoints: {
         990: {
           slidesPerView: 3
@@ -118,9 +83,24 @@
     },
     "settings": [
       {
+        "type": "url",
+        "id": "cta_top_url",
+        "label": "CTA Top URL"
+      },
+      {
         "type": "text",
-        "id": "text",
-        "label": "Button text"
+        "id": "cta_top",
+        "label": "CTA Top"
+      },
+      {
+        "type": "url",
+        "id": "cta_bottom_url",
+        "label": "CTA Bottom URL"
+      },
+      {
+        "type": "text",
+        "id": "cta_bottom",
+        "label": "CTA Bottom"
       }
     ],
     "max_blocks": 32,
