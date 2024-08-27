@@ -1,4 +1,4 @@
-<section id="text-image" class="twcss-relative twcss-w-full lg:twcss-h-screen {% if section.settings.schema == 'yellow' %} twcss-bg-[#FFE500]{% endif %}">
+<section id="text-image" class="twcss-relative twcss-w-full lg:twcss-h-screen {% if section.settings.schema == 'yellow' %} twcss-bg-[#FFE500]{% else %} twcss-bg-{{ section.settings.schema }}{% endif %}">
   <figure class="twcss-relative twcss-aspect-[1/0.9] lg:twcss-absolute lg:twcss-aspect-auto lg:twcss-w-1/2 lg:twcss-h-full lg:twcss-top-0 lg:twcss-right-0 lg:twcss-bottom-0">
     {{ section.settings.image | image_url: width: 980 | image_tag: class: "twcss-absolute twcss-w-full twcss-h-full twcss-object-cover twcss-object-center" }}
   </figure>
@@ -17,10 +17,12 @@
         </div>
         {% endif %}
         {% if section.blocks.size > 0 %}
-        {%- assign block_classnames = "twcss-bg-white twcss-border-white twcss-text-black,twcss-bg-black twcss-border-black twcss-text-white hover:twcss-text-black" | split: "," -%}
+        {%- assign yellow_classnames = "twcss-bg-white twcss-border-white twcss-text-black,twcss-bg-black twcss-border-black twcss-text-white hover:twcss-text-black" | split: "," -%}
+        {%- assign white_classnames = "twcss-bg-[#FFE500] twcss-border-[#FFE500] twcss-text-black,twcss-bg-black twcss-border-black twcss-text-[#FFE500] hover:twcss-text-black" | split: "," -%}
+        {%- assign black_classnames = "twcss-bg-white twcss-border-white twcss-text-black,twcss-bg-[#FFE500] twcss-border-[#FFE500] twcss-text-black" | split: "," -%}
         <div class=" twcss-flex -twcss-m-3 twcss-flex-wrap">
           {% for block in section.blocks %}
-          <a href="{{ block.settings.url }}" class="scroll-to twcss-flex twcss-flex-wrap twcss-items-center twcss-space-x-2 twcss-rounded-l-full twcss-rounded-r-full twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-m-3 twcss-border twcss-whitespace-nowrap twcss-transition-all twcss-duration-150 {% if section.settings.schema == 'yellow' %} {{ block_classnames[forloop.index0] }}{% endif %} hover:twcss-border-black hover:twcss-bg-transparent">
+          <a href="{{ block.settings.url }}" class="scroll-to twcss-flex twcss-flex-wrap twcss-items-center twcss-space-x-2 twcss-rounded-l-full twcss-rounded-r-full twcss-uppercase twcss-px-8 twcss-py-2 twcss-relative twcss-m-3 twcss-border twcss-whitespace-nowrap twcss-transition-all twcss-duration-150 {% if section.settings.schema == 'yellow' %}{{ yellow_classnames[forloop.index0] }} hover:twcss-border-black hover:twcss-bg-transparent {% elsif section.settings.schema == 'white' %} {{ white_classnames[forloop.index0] }} hover:twcss-border-black hover:twcss-bg-transparent {% elsif section.settings.schema == 'black' %}{{ black_classnames[forloop.index0] }} hover:twcss-text-white hover:twcss-border-white hover:twcss-bg-transparent {% endif %}">
             <span>{{ block.settings.text }}</span>
           </a>
           {% endfor %}
@@ -42,12 +44,16 @@
         "id": "schema",
         "options": [
           {
-            "value": "yellow",
-            "label": "Yellow"
-          },
-          {
             "value": "white",
             "label": "White"
+          },
+          {
+            "value": "black",
+            "label": "Black"
+          },
+          {
+            "value": "yellow",
+            "label": "Yellow"
           }
         ],
         "default": "yellow",

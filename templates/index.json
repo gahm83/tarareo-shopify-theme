@@ -133,7 +133,6 @@
         "title_AjCBWc": {
           "type": "title",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cash.png",
             "title": "Entendemos tu necesidad",
             "subtitle": "Incrementa venta y posiciona tu marca."
           }
@@ -141,7 +140,6 @@
         "title_Td3DKH": {
           "type": "title",
           "settings": {
-            "image": "shopify:\/\/shop_images\/moet.png",
             "title": "Diseñamos un elemento ancla",
             "subtitle": "Diseñamos un producto estético y práctico."
           }
@@ -149,7 +147,6 @@
         "title_BUGKgz": {
           "type": "title",
           "settings": {
-            "image": "shopify:\/\/shop_images\/1720820834648.gif",
             "title": "Optimizamos la experiencia",
             "subtitle": "Incrementa venta y posiciona tu marca"
           }
@@ -204,7 +201,7 @@
     "diseno_personalizado": {
       "type": "simple-video",
       "settings": {
-        "video": "shopify:\/\/files\/videos\/copy_4398D6E5-DC5B-4522-BFAF-9A3B33CA1292 2.MOV"
+        "video": "shopify:\/\/files\/videos\/slide (1) (1).mp4"
       }
     },
     "proyectos": {
@@ -359,7 +356,8 @@
         "title_pXEjCm": {
           "type": "title",
           "settings": {
-            "text": "Quinta Roo"
+            "text": "Quintana Roo",
+            "image": "shopify:\/\/shop_images\/3f7f5cf8-5541-4053-b594-e57e86a5d453.jpg"
           }
         },
         "title_nazQwi": {
@@ -409,7 +407,7 @@
         "title_eNzfA6": {
           "type": "title",
           "settings": {
-            "text": "Yucatan"
+            "text": "Yucatán"
           }
         },
         "title_meiPBh": {
